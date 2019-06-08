@@ -1,24 +1,72 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# usersテーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false,unique: true|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_kana|string| null :false|
+|first_kana|string|null :false|
+|avatar|string||
+|profile|text||
+|birth_year|integer|null :false|
+|birth_month|integer|null :false|
+|birth_day|integer|null :false|
+|telephone|integer|null :false unique: true|
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+### Association
+-  has_many :users_groups
 
-* Database initialization
+# usersテーブル
 
-* How to run the test suite
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Association
+-  has_many :users_groups
 
-* ...
+# usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+
+### Association
+-  has_many :users_groups
+
+# usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+
+### Association
+-  has_many :users_groups
+
+# usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+
+### Association
+-  has_many :users_groups
+
+# usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+
+### Association
+-  has_many :users_groups
