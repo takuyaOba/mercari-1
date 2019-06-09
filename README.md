@@ -16,58 +16,6 @@
 |telephone|integer|null :false unique: true|
 
 
-
-
-### Association
--  has_many :users_groups
-
-# usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-
-### Association
--  has_many :users_groups
-
-# usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-
-### Association
--  has_many :users_groups
-
-# usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-
-### Association
--  has_many :users_groups
-
-# usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-
-### Association
--  has_many :users_groups
-
-# usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-
 ### Association
 -  has_many :users_groups
 
