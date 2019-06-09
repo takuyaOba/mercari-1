@@ -1,0 +1,6 @@
+%h1 ItemsコントローラのCRUD処理実装します
+= link_to "新規投稿", new_item_path
+- @items.each do |item|
+  %p= item.name
+  = link_to "編集", edit_item_path(item.id)
+  = link_to "削除", item_path(item.id),method: :delete

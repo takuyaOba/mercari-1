@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+   before_action :find_params, only:[:show,:destroy,:edit]
 
     def index
       @items = Item.all
@@ -9,27 +10,40 @@ class ItemsController < ApplicationController
     end
 
     def create
-      item = Item.create(params_create)
-      move_index
+      begin
+        @item = Item.create(params_create)
+        move_index
+        rescue ActiveRecord::RecordInvalid => e
+        @item = e.record
+        render :action => 'new'
+      end
     end
 
     def show
-      find_params
     end
 
     def edit
-      item = find_params
       render 'new'
     end
 
     def update
-      item = Item.update(params_create)
-      move_index
+        begin
+         @item = Item.update(params_create)
+          move_index
+          rescue ActiveRecord::RecordInvalid => e
+          @item = e.record
+          render :action => 'new'
+        end
     end
 
     def destroy
-      find_params.delete
-      move_index     
+        begin
+        @item = find_params.delete
+        move_index   
+        rescue ActiveRecord::RecordInvalid => e
+        @item = e.record
+        render :action => 'new'
+        end
     end
 end
 
