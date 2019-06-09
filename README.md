@@ -102,7 +102,7 @@
 |user_id|reference|foreign_key: true|
 item_id|reference|foreign_key: true|
 
-###Association
+### Association
 
 - belongs_to :item
 - belongs_to :user
@@ -126,7 +126,7 @@ item_id|reference|foreign_key: true|
 |delivery_ways_id|reference|foreign_key:true|
 |order_status_id|reference|foreign_key:true|
 
-###Association
+### Association
 
 - has_many :item_images
 - has_many :communications
@@ -201,38 +201,38 @@ first_category	string	null:false
 |size_category_id|reference|foreign_key:ture|
 |second_category|string|null:false|
 
-###Association
+### Association
 
 - belongs_to :first_category
 - belongs_to :size_category
 - has_many :third_categories
 - has_many :users
 
-#third_categoriesテーブル
+# third_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |second_category_id|reference|foreign_key:ture|
 |third_category|string|null:false|
 
-###Association
+### Association
 
 - belongs_to :second_category
 - has_many :users
 
-#sizesテーブル
+# sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |size_category_id|reference|foreign_key:ture|
 |size|string|null:false|
 
-###Association
+### Association
 
 - belongs_to :size_category
 - has_many :items
 
-#size_categoriesテーブル
+# size_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -243,20 +243,20 @@ first_category	string	null:false
 - has_many :second_categories
 - has_many :sizes
 
-#brandsテーブル
+# brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |brand|string|unique|
 |first_category_id|reference|foreign_key:ture|
 
-###Association
+### Association
 
 - has_many :items
 - has_many :first_categories,through::brand_categories
 - has_many :brand_categories
 
-#brand_categoriesテーブル
+# brand_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -276,7 +276,7 @@ first_category	string	null:false
 |------|----|-------|
 |charge|string|
 
-###Association
+### Association
 
 - has_many :items
 
@@ -296,7 +296,7 @@ first_category	string	null:false
 |------|----|-------|
 |way|string|	
 
-###Association
+### Association
 - has_many :items
 
 # order_statusesテーブル
@@ -305,7 +305,7 @@ first_category	string	null:false
 |------|----|-------|
 |order_status|string|	
 
-###Association
+### Association
 
 -has_many :items
 -has_many :communications
