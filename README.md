@@ -159,7 +159,7 @@ belongs_to :item
 # brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|unique|
+|name|string|unique|
 |first_category_id|reference|foreign_key:ture|
 ### Association
 - has_many :items
