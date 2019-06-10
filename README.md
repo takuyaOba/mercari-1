@@ -14,7 +14,7 @@
 |birth_day|integer|null :false|
 |telephone|string|null :false unique: true|
 ### Association
-- has_many :items
+- has_many :items,
 - has_many :orders
 - has_many :likes
 - has_many :flags
@@ -39,8 +39,8 @@
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 ### Association
-- belongs_to :item
-- belongs_to :user
+- belongs_to :item,dependent: :destroy
+- belongs_to :user,dependent: :destroy
 
 # flagsテーブル
 |Column|Type|Options|
@@ -48,8 +48,8 @@
 |user_id|reference|foreign_key: true|
 |item_id|reference|foreign_key: true|
 ### Association
-- belongs_to :item
-- belongs_to :user
+- belongs_to :item,dependent: :destroy
+- belongs_to :user,dependent: :destroy
 
 # itemsテーブル
 |Column|Type|Options|
@@ -76,7 +76,7 @@
 - belongs_to :third_category
 - belongs_to :brand
 - belongs_to :size
-- belongs_to :rate
+- belongs_to :rate,dependent: :destroy
 
 # item_imageテーブル
 |Column|Type|Options|
@@ -103,8 +103,8 @@ belongs_to :item
 |telephone_delivery|integer|	
 |payment_method|integer|
 ### Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :user,dependent: :destroy
+- belongs_to :item,dependent: :destroy
 
 # fisrt_categoriesテーブル
 |Column|Type|Options|
@@ -186,4 +186,4 @@ belongs_to :item
 |cvc|integer|	
 |user_id|reference|null:false,foreign_key:ture|
 ### Association
-- belongs_to :user
+- belongs_to :user,dependent: :destroy
