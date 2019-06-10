@@ -8,4 +8,13 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      = link_to "mercari", root_path
+      - if user_signed_in?
+        = link_to "ログアウト", destroy_user_session_path,method: :delete
+      - else
+        = link_to "ログイン", new_user_session_path
+        = link_to "新規会員登録", new_user_registration_path
+      %p ログインは"bbb@bbb" pasword "123456"  
     = yield
+
