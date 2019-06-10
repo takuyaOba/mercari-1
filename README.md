@@ -12,7 +12,7 @@
 |birth_year|integer|null :false|
 |birth_month|integer|null :false|
 |birth_day|integer|null :false|
-|telephone|integer|null :false unique: true|
+|telephone|string|null :false unique: true|
 ### Association
 - has_many :items
 - has_many :orders
@@ -81,7 +81,7 @@
 # item_imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null:false|
+|image|string|null:false|
 |item_id|reference|null:false,foreign_key:true|
 
 ### Association
@@ -99,7 +99,7 @@ belongs_to :item
 |city_delivery|string|null:false|
 |adress_delivery|string|null:false|
 |building_delivery|string|	
-|zip_code_delivery|integer|null:false|
+|zip_code_delivery|string|null:false|
 |telephone_delivery|integer|	
 |payment_method|integer|
 ### Association
@@ -122,10 +122,11 @@ belongs_to :item
 |first_category_id|reference|foreign_key:ture|
 |size_category_id|reference|foreign_key:ture|
 |second_category|string|null:false|
+|item_id|reference|foreign_key:true|
 ### Association
 - belongs_to :first_category
 - belongs_to :size_category
-- belong_to  :items
+- belong_to  :item
 - has_many :third_categories
 - has_many :users
 
@@ -134,9 +135,10 @@ belongs_to :item
 |------|----|-------|
 |second_category_id|reference|foreign_key:ture|
 |third_category|string|null:false|
+|item_id|reference|foreign_key:true|
 ### Association
 - belongs_to :second_category
-- belongs_to :items
+- belongs_to :item
 
 
 # sizesテーブル
@@ -160,7 +162,6 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |name|string|unique|
-|first_category_id|reference|foreign_key:ture|
 ### Association
 - has_many :items
 - has_many :first_categories,through::brand_categories
