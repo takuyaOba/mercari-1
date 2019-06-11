@@ -4,13 +4,13 @@
   <div class="field">
     <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <%= alert %>
+    <%=  %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
-    <%= alert %>
+    <%= render 'layouts/notifications' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
