@@ -1,0 +1,22 @@
+.header-inner
+  .header-search
+    .header-search__logo
+      %img.image-logo{:src => "/Users/nobuaki/projects/mercari/app/assets/images/mercari_logo_horizontal.png"}/
+    %form.header-search__box
+      %input.input-default{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
+      %i.material-icons.search-icon search
+  .header-under
+    .header-under__left
+      .header-under__left-element
+        .material-icons
+          list
+          .header-under__left-word カテゴリーから探す
+      .header-under__left-element
+        .material-icons
+          tag
+          .header-under__left-word ブランドから探す
+    .header-under__right
+      .header-under__right-new
+        新規会員登録
+      .header-under__right-login
+        ログイン
