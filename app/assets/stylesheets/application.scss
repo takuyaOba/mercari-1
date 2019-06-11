@@ -1,4 +1,5 @@
-@import 'style';
 @import 'reset';
 @import 'mypage';
-@import 'toppage';
+@import 'toppage/variable';
+@import 'toppage/toppage_style';
+@import 'toppage/toppage';
