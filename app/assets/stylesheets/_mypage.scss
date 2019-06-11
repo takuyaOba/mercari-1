@@ -16,11 +16,6 @@ a{
   width: 1020px;
   height: 1292px;
   margin: 40px auto 0;
-  // border-style: solid;
-  // border-width: 0;
-  // font-size: inherit;
-  // line-height: inherit;
-  // box-sizing: inherit;
   &__side{
     width: 280px;
     margin: 0 40px 0 0;
@@ -107,8 +102,6 @@ a{
           text-align: center;
           border-top: solid, 2px, red; 
           .linered{
-            // border-top-style: solid;
-            // border-top-color: red;
           }
         }
         .noactive{
@@ -123,10 +116,8 @@ a{
           background-color: #ffffff;
           .list{
             height: 80px;
-            // border-bottom: 1px, solid;
             .mypage-item-link{
               height: 48px;
-              // min-width: 80px;
               padding: 16px;
               color: #333;
               display: block;
@@ -135,19 +126,8 @@ a{
                 position: absolute;
                 top: 16px;
                 left: 16px;
-                // position: relative;
-                // float: left;
-                // width: 48px;
-                // height: 48px;
                 margin: 0 0 0 0;
                 .lazyloaded{
-                  // position: absolute;
-                  // top: 0;
-                  // right: 0;
-                  // bottom: 0;
-                  // left: 0;
-                  // z-index: 1;
-                  // width: 100%;
                   width: 48px;
                 }
               }
@@ -156,15 +136,8 @@ a{
                 position: absolute;
                 top: 16px;
                 left: 74px;
-                // margin: 0 40px 0 68px;
                 .mypage-item-text{
                   font-size: 85%;
-                  // overflow: hidden;
-                  // display: -webkit-box;
-                  // max-height: 4.4em;
-                  // -webkit-box-orient: vertical;
-                  // text-overflow: ellipsis;
-                  // line-height: 1.5;
                 }
                 time{
                   height: 18px;
