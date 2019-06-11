@@ -4,11 +4,12 @@
       %h2.footer スマホでかんたんフリマアプリ
       %p.footer 今すぐ無料ダウンロード！
       .footer-content__link-icon
-        %img.mercali-icon{src: '/Users/nobuaki/projects/mercari/app/assets/images/mercari_icon.png'}/
+        = image_tag "メルカリアイコン文字なし.png", class:"mercali-icon"
         %ul.footer-content__link-store
           %li.footer-image
-            %img.footer-image{src: '/Users/nobuaki/projects/mercari/app/assets/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg'}/
+            = image_tag "AppStoreバッジ.svg", class:"footer-image"
           %li.footer-image
-            %img.footer-image-google{src: '/Users/nobuaki/projects/mercari/app/assets/images/google-play-badge.png'}/
+            = image_tag "google-playバッジ.png", class:"footer-image-google"
     .footer-content__figure
-      %img.footer-image-right{src: '/Users/nobuaki/projects/mercari/app/assets/images/フッター用画像.png'}/
+      =i mage_tag "フッター用スマホ画像.png", class:"footer-image-right"
+

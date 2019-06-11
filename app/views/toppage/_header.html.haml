@@ -1,9 +1,9 @@
 .header-inner
   .header-search
     .header-search__logo
-      %img.image-logo{:src => "/Users/nobuaki/projects/mercari/app/assets/images/mercari_logo_horizontal.png"}/
+      = image_tag "メルカリヘッダーアイコン.png", class:"image-logo"
     %form.header-search__box
-      %input.input-default{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
+      %input.input-default{name:"keyword", placeholder:"何かお探しですか？", type:"search", value:""}/
       %i.material-icons.search-icon search
   .header-under
     .header-under__left
