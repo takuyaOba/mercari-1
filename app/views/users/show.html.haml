@@ -13,7 +13,7 @@
               99+
             %i#right.material-icons keyboard_arrow_right
         %li.mypage__side__nav__list__item
-          %a.mypage__side__nav__list__item__one{:href => "/jp/mypage/todo/"}
+          = link_to root_path, class: "mypage__side__nav__list__item__one" do
             やることリスト
             %i#right.material-icons keyboard_arrow_right
         %li.mypage__side__nav__list__item
@@ -104,7 +104,7 @@
     %section.mypage__content__user-icon
       = link_to root_path, class: "mypage__content__user-icon__user" do
         %figure.figure
-          %img.figure__img{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "figure__img", size: "60x60"
         %h2.bold ゆーつ
         .mypage__content__user-icon__user-number
           .rate
@@ -128,9 +128,9 @@
       .mypage__content__tab__one
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li.list
-            =link_to root_path, class: "mypage-item-link" do
+            = link_to root_path, class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「ログイン通知」
                 %time
@@ -138,9 +138,9 @@
                   %span 8 分前
               %i#right.material-icons keyboard_arrow_right
           %li.list
-            =link_to root_path, class: "mypage-item-link" do
+            = link_to root_path, class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 《メルカリ6周年大感謝祭》今だけ限定のお得チケットをプレゼントしました
                 %time
@@ -148,9 +148,9 @@
                   %span 18 時間前
               %i.icon-arrow-right
           %li.list
-            =link_to root_path, class: "mypage-item-link" do
+            = link_to root_path, class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 《買うほどお得、売るほどお得》メルカリ6周年大感謝祭、本日スタート！
                 %time
@@ -160,7 +160,7 @@
           %li.list
             =link_to root_path, class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 明日、5%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
                 %time
@@ -170,7 +170,7 @@
           %li.list
             =link_to root_path, class: "mypage-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
                 .mypage-item-text 3日後、5%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
                 %time
@@ -193,5 +193,5 @@
               過去の取引
       .mypage__content__two__tab
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-          %img.image{:src => "../../../assets/images/images.png"}/
+          = image_tag "images.png", class: "image"
           %li.mypage-item-not-found.bold 取引中の商品がありません
