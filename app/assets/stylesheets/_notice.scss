@@ -1,0 +1,53 @@
+.notice {
+  width: 700px;
+  &__content {
+    background-color: #ffffff;
+    &__tab {
+      @include tab();
+      .active{
+        @include active();
+        .linered{
+        }
+      }
+      .noactive{
+        @include noactive();
+      }
+    }
+    &__one{
+      .mypage-item-list{
+        background-color: #ffffff;
+        .list{
+          height: 80px;
+          .mypage-item-link{
+            @include mypage-item-link();
+            figure{
+              @include figure();
+              .lazyloaded{
+                width: 48px;
+              }
+            }
+            .mypage-item-body{
+              @include mypage-item-body();
+              .mypage-item-text{
+                font-size: 85%;
+              }
+              time{
+                @include time();
+                .material-icons.md-18{
+                  font-size: 18px;
+                }
+                span{
+                  margin-left: 8px;
+                  font-size: 80%;
+                }
+              }
+            }
+            #right{
+              @include right();
+            }
+          }
+        }
+      }
+    }
+  }
+}
