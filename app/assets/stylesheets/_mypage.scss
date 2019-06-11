@@ -1,0 +1,195 @@
+html,body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+
+.mypage {
+  display: flex;
+  width: 1020px;
+  height: 1292px;
+  margin: 40px auto 0;
+  &__side{
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__nav {
+      &__list {
+        background-color: #ffffff;
+        &__item { 
+          height: 48px;
+          border-top: 1px solid #eee;
+          &__one{
+            text-decoration: none;
+            display: block;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            .mypage-nav-number{
+
+            }
+            .icon-arrow-right{
+
+            }
+            #right{
+              color: #333;
+              float: right;
+            }
+          }
+        }
+      }
+      &__head{
+        margin: 40px 0 0;
+      }
+    }
+  }
+  &__content{
+    width: 700px;
+    &__user-icon{
+      background-image: url("background-2723434_960_720.jpg");
+      height: 160px;
+      padding: 20px;
+      &__user{
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none; 
+        .figure {
+          height: 60px;
+          width: 60px;
+          margin: 30px auto 0;
+          &__img{
+            border-radius: 50%;
+          }
+        }
+        .bold{
+          color: #333;
+          font-weight: 700;
+          font-size: 14px;
+          margin: 8px 0 0;
+          text-align: center;
+        }
+        &-number{
+          margin: 8px 0 0;
+          font-size: 14px;
+          text-align: center;
+          .rate {
+            margin: 0 auto;
+            color: #333;
+            margin: 0 0 0 16px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    &__tab{
+      background-color: #ffffff;
+      &-tabs{
+        @include tab();
+        .active{
+          @include active();
+          .linered{
+          }
+        }
+        .noactive{
+          @include noactive();
+        }
+      }
+      &__one{
+        .mypage-item-list{
+          background-color: #ffffff;
+          .list{
+            height: 80px;
+            .mypage-item-link{
+              @include mypage-item-link();
+              figure {
+                @include figure();
+                .lazyloaded{
+                  width: 48px;
+                }
+              }
+              .mypage-item-body{
+                @include mypage-item-body();
+                .mypage-item-text{
+                  font-size: 85%;
+                }
+                time{
+                  @include time();
+                  .material-icons.md-18{
+                    font-size: 18px;
+                  }
+                  span{
+                    @include span();
+                  }
+                }
+              }
+              #right {
+                @include right();
+              }
+            }
+          }
+          .mypage-go-list {
+            padding: 16px;
+            text-align: center;
+            .show{
+              display: block;
+              height: 56px;
+              font-size: 90%;
+              line-height: 56px;
+              background-color: #f5f5f5;
+            }
+          }
+        }
+      }
+    }
+    &__two{
+      height: 382px;
+      margin: 40px 0 0 0;
+      background-color: #ffffff;
+      &__head{
+        padding: 0 16px;
+        height: 72px;
+        line-height: 72px;
+        background-color: gainsboro ;
+      }
+      &__tabs{
+        height: 74px;
+        text-align: center;
+        line-height: 74px;
+        .active {
+          display: inline-block;
+          width: 49%;
+        }
+        .noactive{
+          display: inline-block;
+          width: 50%;
+          background-color: #eee;
+        }
+      }
+      &__tab{
+        height: 236px;
+        .mypage-item-list{
+          
+          .image{
+
+            display: block;
+            height: 100px;
+            width: 100px;
+            margin: 20px auto 0;
+          }
+          .mypage-item-not-found{
+            padding: 16px 0 0 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
