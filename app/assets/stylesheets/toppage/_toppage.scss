@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6, p, body {
 }
 
 .input-default{
-  background: #f5f5f5;
+  background: $light-gray;
   border-radius: 4px;
   padding: 0 42px 0 10px;
   width: 100%;
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6, p, body {
   }
 
   .material-icons{
-    color:red;
+    color:$red;
   }
 
   .search-icon{
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6, p, body {
       font-size: 15px;
       vertical-align: 40%;
       font-weight: bold;
-      color: #000;
+      color: $black;
     }
   }
 
@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6, p, body {
     }
 
     &-login{
-      background: White;
+      background: $white;
       border: 1px solid $light-blue;
       color: $light-blue;
       @include btn();
@@ -279,8 +279,8 @@ img.footer-image{
 
 .footer-info{
   padding: 0 20px 10px 20px;
-  background: #212121;
-  color: #fff;
+  background: $black;
+  color: $white;
 
   &__bottom{
     margin: 30px auto 20px;
@@ -312,7 +312,7 @@ img.footer-image{
 }
 
 .footer-head {
-  color: #fff;
+  color: $white;
   font-size: 16px;
   font-weight: 100;
 }
@@ -324,7 +324,7 @@ img.footer-image{
 list-style: none;
 }
 .footer-info__nav-cell a{
-  color: #fff;
+  color: $white;
   font-size: 12px;
   line-height: 1.5em;
   opacity: .7;
@@ -356,7 +356,7 @@ list-style: none;
   text-align: center;
   width: 745px;
   font-size:12px;
-  color: #fff;
+  color:$white;
   vertical-align: middle;
 }
 
@@ -366,8 +366,8 @@ list-style: none;
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: #ea352d;
-  color: #fff;
+  background: $red;
+  color: $white;
   text-align: center;
   position: fixed;
   z-index: 1000;
@@ -379,6 +379,6 @@ list-style: none;
 .material-icons.camera-icon{
   margin:0;
   font-size: 70px;
-  color: #fff;
+  color: $white;
 
   }
