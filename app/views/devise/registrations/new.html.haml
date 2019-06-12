@@ -55,5 +55,7 @@
     = f.label :birth_day
     %br/
     = f.select :birth_day,[*(1..12)],prompt:"選択してください"
+
+    = recaptcha_tags
   .actions
     = f.submit "次に進む"

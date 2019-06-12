@@ -65,3 +65,4 @@ gem 'haml-rails'
 gem 'pry-byebug'
 gem 'devise'
 gem 'erb2haml' 
+gem "recaptcha"
