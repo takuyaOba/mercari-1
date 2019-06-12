@@ -1,4 +1,3 @@
-@import 'style';
 @import 'reset';
 @import 'mixin';
 @import 'mypage';
@@ -6,3 +5,8 @@
 @import 'todo';
 @import "./modules/sellpage";
 @import "like";
+@import 'toppage/variable';
+@import 'toppage/toppage_style';
+@import 'toppage/toppage';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
