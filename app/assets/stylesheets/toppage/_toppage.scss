@@ -114,14 +114,10 @@ h1, h2, h3, h4, h5, h6, p, body {
 }
  
 .moving-display{
-  width:100%;
   text-align: center;
   background: #a79f9f;
-}
-
-img.main-image-1{
   height: 390px;
-  margin:auto;    
+  margin:auto; 
 }
 
 .itemlist-1{
@@ -205,7 +201,7 @@ img.main-image-1{
 }
 
 .footer-banner {
-  background-image: url(/Users/nobuaki/projects/mercari/app/assets/images/フッター.jpg);
+  background-image: url(footer_background.jpg);
   background-position: center;
   background-size: cover;
 }

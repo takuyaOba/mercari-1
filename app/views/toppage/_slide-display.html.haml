@@ -1,1 +1,23 @@
-= image_tag '/メルカリ_キャンプ用品大特集.png', class:"main-image-1"
+-#  = image_tag 'slide_image_1.png', class:"main-image-1"
+.wrapper
+  %main
+    -# main container
+    .swiper-container.top-carousel
+      -# slide wrapper
+      .swiper-wrapper
+        -# slides
+        .swiper-slide
+          = image_tag "slide_image_1.png", class:"moving-display"
+        .swiper-slide
+          = image_tag 'google-play.png', class:"moving-display"
+        .swiper-slide
+          = image_tag 'slide_image_1.png', class:"moving-display"
+      -# if need navigation button 
+      .swiper-button-prev
+      .swiper-button-next
+      -# if need pagination 
+      .swiper-pagination
+
+
+
+
