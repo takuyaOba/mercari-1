@@ -9,7 +9,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     %script{async: "", defer: "defer", src: "https://www.google.com/recaptcha/api.js"}
-   
+
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body
     %header
       = link_to "mercari", root_path
@@ -18,5 +19,5 @@
       - else
         = link_to "ログイン", new_user_session_path
         = link_to "新規会員登録", new_user_registration_path
-      %p ログインは"bbb@bbb" pasword "123456"  
+      %p ログインは"bbb@bbb" pasword "123456"
     = yield

@@ -1,3 +1,102 @@
+
 %h1 Users#show
 %p Find me in app/views/users/show.html.haml
 = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+%main.mypage
+  = render "mypage"
+  .mypage__content
+    %section.mypage__content__user-icon
+      = link_to root_path, class: "mypage__content__user-icon__user" do
+        %figure.figure
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "figure__img", size: "60x60"
+        %h2.bold ゆーつ
+        .mypage__content__user-icon__user-number
+          .rate
+            評価
+            %span.bold 1
+          .rate
+            出品数
+            %span.bold 0
+    %section.mypage__content__tab
+      %ul.mypage__content__tab-tabs
+        %li.active
+          %h3.linered
+            = link_to root_path do
+              お知らせ
+              %span.mypage-nav-number.hidden-large
+                99+
+        %li.noactive
+          %h3
+            = link_to root_path do
+              やることリスト
+      .mypage__content__tab__one
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li.list
+            = link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.material-icons.md-18 access_time
+                  %span 8 分前
+              %i#right.material-icons keyboard_arrow_right
+          %li.list
+            = link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 《メルカリ6周年大感謝祭》今だけ限定のお得チケットをプレゼントしました
+                %time
+                  %i.icon-time
+                  %span 18 時間前
+              %i.icon-arrow-right
+          %li.list
+            = link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 《買うほどお得、売るほどお得》メルカリ6周年大感謝祭、本日スタート！
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+          %li.list
+            =link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 明日、5%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.icon-time
+                  %span 3 日前
+              %i.icon-arrow-right
+          %li.list
+            =link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 3日後、5%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.icon-time
+                  %span 5 日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            = link_to root_path, class: "show" do
+              一覧を見る
+    %section.mypage__content__two
+      %h2.mypage__content__two__head 購入した商品
+      %ul.mypage__content__two__tabs
+        %li.active
+          %h3
+            = link_to root_path do
+              取引中
+        %li.noactive
+          %h3
+            = link_to root_path do
+              過去の取引
+      .mypage__content__two__tab
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          = image_tag "images.png", class: "image"
+          %li.mypage-item-not-found.bold 取引中の商品がありません
