@@ -2,7 +2,7 @@
   %nav.mypage__side__nav
     %ul.mypage__side__nav__list
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one active" do
+        = link_to user_path(current_user.id), class: "mypage__side__nav__list__item__one active" do
           マイページ
           %i#right.material-icons keyboard_arrow_right
       %li.mypage__side__nav__list__item
@@ -96,6 +96,6 @@
           電話番号の確認
           %i#right.material-icons keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to destroy_user_session_path, class: "mypage__side__nav__list__item__one" do
           ログアウト
           %i#right.material-icons keyboard_arrow_right
