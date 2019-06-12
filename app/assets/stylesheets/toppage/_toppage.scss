@@ -115,9 +115,78 @@ h1, h2, h3, h4, h5, h6, p, body {
  
 .moving-display{
   text-align: center;
-  background: #a79f9f;
+  background: #e4e1e1;
   height: 390px;
-  margin:auto; 
+  margin:0 auto; 
+  
+  &__natsukashi{
+    width:100%;
+    margin: 0 auto;
+    height: 390px;
+  }
+}
+
+.swiper-custom-button{
+  color: transparent;
+  margin:0 60px;
+}
+
+.slide-banner{
+  background-image: url(slider_background.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 390px;
+  display: block;
+  width:100vw;
+}
+
+.slider-image-app{
+  width:170px;
+  height:50px;
+}
+
+.slider-image-google{
+  width:170px;
+  height:76px;
+  margin: 0 0 0 8px;
+
+}
+.slide-content{
+  max-width:860px;
+  margin:0 auto;
+  text-align: left;
+
+    &__link{
+      display:inline-block;
+      position: absolute;
+      top: 10%;
+    }
+}
+
+h2.slider{
+  font-size:60px;
+  line-height:1.2;
+  font-weight: bold;
+}
+
+p.slider{
+  font-size:18px;
+  margin:16px 0 0;
+  line-height:1.78;
+}
+
+ul.slide-content__link-store{
+  margin:24px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.slider-image-right{
+  position: absolute;
+  top: 0;
+  right:200px;
+  bottom: 0;
+  height: 100%;
 }
 
 .itemlist-1{

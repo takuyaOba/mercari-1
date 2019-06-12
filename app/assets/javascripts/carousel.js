@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var swiper = new Swiper('main .swiper-container', {
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 5000,
       disableOnInteraction: false,
       reverseDirection: false
     },
