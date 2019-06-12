@@ -7,6 +7,9 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %script{async: "", defer: "defer", src: "https://www.google.com/recaptcha/api.js"}
+   
   %body
     %header
       = link_to "mercari", root_path
@@ -17,4 +20,3 @@
         = link_to "新規会員登録", new_user_registration_path
       %p ログインは"bbb@bbb" pasword "123456"  
     = yield
-

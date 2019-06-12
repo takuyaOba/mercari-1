@@ -1,0 +1,59 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  
+
+  .field
+    = f.label :ニックネーム
+    %br/
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder:"メルカリ太郎"
+  .field
+    = f.label :メールアドレス
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可"
+
+  .field
+    = f.label :パスワード
+    %br/
+    = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上"
+
+  .field
+    = f.label :パスワード確認用
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"6文字以上"
+
+  .field
+    = f.label :姓
+    %br/
+    = f.text_field :family_name,placeholder:"山田"
+
+  .field
+    = f.label :お名前
+    %br/
+    = f.text_field :first_name,placeholder:"彩"
+
+  .field
+    = f.label :セイ
+    %br/
+    = f.text_field :family_kana,placeholder:"ヤマダ"
+
+  .field
+    = f.label :オナマエ
+    %br/
+    = f.text_field :first_kana,placeholder:"アヤ"
+
+  .field
+    = f.label :birth_year
+    %br/
+    = f.select :birth_year,[*(1930..2015)],prompt:"選択してください"
+
+  .field
+    = f.label :birth_month
+    %br/
+    = f.select :birth_month,[*(1..12)],prompt:"選択してください"
+
+  .field
+    = f.label :birth_day
+    %br/
+    = f.select :birth_day,[*(1..12)],prompt:"選択してください"
+  .actions
+    = f.submit "次に進む"
