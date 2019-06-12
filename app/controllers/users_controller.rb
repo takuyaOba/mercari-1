@@ -10,4 +10,8 @@ class UsersController < ApplicationController
   def like_list
   end
 
+  def under_exhibition
+  end
+
+  
 end
