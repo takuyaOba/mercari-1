@@ -55,7 +55,7 @@
                           カテゴリー
                           %span.form--require 必須
                         %div
-                          .select--wrap
+                          .select__wrap
                             %select.select__default
                               %option{value: ""} ---
                               %option{value: "1"} レディース
@@ -76,7 +76,7 @@
                         %label
                           商品の状態
                           %span.form--require 必須
-                        .select--wrap
+                        .select__wrap
                           %select.select__default
                             %option{value: ""} ---
                             %option{value: "1"} 新品、未使用
@@ -104,15 +104,16 @@
                         %label
                           発送元の地域
                           %span.form--require 必須
-                        .select--wrap
+                        .select__wrap
                           %select.select__default
-                            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+                            %option{:value => ""} ---
+                            
                           %i.icon-arrow-bottom
                       .form__group
                         %label
                           発送までの日数
                           %span.form--require 必須
-                        .select-wrap
+                        .select__wrap
                           %select.select__default
                             %option{value: ""} ---
                             %option{value: "1"} 1~2日で発送

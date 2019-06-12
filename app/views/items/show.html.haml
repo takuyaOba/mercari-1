@@ -1,0 +1,336 @@
+.default-container
+  %section.section.item-container
+    %h1.item-name Supreme Stars Zip Stadium Jacket ネイビー M
+    .item-main-content.clearfix
+      .item-photo
+        .owl-carousel.owl-loaded.owl-drag
+      .owl-item{:style => "width: 300px;"}
+        .owl-item-inner
+          %img.owl-lazy{:alt => "Supreme Stars Zip Stadium Jacket ネイビー M", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_3.jpg?1544329645"}/
+      .owl-item{:style => "width: 300px;"}
+        .owl-item-inner
+          %img.owl-lazy{:alt => "Supreme Stars Zip Stadium Jacket ネイビー M", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_4.jpg?1544329645"}/
+    .owl-nav.disabled
+      .owl-prev prev
+      .owl-next next
+    .owl-dots
+      .owl-dot.active
+        %span
+        .owl-dot-inner
+          %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_1.jpg?1544329645"}/
+      .owl-dot
+        %span
+        .owl-dot-inner
+          %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_2.jpg?1544329645"}/
+      .owl-dot
+        %span
+        .owl-dot-inner
+          %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_3.jpg?1544329645"}/
+      .owl-dot
+        %span
+        .owl-dot-inner
+          %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m13632202360_4.jpg?1544329645"}/
+    %table.item-container__detail
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            %a{:href => "https://www.mercari.com/jp/u/221604517/"} kaw
+            %div
+              .item-user-ratings
+                %i.icon-good
+                %span 1272
+              .item-user-ratings
+                %i.icon-normal
+                %span 18
+              .item-user-ratings
+                %i.icon-bad
+                %span 8
+        %tr
+          %th カテゴリー
+          %td
+            %a{:href => "https://www.mercari.com/jp/category/2/"}
+              %br
+            %a{:href => "https://www.mercari.com/jp/category/31/"}
+              %br
+            %a{:href => "https://www.mercari.com/jp/category/330/"}
+              %br
+        %tr
+          %th ブランド
+          %td
+            %a{:href => "https://www.mercari.com/jp/brand/1620/"}
+              
+        %tr
+          %th 商品のサイズ
+          %td M
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            %a{:href => "https://www.mercari.com/jp/area/15/"} 新潟県
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
+    .item-container__price
+      %span.item-price ¥ 77,480
+      %span.item-taxIn (税込)
+      %span.item-tax-include 送料込み
+
+    %a.item-buy-btn.f18-24{"data-client" => "hidden", :href => "https://www.mercari.com/jp/transaction/buy/m13632202360/"} 購入画面に進む
+    %a.item-btn-client{:href => "https://www.mercari.com/jp/transaction/buy/m13632202360/"}
+      %div{"data-client" => "visible"}
+        購入画面に進む
+      -if user_signed_in?
+        -if @item.user_id != current_user.id
+          -if @item.order_status_id == 1
+            = form_tag(action: :pay, method: :post) do
+              %script.payjp-button{"data-key" => "pk_test_00ff76d8e072d9b17859bd34", src: "https://checkout.pay.jp", :type => "text/javascript", "data-text" => "商品を購入する", "data-submit-text" => "支払い完了", "data-payjp" => "016e8973300880b74ce3a321e59faa6ed94aa751"}
+              = hidden_field_tag :price, @item.price
+              = hidden_field_tag :user_id, @user.id
+              = hidden_field_tag :customer_id, @user.customer_id
+          -elsif @item.order_status_id == 2
+            .order-status この商品は売却済です
+        -else
+          .no-text
+      -else
+        .order-status ログインしていないため購入できません
+    .item-container__discription
+      %p
+      \#{@item.description}
+    .item-description.f14
+      %p.item-description-inner 新品未使用 国内正規品 シュプリームオンライン購入 16FW スター ジップ スタジアムジャケット ネイビー 星 size M
+    .item-button-container.clearfix
+      .item-button-left
+        %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m13632202360", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %i.icon-like-border
+          %span いいね!
+          %span.fade-in-down{"data-num" => "like"} 23
+        %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+          %i.icon-flag
+          %span 不適切な商品の報告
+        %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m13632202360/"}/
+        %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m13632202360/"}/
+        %input{:name => "__csrf_value", :type => "hidden", :value => "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/
+      .item-button-right
+        %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+          %i.icon-lock
+          %span あんしん・あんぜんへの取り組み
+  .item-detail-message
+    .message-container
+      .message-content
+        %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %input{:name => "item_id", :type => "hidden", :value => "m13632202360"}/
+          %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+          %textarea.textarea-default{:name => "body", :type => "text", :value => ""}
+          %button.message-submit.btn-default.btn-gray{:type => "submit"}
+            .send コメントする
+      %aside.modal{"data-close" => "modal", "data-modal" => "delete-comment"}
+        .modal-inner.modal-banner
+          .modal-body
+            .modal-head.bold 確認
+            %div{"data-comment" => "body"}
+            %br/
+            本当にこのコメントを削除してよろしいですか？
+          %form{:action => "https://www.mercari.com/jp/comment/delete/", :method => "POST"}
+            .clearfix
+              .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
+              %button.modal-btn.modal-btn-submit{:type => "submit"}
+                削除する
+            %input{:name => "item_id", :type => "hidden", :value => "m13632202360"}/
+            %input{:name => "comment_id", :type => "hidden", :value => ""}/
+            %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+            %input{:name => "__csrf_value", :type => "hidden", :value => "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/
+  %ul.nav-item-link-prev-next.clearfix
+    %li.nav-item-link-prev
+      %a{:href => "https://item.mercari.com/jp/m99259626077/"}
+        %i.icon-arrow-left>
+        【週末限定セール】ノースフェイス  マカル  マウンテンジャケット Mサイズ
+    %li.nav-item-link-next
+      %a{:href => "https://item.mercari.com/jp/m13960646174/"}
+        Tカード　シナモロール　限定品
+        %i.icon-arrow-right
+  .item-social-media-box
+    .text-center
+      .fb-save.fb_iframe_widget{"data-uri" => "product://113299479059860/m13632202360", "fb-iframe-plugin-query" => "app_id=466308336793848&container_width=700&locale=ja_JP&sdk=joey&uri=product%3A%2F%2F113299479059860%2Fm13632202360", "fb-xfbml-state" => "rendered"}
+        %span{:style => "vertical-align: top; width: 0px; height: 0px; overflow: hidden;"}
+          %iframe{:allow => "encrypted-media", :allowfullscreen => "true", :allowtransparency => "true", :frameborder => "0", :height => "1000px", :name => "f1dd0fa5e164024", :scrolling => "no", :src => "https://www.facebook.com/v2.5/plugins/save.php?app_id=466308336793848&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df24dd9687c7d1d4%26domain%3Ditem.mercari.com%26origin%3Dhttps%253A%252F%252Fitem.mercari.com%252Ff14dc50b27538a4%26relation%3Dparent.parent&container_width=700&locale=ja_JP&sdk=joey&uri=product%3A%2F%2F113299479059860%2Fm13632202360", :style => "border: none; visibility: visible; width: 0px; height: 0px;", :title => "fb:save Facebook Social Plugin", :width => "1000px"}
+    %ul.social-media-box
+      %li
+        %a.share-btn{"data-window-name" => "facebook_window", :href => "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F", :target => "_blank"}
+          %i.icon-facebook
+      %li
+        %a.share-btn{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&text=Supreme%20Stars%20Zip%20S%E2%80%A6%20%28%C2%A5%2077%2C480%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank"}
+          %i.icon-twitter
+      %li.social-hidden-item
+        %a{:href => "http://line.me/R/msg/text/?Supreme Stars Zip Stadium Jacket ネイビー M%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m13632202360/", :target => "_blank"}
+          %i.icon-line
+      %li
+        %a.share-btn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm13632202360_1.jpg%3F1544329645&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20Supreme%20Stars%20Zip%20Stadium%20Jacket%20%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC%20M%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
+          %i.icon-pinterest
+  .items-in-user-profile
+    %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
+      %h2.items-box-head
+        %a{:href => "https://www.mercari.com/jp/u/221604517/"} kawさんのその他の出品
+      .items-box-content.clearfix
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m73429101954/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "Supreme THE NORTH FACE COACHES JACKET 新品", "data-src" => "https://static.mercdn.net/thumb/photos/m73429101954_1.jpg?1544329181"}/
+            .items-box-body
+              %h3.items-box-name.font-2 Supreme THE NORTH FACE COACHES JACKET 新品
+              .items-box-num
+                .items-box-price.font-4 ¥ 363,980
+                .font-2
+                  %i.icon-like-border
+                  %span 13
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m42515090066/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "Supreme THE NORTH FACE BANDANA 寝袋 正規品", "data-src" => "https://static.mercdn.net/thumb/photos/m42515090066_1.jpg?1544627820"}/
+            .items-box-body
+              %h3.items-box-name.font-2 Supreme THE NORTH FACE BANDANA 寝袋 正規品
+              .items-box-num
+                .items-box-price.font-5 ¥ 67,480
+                .font-2
+                  %i.icon-like-border
+                  %span 10
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m92309898467/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "NIKE BENASSI SOLARSOFT FCRB SP 28㎝ 新品正規品", "data-src" => "https://static.mercdn.net/thumb/photos/m92309898467_1.jpg?1544713136"}/
+            .items-box-body
+              %h3.items-box-name.font-2 NIKE BENASSI SOLARSOFT FCRB SP 28㎝ 新品正規品
+              .items-box-num
+                .items-box-price.font-5 ¥ 28,980
+                .font-2
+                  %i.icon-like-border
+                  %span 2
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m64639558225/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "Reebok INSTAPUMP FURY TED 2 size28 新品正規品", "data-src" => "https://static.mercdn.net/thumb/photos/m64639558225_1.jpg?1544804048"}/
+            .items-box-body
+              %h3.items-box-name.font-2 Reebok INSTAPUMP FURY TED 2 size28 新品正規品
+              .items-box-num
+                .items-box-price.font-5 ¥ 40,480
+                .font-2
+                  %i.icon-like-border
+                  %span 9
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m72636479288/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "off-white fragment design PARK-INGGINZA", "data-src" => "https://static.mercdn.net/thumb/photos/m72636479288_1.jpg?1557593327"}/
+            .items-box-body
+              %h3.items-box-name.font-2 off-white fragment design PARK-INGGINZA
+              .items-box-num
+                .items-box-price.font-5 ¥ 60,480
+                .font-2
+                  %i.icon-like-border
+                  %span 28
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m82854126283/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "Vlone fragment Staple Hoodie black L 新品", "data-src" => "https://static.mercdn.net/thumb/photos/m82854126283_1.jpg?1544800956"}/
+            .items-box-body
+              %h3.items-box-name.font-2 Vlone fragment Staple Hoodie black L 新品
+              .items-box-num
+                .items-box-price.font-5 ¥ 30,980
+                .font-2
+                  %i.icon-like-border
+                  %span 16
+              %p.item-box-tax (税込)
+    %section.items-box-container.clearfix.items-box-overflow
+      %h2.items-box-head
+        %a{:href => "https://www.mercari.com/jp/brand/1620/330/"}
+          シュプリームのブルゾン その他の商品
+      .items-box-content.clearfix
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m73429101954/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "Supreme THE NORTH FACE COACHES JACKET 新品", "data-src" => "https://static.mercdn.net/thumb/photos/m73429101954_1.jpg?1544329181"}/
+            .items-box-body
+              %h3.items-box-name.font-2 Supreme THE NORTH FACE COACHES JACKET 新品
+              .items-box-num
+                .items-box-price.font-4 ¥ 363,980
+                .font-2
+                  %i.icon-like-border
+                  %span 13
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m14563168871/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "新品XL! Supreme×The North Faceフリースジャケット赤", "data-src" => "https://static.mercdn.net/thumb/photos/m14563168871_1.jpg?1559391275"}/
+            .items-box-body
+              %h3.items-box-name.font-2 新品XL! Supreme×The North Faceフリースジャケット赤
+              .items-box-num
+                .items-box-price.font-5 ¥ 57,000
+                .font-2
+                  %i.icon-like-border
+                  %span 40
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m47726359049/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "doublet ダブレット ファーブルゾン", "data-src" => "https://static.mercdn.net/thumb/photos/m47726359049_1.jpg?1557707820"}/
+            .items-box-body
+              %h3.items-box-name.font-2 doublet ダブレット ファーブルゾン
+              .items-box-num
+                .items-box-price.font-4 ¥ 128,000
+                .font-2
+                  %i.icon-like-border
+                  %span 5
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m55673566369/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "supreme バンダナ柄 ジャケット 2018ss", "data-src" => "https://static.mercdn.net/thumb/photos/m55673566369_1.jpg?1560300395"}/
+            .items-box-body
+              %h3.items-box-name.font-2 supreme バンダナ柄 ジャケット 2018ss
+              .items-box-num
+                .items-box-price.font-5 ¥ 49,999
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m50985447009/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "supreme Expedition Fleece Jacket", "data-src" => "https://static.mercdn.net/thumb/photos/m50985447009_1.jpg?1559973420"}/
+            .items-box-body
+              %h3.items-box-name.font-2 supreme Expedition Fleece Jacket
+              .items-box-num
+                .items-box-price.font-5 ¥ 63,000
+                .font-2
+                  %i.icon-like-border
+                  %span 6
+              %p.item-box-tax (税込)
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m41586879466/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "supreme blood chit MA-1 ブルゾン", "data-src" => "https://static.mercdn.net/thumb/photos/m41586879466_1.jpg?1560139876"}/
+            .items-box-body
+              %h3.items-box-name.font-2 supreme blood chit MA-1 ブルゾン
+              .items-box-num
+                .items-box-price.font-5 ¥ 16,000
+              %p.item-box-tax (税込)
+  %aside.modal{"data-close" => "modal", "data-modal" => "report-item"}
+    .modal-inner.modal-banner
+      .modal-body
+        .modal-head.bold 確認
+        不適切な商品を報告しますか？
+      .clearfix
+        .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
+        %a{:href => "https://www.mercari.com/jp/report/m13632202360/"}
+          %button.modal-btn.modal-btn-submit はい
