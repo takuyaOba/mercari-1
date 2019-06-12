@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
    before_action :find_params, only:[:show,:destroy,:edit]
 
     def index

@@ -1,0 +1,31 @@
+%main.mypage
+  = render "mypage"
+  .todo
+    %section.todo__content
+      %ul.todo__content__tab
+        %li.active
+          %h3.linered
+            = link_to root_path do
+              お知らせ
+        %li.noactive
+          %h3
+            =link_to root_path do
+              やることリスト
+      .todo__content__one
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          = image_tag "images.png", class: "image"
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+
+
+-# やることリストがある場合のhtml
+        -# %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          -# %li.list
+          -#   = link_to root_path, class: "mypage-item-link" do
+          -#     %figure
+          -#       = image_tag "mercari_icon.png", class: "lazyloaded"
+          -#     .mypage-item-body
+          -#       .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+          -#       %time
+          -#         %i.material-icons.md-18 access_time
+          -#         %span 8 分前
+          -#     %i#right.material-icons keyboard_arrow_right
