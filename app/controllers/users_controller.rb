@@ -7,4 +7,7 @@ class UsersController < ApplicationController
   def show_todo
   end
 
+  def like_list
+  end
+
 end

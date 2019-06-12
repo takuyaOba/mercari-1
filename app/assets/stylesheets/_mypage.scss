@@ -118,7 +118,7 @@ a{
               .mypage-item-body{
                 @include mypage-item-body();
                 .mypage-item-text{
-                  font-size: 85%;
+                  font-size: 13px;
                 }
                 time{
                   @include time();

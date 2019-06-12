@@ -3,6 +3,7 @@
   height: 74px;
   text-align: center;
   line-height: 74px;
+  font-weight: 600;
 }
 
 @mixin active() {
@@ -25,6 +26,7 @@
   color: #333;
   display: block;
   position: relative;
+  border-top: 1px solid #eee;
 }
 @mixin figure() {
   position: absolute;
@@ -33,20 +35,20 @@
   margin: 0 0 0 0;
 }
 @mixin mypage-item-body() {
-  width: 100%;
   position: absolute;
-  top: 16px;
+  top: 20px;
   left: 74px;
 }
 @mixin time() {
   height: 18px;
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
   color: darkgrey;
 }
 @mixin span() {
   margin-left: 8px;
-  font-size: 80%;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 @mixin right() {
