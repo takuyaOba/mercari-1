@@ -16,4 +16,8 @@ class UsersController < ApplicationController
 
   end
 
+  def under_exhibition
+  end
+
+  
 end
