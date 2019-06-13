@@ -5,6 +5,9 @@
     %title Mercari
     = csrf_meta_tags
     = csp_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     %link{href:"https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css", rel:"stylesheet"}/
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -12,6 +15,7 @@
     %link{href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel:"stylesheet"}/
     %script{async: "", defer: "defer", src: "https://www.google.com/recaptcha/api.js"}
     %link{href:"https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+
   %body
     = yield
     = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
