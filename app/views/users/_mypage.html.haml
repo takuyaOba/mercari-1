@@ -96,6 +96,6 @@
           電話番号の確認
           %i#right.material-icons keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to destroy_user_session_path, class: "mypage__side__nav__list__item__one" do
+        = link_to destroy_user_session_path,method: :delete, class: "mypage__side__nav__list__item__one" do
           ログアウト
           %i#right.material-icons keyboard_arrow_right
