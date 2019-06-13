@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 #deviseエラー回避用に作成
   def index
     redirect_to  new_user_registration_path
+  end
 
   def show
   end
@@ -19,5 +20,7 @@ class UsersController < ApplicationController
   def under_exhibition
   end
 
+  def during_trading
+  end
   
 end

@@ -39,7 +39,7 @@
               }
             }
           }
-          #right{
+          .right{
             @include right();
           }
         }
@@ -62,7 +62,7 @@
       &__btn{
         height: 42px;
         width: 42px;
-        #left{
+        .left{
           margin: 9px;
         }
       }
@@ -78,7 +78,7 @@
       &__btn{
         height: 42px;
         width: 42px;
-        #right{
+        .right{
           margin: 9px;
         }
       }

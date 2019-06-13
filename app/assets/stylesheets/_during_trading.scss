@@ -1,4 +1,4 @@
-.exhibition{
+.during-trading{
   width: 700px;
   &__list{background-color: #ffffff;
     &__heading{
@@ -7,16 +7,16 @@
     &__tab{
       @include tab();
       display: flex;
-      .active{
-        border-top: solid 2px red;
-        width: 34%;
-        .linered{
-        }
-      }
       .noactive{
         background-color: #eee;
         width: 33%;
         %h3{
+        }
+      }
+      .active{
+        border-top: solid 2px red;
+        width: 34%;
+        .linered{
         }
       }
     }
@@ -41,30 +41,11 @@
               .state{
                 height: 18px;
                 display: flex;
-                .fa-heart{
-                  height: 18px;
-                  width: 31px;
-                  margin-right: 6px;
-                  color: #ccc;
-                  margin-top: 13px;
-                  span {
-                    color: #888;
-                    font-weight: 600;
-                  }
+                &__shipping{
+                  @include name();
+                  background: deeppink;
                 }
-                .fa-comment-alt{
-                  height: 18px;
-                  width: 29px;
-                  margin-right: 6px;
-                  margin-top: 1px;
-                  color: #ccc;
-                  margin-top: 14px;
-                  span {
-                    color: #888;
-                    font-weight: 600;
-                  }
-                }
-                &__name{
+                &__evaluation{
                   @include name();
                   background: #0099e8;
                 }
