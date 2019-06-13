@@ -15,9 +15,9 @@
 .sell-btn
   = render partial: "toppage/sell-btn"
 
-%h4 商品一覧ページ
-= link_to "test用の新規投稿", new_item_path
-- @items.each do |item|
-  %p= item.name
-  = link_to "商品詳細", item_path(item.id)
-  = link_to "（仮）削除", item_path(item.id),method: :delete
+-# %h4 商品一覧ページ
+-# = link_to "test用の新規投稿", new_item_path
+-# - @items.each do |item|
+-#   %p= item.name
+-#   = link_to "商品詳細", item_path(item.id)
+-#   = link_to "（仮）削除", item_path(item.id),method: :delete
