@@ -1,39 +1,41 @@
+%header
+  = render "toppage/header"
 %main.mypage
   = render "mypage"
-  .exhibition
-    .exhibition__list
-      %h2.exhibition__list__heading
+  .sold
+    .sold__list
+      %h2.sold__list__heading
         出品した商品
-      %ul.exhibition__list__tab
-        %li.active
-          %h3.linered
+      %ul.sold__list__tab
+        %li.noactive
+          %h3
             = link_to root_path do
               出品中
         %li.noactive
           %h3
             = link_to root_path do
               取引中
-        %li.noactive
-          %h3
+        %li.active
+          %h3.linered
             = link_to root_path do
               売却済み
-      .exhibition__list__one
+      .sold__list__one
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li.list
             = link_to root_path, class: "mypage-item-link" do
               %figure
                 = image_tag "mercari_icon.png", class: "lazyloaded"
               .mypage-item-body
-                .mypage-item-text 出品した商品
+                .mypage-item-text 取引中の商品
                 .state
-                  %i.far.fa-heart
-                    %span 1
-                  %i.far.fa-comment-alt
-                    %span 1
-                  .state__name
-                    出品中
+                  .state__sold
+                    売却済
               %i.material-icons.right keyboard_arrow_right
--# 出品した商品がない場合
+-# 売却済み商品がない場合
 -#         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
 -#           = image_tag "images.png", class: "image"
 -#           %li.mypage-item-not-found.bold 出品中の商品がありません
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"
