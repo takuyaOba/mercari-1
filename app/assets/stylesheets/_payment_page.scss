@@ -1,0 +1,105 @@
+.payment{
+  width: 700px;
+  height: 364px;
+  &__contents{
+    width: 700px;
+    height: 364px;
+    background-color: #fff;
+    &__title{
+      width: 700px;
+      height: 50px;
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-weight: 600;
+      line-height: 34px;
+    }
+    &__one{
+      width: 700px;
+      height: 314px;
+      padding: 64px;
+      border-top: 1px solid #eee;
+      &__lists{
+        width: 572px;
+        height: 129px;
+        border-bottom: 1px solid #f5f5f5;
+        &__title{
+          max-width: 320px;
+          height: 16px;
+          margin: 0 auto;
+          &__text{
+            font-size: 16px;
+            font-weight: 900;
+          }
+        }
+        &__list{
+          width: 572px;
+          height: 113px;
+          &__card{
+            width: 572px;
+            height: 113px;
+            padding: 24px 0;
+            &__information{
+              max-width: 320px;
+              height: 64px;
+              position: relative;
+              margin: 0 auto;
+              &__type{
+                width: 320px;
+                height: 16px;
+                &__image{
+                  width: 49px;
+                  height: 16px;
+                }
+              }
+              &__number{
+                width: 320px;
+                height: 16px;
+                margin: 8px 0 0;
+                font-size: 16px;
+              }
+              &__date{
+                width: 320px;
+                height: 16px;
+                margin: 8px 0 0;
+                font-size: 16px;
+              }
+              &__delete{
+                width: 70px;
+                height: 24px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 4px 6px;
+                background-color: #fff;
+                border-radius: 3px;
+                border: 1px solid #ea352d;
+                color: #ea352d;
+              }
+            }
+          }
+        }
+      }
+      &__way{
+        width: 572px;
+        height: 16px;
+        margin: 40px 0 0;
+        &__link{
+          text-align: right;
+          color: #0099e8;
+          display: flex;
+          span{
+            width: 572px;
+            height: 24px;
+            display: block;
+            line-height: 24px;
+          }
+          .right{
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}
