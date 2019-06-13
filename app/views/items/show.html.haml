@@ -15,7 +15,7 @@
         %tr
           %th 出品者
           %td
-            %a{:href => "https://www.mercari.com/jp/u/221604517/"} kaw
+            = link_to "kaw", "https://www.mercari.com/jp/u/221604517/"
             %div
               .item-user-ratings
                 %i.icon-good
@@ -29,16 +29,16 @@
         %tr
           %th カテゴリー
           %td
-            %a{:href => "https://www.mercari.com/jp/category/2/"}
-              %br
-            %a{:href => "https://www.mercari.com/jp/category/31/"}
-              %br
-            %a{:href => "https://www.mercari.com/jp/category/330/"}
-              %br
+            = link_to "第一",""
+              
+            = link_to "第二",""
+              
+            = link_to "第三",""
+              
         %tr
           %th ブランド
           %td
-            %a{:href => "https://www.mercari.com/jp/brand/1620/"}
+            = link_to "ブランド名",""
               
         %tr
           %th 商品のサイズ
@@ -55,7 +55,7 @@
         %tr
           %th 配送元地域
           %td
-            %a{:href => "https://www.mercari.com/jp/area/15/"} 新潟県
+            = link_to "新潟県" , "https://www.mercari.com/jp/area/15/"
         %tr
           %th 発送日の目安
           %td 1~2日で発送
@@ -63,10 +63,7 @@
       %span.item-price ¥ 77,480
       %span.item-taxIn (税込)
       %span.item-tax-include 送料込み
-    %a.item-buy-btn{:href => "https://www.mercari.com/jp/transaction/buy/m13632202360/"}
-      %div{"data-client" => "visible"}
-        購入画面に進む
-        
+    = link_to "購入画面に進む","https://www.mercari.com/jp/transaction/buy/m13632202360/", class:"ditem-buy-btn"
     .item-description
       %p.item-description-inner 
         新品未使用
@@ -78,55 +75,46 @@
 
     .item-button-container.clearfix
       .item-button-left
-        %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m13632202360", "data-toggle" => "like", :name => "like!", :type => "button"}
-          .fa.fa-heart
+        %button.item-button.item-button-like
           %span いいね!
-          %span.fade-in-down{"data-num" => "like"} 23
-        %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+          %span.fade-in-down 23
+        %a.item-button.item-button-report.clearfix
           .fa.fa-flag
           %span 不適切な商品の報告
-        %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m13632202360/"}/
-        %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m13632202360/"}/
-        %input{:name => "__csrf_value", :type => "hidden", :value => "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/
+        %input{:name => "like_add_url", type: "hidden", value: "https://www.mercari.com/jp/like/add/m13632202360/"}/
+        %input{:name => "like_del_url", type: "hidden", value: "https://www.mercari.com/jp/like/delete/m13632202360/"}/
+        %input{:name => "__csrf_value", type: "hidden", value: "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/
       .item-button-right
-        %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+        = link_to "https://www.mercari.com/jp/safe/description/" do
           .fa.fa-lock
           %span あんしん・あんぜんへの取り組み
 
-  .comment
-    .comment__box
+  .Dcomment
+    .Dcomment__box
       %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.textarea-default{:name => "body", :type => "text", :value => ""}
-
-      .send コメントする
+      %textarea.textarea-default{name: "body", type: "text", value: ""}
+      %button.send コメントする
   %ul.nav-item-link.clearfix
     %li.nav-item-link--prev
-      %a{:href => "https://item.mercari.com/jp/m99259626077/"}
-        %i.icon-arrow-left>
-        【週末限定セール】ノースフェイス  マカル  マウンテンジャケット
+      = link_to "週末限定セール】ノースフェイス  マカル  マウンテンジャケット","https://item.mercari.com/jp/m99259626077/"
     %li.nav-item-link--next
-      %a{:href => "https://item.mercari.com/jp/m13960646174/"}
-        Tカード　シナモロール　限定品
-        %i.icon-arrow-right
+      = link_to "Tカード　シナモロール　限定品","https://item.mercari.com/jp/m13960646174/"
   .item-social-media-box
     .text-center
-      .fb-save.fb_iframe_widget{"data-uri" => "product://113299479059860/m13632202360", "fb-iframe-plugin-query" => "app_id=466308336793848&container_width=700&locale=ja_JP&sdk=joey&uri=product%3A%2F%2F113299479059860%2Fm13632202360", "fb-xfbml-state" => "rendered"}
-        %span{:style => "vertical-align: top; width: 0px; height: 0px; overflow: hidden;"}
-          %iframe{:allow => "encrypted-media", :allowfullscreen => "true", :allowtransparency => "true", :frameborder => "0", :height => "1000px", :name => "f1dd0fa5e164024", :scrolling => "no", :src => "https://www.facebook.com/v2.5/plugins/save.php?app_id=466308336793848&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df24dd9687c7d1d4%26domain%3Ditem.mercari.com%26origin%3Dhttps%253A%252F%252Fitem.mercari.com%252Ff14dc50b27538a4%26relation%3Dparent.parent&container_width=700&locale=ja_JP&sdk=joey&uri=product%3A%2F%2F113299479059860%2Fm13632202360", :style => "border: none; visibility: visible; width: 0px; height: 0px;", :title => "fb:save Facebook Social Plugin", :width => "1000px"}
     %ul.social-media
       %li
-        %a.share-btn{"data-window-name" => "facebook_window", :href => "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F", :target => "_blank"}
+        = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F", :target => "_blank",class:"share-btn" do
           .fa.fa-facebook-square
       %li
-        %a.share-btn{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&text=Supreme%20Stars%20Zip%20S%E2%80%A6%20%28%C2%A5%2077%2C480%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank"}
+        = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&text=Supreme%20Stars%20Zip%20S%E2%80%A6%20%28%C2%A5%2077%2C480%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank",class:"share-btn" do
           .fa.fa-twitter-square
       %li
-        %a.share-btn{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm13632202360_1.jpg%3F1544329645&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20Supreme%20Stars%20Zip%20Stadium%20Jacket%20%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC%20M%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
+        =link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm13632202360_1.jpg%3F1544329645&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20Supreme%20Stars%20Zip%20Stadium%20Jacket%20%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC%20M%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank",class:"share-btn" do
           .fa.fa-pinterest-square
   .items-in-user-profile
     %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
       %h2.items-box-head
-        %a{:href => "https://www.mercari.com/jp/u/221604517/"} kawさんのその他の出品
+        =link_to "kawさんのその他の出品", "https://www.mercari.com/jp/u/221604517/"
       .items-box-content.clearfix
         .item-list__cards
           .item-list__card
@@ -162,8 +150,7 @@
 
     %section.items-box-container.clearfix.items-box-overflow
       %h2.items-box-head
-        %a{:href => "https://www.mercari.com/jp/brand/1620/330/"}
-          シュプリームのブルゾン その他の商品
+        =link_to  "シュプリームのブルゾン その他の商品","https://www.mercari.com/jp/brand/1620/330/"
       .items-box-content.clearfix
         .item-list__cards
           .item-list__card
