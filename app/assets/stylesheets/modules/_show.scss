@@ -1,3 +1,10 @@
+$bordercolor: #eee;
+$light-blue: #0099e8;
+$formborder: #ccc;
+$white: #fff;
+$red: #ea352d;
+$filefield: #f5f5f5;
+
 .default-container{
   position:relative;
   .clearfix::after {
@@ -537,4 +544,55 @@ h2 {
   height:20px;
   font-family: "Font Awesome 5 Free";
   font-weight:900;
+}
+
+
+.item-list{
+  width: 940px;
+  margin: 0 auto;
+
+  &__title{
+    font-size: 22px;
+    color: $light-blue;
+    text-align: center;
+    margin: 26px 11px;
+  }
+
+  &__cards{
+    width: auto;
+    font-size:0;
+  }
+
+  &__card{
+    margin:0 0 0 20px;
+    width: 213px;
+    height: 330px;
+    background-color:$white;
+    display: inline-block;
+
+    &-info{
+      padding:16px;
+      height:110px;
+
+      &-name{
+        overflow: hidden;
+        position: relative;
+        font-weight: 400;
+        height: 3em;
+        line-height: 1.5;
+        word-break: break-word;
+        white-space: normal;
+        font-size: 16px;
+      }
+
+      &-num{
+        margin:8px 0 0;
+      }
+
+      &-tax{
+        font-size:10px;
+      }
+
+    }
+  }
 }

@@ -145,40 +145,18 @@
 
     %section.items-box-container.clearfix.items-box-overflow
       %h2.items-box-head
-       .item-list
-  %h3.item-list__title 仮置き
-  .item-list__cards
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpeg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpeg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpeg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-          
+        %a{:href => "https://www.mercari.com/jp/brand/1620/330/"}
+          シュプリームのブルゾン その他の商品
+      .items-box-content.clearfix
+        %section.items-box
+          %a{:href => "https://item.mercari.com/jp/m41586879466/"}
+            %figure.items-box-photo
+              %img.lazyload{:alt => "supreme blood chit MA-1 ブルゾン", "data-src" => "https://static.mercdn.net/thumb/photos/m41586879466_1.jpg?1560139876"}/
+            .items-box-body
+              %h3.items-box-name.font-2 supreme blood chit MA-1 ブルゾン
+              .items-box-num
+                .items-box-price.font-5 ¥ 16,000
+              %p.item-box-tax (税込)
   %aside.modal{"data-close" => "modal", "data-modal" => "report-item"}
     .modal-inner.modal-banner
       .modal-body
