@@ -38,7 +38,7 @@ a{
             .icon-arrow-right{
 
             }
-            #right{
+            .right{
               color: #333;
               float: right;
             }
@@ -130,7 +130,7 @@ a{
                   }
                 }
               }
-              #right {
+              .right {
                 @include right();
               }
             }
