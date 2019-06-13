@@ -67,7 +67,6 @@ gem 'active_hash'
 gem "font-awesome-rails"
 gem 'devise'
 gem "recaptcha"
-gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
