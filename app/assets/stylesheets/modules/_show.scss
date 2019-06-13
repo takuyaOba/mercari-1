@@ -321,3 +321,220 @@
     background-color: white;
   }
 }
+
+// 購入ボタン以下
+.item-buy-btn {
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 46px 0 24px 0;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+  font-size: 24px;
+}
+.item-description {
+  padding: 24px 0 26px 0;
+  line-height: 1.5;
+}
+.item-description-inner {
+  white-space: pre-wrap;
+}
+
+.item-button-like {
+  color: #333;
+  border: 1px solid #f5f5f5;
+  background: #f5f5f5;
+}
+.item-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 40px;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+}
+
+.item-button-container i {
+  font-size: 14px;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.item-button-container span {
+  font-size: 14px;
+  display: inline-block;
+  margin: 1px 0 0 8px;
+  vertical-align: middle;
+}
+
+
+
+.item-button-report {
+  margin: 0 0 0 8px;
+  color: #333;
+  background: #f5f5f5;
+}
+
+.item-button-left {
+  float: left;
+  width:50%;
+}
+
+.item-button-right {
+  margin: 8px 0 0;
+  float: right;
+}
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+.icon-like-border{
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nav-item-link {
+  margin: 24px auto 0;
+  width: 700px;
+
+  &--prev {
+    float: left;
+    padding: 0 0 0 14px;
+  }
+  &--next{
+    float: right;
+    padding: 0 14px 0 0px;
+  }
+}
+
+
+// sns
+
+.item-social-media-box {
+  background: #fff;
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  width: 700px;
+}
+
+.text-center {
+  text-align: center;
+}
+.social-media-box {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0;
+}
+.social-media-box {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0;
+}
+.social-media-box li a {
+  display: block;
+}
+.social-media-box i {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  line-height: 44px;
+}
+
+
+// 下部の商品リスト
+.items-in-user-profile {
+  width: 700px;
+  margin: 0 auto;
+}
+.items-box-head {
+  margin: 24px 0 8px;
+  font-size: 22px;
+}
+.items-box-content {
+  padding: 0;
+  width: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10px;
+  white-space: nowrap;
+  font-size: 0;
+  margin: 0 auto;
+}
+
+// 単体
+.items-box:nth-child(3n+1) {
+  margin: 0 0 20px;
+}
+.items-box a {
+  display: block;
+  color: #333;
+}
+.items-box-photo {
+  width: 220px;
+  height: 220px;
+}
+.items-box-body {
+  padding: 16px;
+  height: 110px;
+}
+.items-box-name {
+  overflow: hidden;
+  position: relative;
+  font-weight: 400;
+  height: 3em;
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: normal;
+}
+.items-box-num {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin: 8px 0 0;
+}
+.font-2 {
+  font-size: 16px;
+  color: #333;
+}
+
+
+h2 {
+  font-size: 100%;
+  font-weight: normal;
+}
+.fa-heart{
+  font-family: "Font Awesome  Free"; /*←ココ！！！！！！！*/
+  font-weight: 900;
+  content: "\f007";
+  font-size: 100px ;
+  color:red;
+  font-weight:bold;
+}
+.fontawe:after{
+  display:block;
+  content:"\f061";
+  width:20px;
+  height:20px;
+  font-family: "Font Awesome 5 Free";
+  font-weight:900;
+}
