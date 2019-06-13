@@ -1,0 +1,32 @@
+%header
+  = render "toppage/header"
+%main.mypage
+  = render "mypage"
+  .payment
+    .payment__contents
+      .payment__contents__title
+        支払い方法
+      .payment__contents__one
+        .payment__contents__one__lists
+          .payment__contents__one__lists__title
+            .payment__contents__one__lists__title__text
+              クレジットカード一覧
+          .payment__contents__one__lists__list
+            .payment__contents__one__lists__list__card
+              .payment__contents__one__lists__list__card__information
+                .payment__contents__one__lists__list__card__information__type
+                  = image_tag "visa_image.png", class: "payment__contents__one__lists__list__card__information__type__image"
+                .payment__contents__one__lists__list__card__information__number
+                  ************2006
+                .payment__contents__one__lists__list__card__information__date
+                  01/22
+                = link_to root_path, class: "payment__contents__one__lists__list__card__information__delete" do
+                  削除する
+        .payment__contents__one__way
+          = link_to root_path, class: "payment__contents__one__way__link" do
+            %span 支払い方法について
+            %i.material-icons.right keyboard_arrow_right
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"
