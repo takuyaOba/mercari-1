@@ -1,0 +1,62 @@
+.during-trading{
+  width: 700px;
+  &__list{background-color: #ffffff;
+    &__heading{
+      @include heading();
+    }
+    &__tab{
+      @include tab();
+      display: flex;
+      .noactive{
+        background-color: #eee;
+        width: 33%;
+        %h3{
+        }
+      }
+      .active{
+        border-top: solid 2px red;
+        width: 34%;
+        .linered{
+        }
+      }
+    }
+    &__one{
+      #mypage-tab-notification{
+        background-color: #ffffff;
+        .list{
+          height: 80px;
+          .mypage-item-link{
+            @include mypage-item-link();
+            figure{
+              @include figure();
+              .lazyloaded{
+                width: 48px;
+              }
+            }
+            .mypage-item-body{
+              @include mypage-item-body();
+              .mypage-item-text{
+                font-size: 13px;
+              }
+              .state{
+                height: 18px;
+                display: flex;
+                &__shipping{
+                  @include name();
+                  background: deeppink;
+                }
+                &__evaluation{
+                  @include name();
+                  background: #0099e8;
+                }
+              }
+            }
+            .right{
+              @include right();
+            }
+          }
+        }
+      }
+    }
+  }
+}

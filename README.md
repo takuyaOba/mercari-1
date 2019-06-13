@@ -14,7 +14,7 @@
 |birth_day|integer|null :false|
 |telephone|string|null :false unique: true|
 ### Association
-- has_many :items,
+- has_many :items
 - has_many :orders
 - has_many :likes
 - has_many :flags
@@ -70,7 +70,7 @@
 - has_many :like_users,through::likes,source::user
 - has_many :flag_users,through::flags,source::user
 - belongs_to :order
-- belongs_to :user
+- belongs_to :user,dependent: :destroy
 - belongs_to :first_category
 - belongs_to :second_category
 - belongs_to :third_category

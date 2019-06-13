@@ -1,0 +1,81 @@
+.exhibition{
+  width: 700px;
+  &__list{background-color: #ffffff;
+    &__heading{
+      @include heading();
+    }
+    &__tab{
+      @include tab();
+      display: flex;
+      .active{
+        border-top: solid 2px red;
+        width: 34%;
+        .linered{
+        }
+      }
+      .noactive{
+        background-color: #eee;
+        width: 33%;
+        %h3{
+        }
+      }
+    }
+    &__one{
+      #mypage-tab-notification{
+        background-color: #ffffff;
+        .list{
+          height: 80px;
+          .mypage-item-link{
+            @include mypage-item-link();
+            figure{
+              @include figure();
+              .lazyloaded{
+                width: 48px;
+              }
+            }
+            .mypage-item-body{
+              @include mypage-item-body();
+              .mypage-item-text{
+                font-size: 13px;
+              }
+              .state{
+                height: 18px;
+                display: flex;
+                .fa-heart{
+                  height: 18px;
+                  width: 31px;
+                  margin-right: 6px;
+                  color: #ccc;
+                  margin-top: 13px;
+                  span {
+                    color: #888;
+                    font-weight: 600;
+                  }
+                }
+                .fa-comment-alt{
+                  height: 18px;
+                  width: 29px;
+                  margin-right: 6px;
+                  margin-top: 1px;
+                  color: #ccc;
+                  margin-top: 14px;
+                  span {
+                    color: #888;
+                    font-weight: 600;
+                  }
+                }
+                &__name{
+                  @include name();
+                  background: #0099e8;
+                }
+              }
+            }
+            .right{
+              @include right();
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.wrapper
+  %main
+    -# main container
+    .swiper-container.top-carousel
+      -# slide wrapper
+      .swiper-wrapper
+        -# slides
+        .swiper-slide
+          = image_tag "slide_image_1.png", class:"moving-display"
+        .swiper-slide
+          = image_tag 'banner-natsukashi.jpg', class:"moving-display__natsukashi"
+        .swiper-slide
+          = render partial: "toppage/slide_banner"
+      -# if need navigation button 
+      .swiper-button-prev.swiper-custom-button.swiper-button-white
+      .swiper-button-next.swiper-custom-button.swiper-button-white
+      -# if need pagination 
+      .swiper-pagination.swiper-pagination-white
+
+
+
+

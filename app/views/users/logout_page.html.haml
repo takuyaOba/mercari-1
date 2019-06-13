@@ -1,0 +1,12 @@
+%header
+  = render "toppage/header"
+%main.mypage
+  = render "mypage"
+  .logout
+    .logout__content
+      = link_to root_path , class: "logout__content__btn" do
+        ログアウト
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"

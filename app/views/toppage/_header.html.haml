@@ -1,0 +1,29 @@
+.header-inner
+  .header-search
+    .header-search__logo
+      = link_to root_path do
+        = image_tag 'header_icon.png', class:"image-logo"
+    %form.header-search__box
+      %input.input-default{name:"keyword", placeholder:"何かお探しですか？", type:"search", value:""}/
+      %i.material-icons.search-icon search
+  .header-under
+    .header-under__left
+      .header-under__left-element
+        .material-icons.header
+          list
+          .header-under__left-word カテゴリーから探す
+      .header-under__left-element
+        .material-icons.header
+          tag
+          .header-under__left-word ブランドから探す
+    .header-under__right
+      - if user_signed_in?
+        .header-under__right-new
+          = link_to "マイページ",user_path(current_user.id)
+      - else
+        .header-under__right-new
+          = link_to "新規会員登録", new_user_registration_path
+        .header-under__right-login
+          = link_to "ログイン", new_user_session_path
+
+

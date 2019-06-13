@@ -38,7 +38,7 @@ a{
             .icon-arrow-right{
 
             }
-            #right{
+            .right{
               color: #333;
               float: right;
             }
@@ -118,7 +118,7 @@ a{
               .mypage-item-body{
                 @include mypage-item-body();
                 .mypage-item-text{
-                  font-size: 85%;
+                  font-size: 13px;
                 }
                 time{
                   @include time();
@@ -130,7 +130,7 @@ a{
                   }
                 }
               }
-              #right {
+              .right {
                 @include right();
               }
             }
@@ -157,12 +157,15 @@ a{
         padding: 0 16px;
         height: 72px;
         line-height: 72px;
-        background-color: gainsboro ;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: #fafafa;
       }
       &__tabs{
         height: 74px;
         text-align: center;
         line-height: 74px;
+        font-weight: 600;
         .active {
           display: inline-block;
           width: 49%;
@@ -178,15 +181,10 @@ a{
         .mypage-item-list{
           
           .image{
-
-            display: block;
-            height: 100px;
-            width: 100px;
-            margin: 20px auto 0;
+            @include image();
           }
           .mypage-item-not-found{
-            padding: 16px 0 0 0;
-            text-align: center;
+            @include not_found();
           }
         }
       }

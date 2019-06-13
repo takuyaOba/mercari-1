@@ -1,0 +1,26 @@
+%main.mypage
+  = render "mypage"
+  .like
+    .like__list
+      %h2.like__list__heading
+        いいね！一覧
+      %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+        %li.list
+          = link_to root_path, class: "mypage-item-link" do
+            %figure
+              = image_tag "mercari_icon.png", class: "lazyloaded"
+            .mypage-item-body
+              .mypage-item-text 商品の名前
+              .money
+                .en
+                  ¥
+                %span 
+                  1,000
+            %i.material-icons.right keyboard_arrow_right
+    %ul.like__page
+      %li.like__page__left
+        = link_to root_path, class: "like__page__left__btn" do
+          %i.material-icons.left keyboard_arrow_left
+      %li.like__page__right
+        = link_to root_path, class: "like__page__right__btn" do
+          %i.material-icons.right keyboard_arrow_right

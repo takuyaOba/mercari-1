@@ -62,6 +62,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'pry-byebug'
+
 gem 'active_hash'
+gem "font-awesome-rails"
 gem 'devise'
-gem 'font-awesome-rails'
+gem "recaptcha"
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+

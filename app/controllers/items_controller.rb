@@ -2,56 +2,45 @@ class ItemsController < ApplicationController
 
    before_action :find_params, only:[:show,:destroy,:edit]
 
-    def index
-      @items = Item.all
-    end
+   rescue_from ActiveRecord::RecordInvalid do |exception|
+    redirect_to :root, alert: 'エラーが発生しました'
+  end
 
-    def new
-      @item = Item.new
-    end
+  def index
+    @items = Item.all
+  end
 
-    def create
-      begin
-        @item = Item.create(params_create)
-        move_index
-        rescue ActiveRecord::RecordInvalid => e
-        @item = e.record
-        render :action => 'new'
-      end
-    end
+  def new
+    @item = Item.new
+  end
 
-    def show
-    end
+  def create
+    binding.pry
+    item = Item.create(params_create)
+    move_index
+  end
 
-    def edit
-      render 'new'
-    end
+  def show
+  end
 
-    def update
-        begin
-         @item = Item.update(params_create)
-          move_index
-          rescue ActiveRecord::RecordInvalid => e
-          @item = e.record
-          render :action => 'new'
-        end
-    end
+  def edit
+  end
 
-    def destroy
-        begin
-        @item = find_params.delete
-        move_index   
-        rescue ActiveRecord::RecordInvalid => e
-        @item = e.record
-        render :action => 'new'
-        end
-    end
+  def update
+    item = Item.update(params_create)
+    move_index
+  end
+
+  def destroy
+    item = find_params.delete
+    move_index   
+  end
 end
 
 private
 
 def params_create
-  params.require(:item).permit(:name)
+  params.require(:item).permit(:name).merge(user_id: current_user.id)
 end
 
 def move_index

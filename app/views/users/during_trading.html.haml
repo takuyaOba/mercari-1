@@ -1,0 +1,37 @@
+%main.mypage
+  = render "mypage"
+  .during-trading
+    .during-trading__list
+      %h2.during-trading__list__heading
+        出品した商品
+      %ul.during-trading__list__tab
+        %li.noactive
+          %h3
+            = link_to root_path do
+              出品中
+        %li.active
+          %h3.linered
+            = link_to root_path do
+              取引中
+        %li.noactive
+          %h3
+            = link_to root_path do
+              売却済み
+      .during-trading__list__one
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li.list
+            = link_to root_path, class: "mypage-item-link" do
+              %figure
+                = image_tag "mercari_icon.png", class: "lazyloaded"
+              .mypage-item-body
+                .mypage-item-text 取引中の商品
+                .state
+                  -# .state__evaluation
+                  -#   受取評価待ち
+                  .state__shipping
+                    発送待ち
+              %i.material-icons.right keyboard_arrow_right
+-# 出品した商品がない場合
+-#         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+-#           = image_tag "images.png", class: "image"
+-#           %li.mypage-item-not-found.bold 出品中の商品がありません
