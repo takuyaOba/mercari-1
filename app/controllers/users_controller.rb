@@ -22,5 +22,8 @@ class UsersController < ApplicationController
 
   def during_trading
   end
+
+  def sold_list
+  end
   
 end
