@@ -472,7 +472,7 @@ a {
   margin: 0 auto;
 }
 .items-box-head {
-  margin: 24px 0 8px;
+  margin: 32px 0 16px;
   font-size: 22px;
 }
 .items-box-content {
@@ -529,22 +529,6 @@ h2 {
   font-size: 100%;
   font-weight: normal;
 }
-.fa-heart{
-  font-family: "Font Awesome  Free"; /*←ココ！！！！！！！*/
-  font-weight: 900;
-  content: "\f007";
-  font-size: 100px ;
-  color:red;
-  font-weight:bold;
-}
-.fontawe:after{
-  display:block;
-  content:"\f061";
-  width:20px;
-  height:20px;
-  font-family: "Font Awesome 5 Free";
-  font-weight:900;
-}
 
 
 .item-list{
@@ -573,6 +557,7 @@ h2 {
     &-info{
       padding:16px;
       height:110px;
+      
 
       &-name{
         overflow: hidden;
@@ -595,4 +580,22 @@ h2 {
 
     }
   }
+}
+
+.item-list__card-image {
+  height: 220px;
+  width: 200px;
+  margin-left:6px;
+}
+.item-image{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+.items-box-overflow:last-of-type {
+  margin-bottom: 40px;
 }
