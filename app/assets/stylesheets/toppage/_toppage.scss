@@ -140,7 +140,7 @@ header{
 }
 
 .slide-banner{
-  background-image: url(app/assets/images/slider_background.jpg);
+  background-image: image-url("slider_background.jpg");
   background-position: center;
   background-size: cover;
   height: 390px;
@@ -278,7 +278,7 @@ ul.slide-content__link-store{
 }
 
 .footer-banner {
-  background-image: url(app/assets/images/footer_background.jpg);
+  background-image: image-url("footer_background.jpg");
   background-position: center;
   background-size: cover;
 }
