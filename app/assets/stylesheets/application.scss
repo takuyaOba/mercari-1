@@ -5,7 +5,6 @@
 @import 'notice';
 @import 'todo';
 @import "./modules/sellpage";
-@import "./modules/show";
 @import "like";
 @import 'exhibition';
 @import 'toppage/variable';
@@ -15,4 +14,5 @@
 @import 'sold_list';
 @import 'logout_page';
 @import 'payment_page';
-@import "./modules/order-confirm";
+@import 'profile_page';
+@import "./modules/show";
