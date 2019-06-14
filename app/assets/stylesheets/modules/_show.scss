@@ -21,7 +21,7 @@ $filefield: #f5f5f5;
     margin: 40px auto 0;
     padding: 24px 0 40px 0;
 
-    h1 {
+    .h1 {
       font-size: 20px;
       text-align: center;
       margin-bottom: 20px;
@@ -68,13 +68,13 @@ $filefield: #f5f5f5;
         }
       }
 
-       ul.image-slide {
+       .ul.image-slide {
         display: inline;
         width: 75px;
         height: 75px;
         padding: 0;
 
-        li {
+        .li {
           list-style-type: none;
 
           img.slide-box {
@@ -96,11 +96,11 @@ $filefield: #f5f5f5;
       border-left: solid 1px #EEEEEE;
       border-right: solid 1px #EEEEEE;
 
-      tr {
+      .tr {
         text-align: left;
       }
 
-      th {
+      .th {
         width: 100px;
         padding-left: 5px;
         font-weight: normal;
@@ -108,17 +108,17 @@ $filefield: #f5f5f5;
         border-bottom: solid 1px #EEEEEE;
       }
 
-      td {
+      .td {
         width: 200px;
         padding-left: 5px;
         border-bottom: solid 1px #EEEEEE;
       }
 
-      p {
+      .p {
         font-size: 20px;
       }
 
-      a {
+      .a {
         text-decoration: none;
       }
     }
@@ -129,7 +129,7 @@ $filefield: #f5f5f5;
       text-align: center;
     }
 
-    span {
+    .span {
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     }
 
@@ -148,7 +148,7 @@ $filefield: #f5f5f5;
     #payjp_checkout_box {
       margin-top: 30px;
 
-      input[type="button"] {
+      i.nput[type="button"] {
         height: 60px;
         width: 600px;
         font-size: 20px;
@@ -185,7 +185,7 @@ $filefield: #f5f5f5;
       height: 280px;
       margin: 0 auto;
 
-      p {
+      .p {
         display: inline-block;
         padding: 8px;
         background-color: #FFFACD ;
@@ -254,9 +254,9 @@ $filefield: #f5f5f5;
     margin: 20px auto 0;
     padding: 24px 0 40px 0;
 
-    h2{
+    .h2{
 
-      a{
+      .a{
         font-size: 20px;
         text-decoration: none;
         color: #0099e8;
@@ -277,7 +277,7 @@ $filefield: #f5f5f5;
         float: left;
         margin:0 0 20px 10px;
 
-        a {
+        .a {
           text-decoration: none;
           color: black;
 
@@ -296,7 +296,7 @@ $filefield: #f5f5f5;
             width: 220px;
             height: 110px;
 
-            h3 {
+            .h3 {
               font-size: 16px;
               text-align: center;
               padding-bottom: 20px;
@@ -312,7 +312,7 @@ $filefield: #f5f5f5;
                 float: left;
               }
 
-              i {
+              .i {
                 float: right;
                 margin-right: 5px;
               }
@@ -324,7 +324,7 @@ $filefield: #f5f5f5;
                 color: black;
               }
 
-              p {
+              .p {
                 font-size: 8px;
                 font-weight: lighter;
                 clear: both;
@@ -337,7 +337,7 @@ $filefield: #f5f5f5;
     }
   }
 
-  footer {
+  .dfooter {
     width: 100%;
     height:300px;
     background-color: white;
@@ -425,7 +425,7 @@ $filefield: #f5f5f5;
   margin: 8px 0 0;
   float: right;
 }
-a {
+.a {
   color: #0099e8;
   text-decoration: none;
 }
@@ -492,7 +492,7 @@ a {
   border-radius: 4px;
   line-height: 44px;
 }
-li {
+.li {
   display: inline-block;
   margin: 0 8px 8px 0;
   vertical-align: middle;
@@ -587,7 +587,7 @@ li {
 }
 
 
-h2 {
+.h2 {
   font-size: 100%;
   font-weight: normal;
 }
