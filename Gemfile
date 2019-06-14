@@ -80,3 +80,5 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'carrierwave'
+gem 'fog-aws'
