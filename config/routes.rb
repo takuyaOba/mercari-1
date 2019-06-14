@@ -5,4 +5,6 @@ root 'items#index'
 resources :items
 resources :users
 
+resources :categorys
+  get "order-confirm" => 'items#order-confirm'
 end
