@@ -2,10 +2,10 @@
 app_path = File.expand_path('../../../', __FILE__)
 
 #アプリケーションサーバの性能を決定する
-worker_processes 1
+worker_processes 4
 
 #アプリケーションの設置されているディレクトリを指定
-working_directory "#{app_path}/current"
+working_directory rails_root
 
 #ポート番号を指定
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
