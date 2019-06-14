@@ -25,5 +25,18 @@ class UsersController < ApplicationController
 
   def sold_list
   end
+
+  def profile
+    @user = User.new
+  end
   
+  def logout_page
+  end
+
+  def payment
+  end
+
+  def show_notice
+  end
+
 end
