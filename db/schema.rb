@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_065809) do
+ActiveRecord::Schema.define(version: 2019_06_15_070221) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 2019_06_15_065809) do
     t.index ["size_category_id"], name: "index_sizes_on_size_category_id"
   end
 
+  create_table "third_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "third_category", null: false
+    t.bigint "second_category_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_third_categories_on_item_id"
+    t.index ["second_category_id"], name: "index_third_categories_on_second_category_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,4 +106,6 @@ ActiveRecord::Schema.define(version: 2019_06_15_065809) do
   add_foreign_key "second_categories", "items"
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"
+  add_foreign_key "third_categories", "items"
+  add_foreign_key "third_categories", "second_categories"
 end
