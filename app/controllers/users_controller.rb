@@ -6,14 +6,8 @@ class UsersController < ApplicationController
   def index
     redirect_to  new_user_registration_path
   end
-
-  def telephone
-  end
-
-  def address
-  end
-
-  def login_payment 
+#ユーザー新規登録画面にてメールアドレス,facebook,googleを選択するviewファイル用。
+  def select
   end
 
 

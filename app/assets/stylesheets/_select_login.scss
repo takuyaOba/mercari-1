@@ -1,0 +1,75 @@
+
+// ロゴ画像に関するcssの記述
+#image-style-footer-logo{
+  height:65px;
+  width:80px;
+}
+#image-style-header-logo{
+  height:60px;
+  width:200px;
+}
+#image-style-logo{
+  height:65px;
+  width:340px;
+}
+
+.select-content{
+  font-family: sans-serif;
+  width: 500px;
+  margin: 0 auto;
+  &__header{
+    height: 100px;  
+    margin: 50px 0 0;
+    text-align: center;
+  }
+  &__main{
+    background-color: white;
+    &__top{
+      text-align: center;
+      line-height: 80px;
+      font-weight:bold;
+      border-bottom: solid 1px #f5f5f5;
+    }
+    &__body{
+      text-align: center;
+      height: 300px;
+      padding-top: 30px;
+        &__content-email{
+          margin-top:20px; 
+          display: block;
+          margin: 0 auto;
+          width: 340px;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          background: #eee;
+        }
+        &__content{
+          padding-bottom: 20px;
+        }
+    }
+  }
+  &__footer{
+    text-align: center;
+    padding-top: 50px;
+      &__ul{
+        margin:0;
+        padding:0;
+        display: flex;
+      }  
+      &__li{
+        display: inline;
+        list-style: none;
+        width: 40%;
+        font-size: 12px; 
+        min-width: 90px;
+      }
+      &__logo{
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      &__name{
+        font-size: 8px;
+      }
+  }
+}

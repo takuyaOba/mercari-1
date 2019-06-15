@@ -17,6 +17,16 @@ ActiveRecord::Schema.define(version: 2019_06_14_073205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+
+    t.bigint "second_category_id"
+    t.bigint "third_category_id"
+    t.bigint "brand_id"
+    t.bigint "size_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["second_category_id"], name: "index_items_on_second_category_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["third_category_id"], name: "index_items_on_third_category_id"
+
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
