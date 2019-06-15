@@ -1,4 +1,5 @@
-# class Prefecture < ActiveHash::Base
+class Prefecture < ActiveHash::Base
+  
 #   self.data = [
 #       {id: 1, city: '北海道'}, {id: 2, city: '青森県'}, {id: 3, city: '岩手県'},
 #       {id: 4, city: '宮城県'}, {id: 5, city: '秋田県'}, {id: 6, city: '山形県'},
@@ -17,4 +18,4 @@
 #       {id: 43, city: '熊本県'}, {id: 44, city: '大分県'}, {id: 45, city: '宮崎県'},
 #       {id: 46, city: '鹿児島県'}, {id: 47, city: '沖縄県'}
 #   ]
-# end
+end
