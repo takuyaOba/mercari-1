@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_063628) do
+ActiveRecord::Schema.define(version: 2019_06_15_065809) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -44,10 +44,30 @@ ActiveRecord::Schema.define(version: 2019_06_15_063628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "second_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "first_category_id"
+    t.bigint "size_category_id"
+    t.bigint "item_id"
+    t.string "second_category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_category_id"], name: "index_second_categories_on_first_category_id"
+    t.index ["item_id"], name: "index_second_categories_on_item_id"
+    t.index ["size_category_id"], name: "index_second_categories_on_size_category_id"
+  end
+
   create_table "size_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "size_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.bigint "size_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["size_category_id"], name: "index_sizes_on_size_category_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,4 +92,8 @@ ActiveRecord::Schema.define(version: 2019_06_15_063628) do
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "second_categories", "first_categories"
+  add_foreign_key "second_categories", "items"
+  add_foreign_key "second_categories", "size_categories"
+  add_foreign_key "sizes", "size_categories"
 end
