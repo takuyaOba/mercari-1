@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_073205) do
+ActiveRecord::Schema.define(version: 2019_06_15_062536) do
+
+  create_table "first_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "status", null: false
+    t.integer "price", null: false
+    t.text "description", null: false
+    t.bigint "first_category_id"
+    t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
