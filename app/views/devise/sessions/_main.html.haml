@@ -6,10 +6,10 @@
 .login-content__main__middle
   .login-content__main__middle__facebook-image
     = link_to new_user_session_path do
-      =image_tag 'login/facebook.png',height:"70",width:"340"
+      =image_tag 'login/facebook.png',id:"image-style-logo"
   .login-content__main__middle__google-image
     = link_to new_user_session_path do
-      =image_tag 'login/google.png',height:"60",width:"340"
+      =image_tag 'login/google.png',id:"image-style-logo"
 .login-content__main__bottom
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     
@@ -28,7 +28,7 @@
      
     .login-content__main__bottom__from
       .login-content__main__bottom__from__tag
-        =image_tag 'login/recapcha.png',height:"90",width:"300"
+        =image_tag 'login/recapcha.png',id:"image-style-recapcha"
         -# = recaptcha_tags
       .login-content__main__bottom__from__sbmit  
         = f.submit "ログイン",class:"login-content__main__bottom__from__sbmit "
