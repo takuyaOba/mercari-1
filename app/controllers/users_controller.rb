@@ -39,4 +39,7 @@ class UsersController < ApplicationController
   def show_notice
   end
 
+  def personal_information
+  end
+
 end
