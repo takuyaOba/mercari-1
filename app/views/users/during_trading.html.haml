@@ -1,3 +1,5 @@
+%header
+  = render "toppage/header"
 %main.mypage
   = render "mypage"
   .during-trading
@@ -31,6 +33,10 @@
                   .state__shipping
                     発送待ち
               %i.material-icons.right keyboard_arrow_right
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"
 -# 出品した商品がない場合
 -#         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
 -#           = image_tag "images.png", class: "image"

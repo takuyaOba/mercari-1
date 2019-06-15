@@ -1,4 +1,5 @@
-
+%header
+  = render "toppage/header"
 %main.mypage
   = render "mypage"
   .mypage__content
@@ -96,3 +97,7 @@
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
           = image_tag "images.png", class: "image"
           %li.mypage-item-not-found.bold 取引中の商品がありません
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"

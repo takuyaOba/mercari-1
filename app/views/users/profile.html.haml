@@ -1,0 +1,21 @@
+%header
+  = render "toppage/header"
+%main.mypage
+  = render "mypage"
+  .profile
+    .profile__contents
+      .profile__contents__title
+        プロフィール
+      .profile__contents__main
+        = form_for @user do |f|
+          .profile__contents__main__title
+            .profile__contents__main__title__figure
+              = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",class: "profile__contents__main__title__figure__image", size: "60x60"
+            = f.text_field :nickname, class: "profile__contents__main__title__name"
+          .profile__contents__main__text
+            = f.text_area :profile, class: "profile__contents__main__text__sentence"
+            = f.submit "変更する", class: "profile__contents__main__text__btn"
+%aside
+  = render "toppage/aside"
+%footer
+  = render "toppage/footer"

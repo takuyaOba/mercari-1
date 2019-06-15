@@ -48,5 +48,5 @@ def move_index
 end
 
 def find_params
-  @item = Item.find(params[:id])
+  
 end
