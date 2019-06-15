@@ -1,0 +1,72 @@
+%header
+  = render "toppage/header"
+%main.mypage
+  = render "mypage"
+  .personal
+    .personal__information
+      .personal__information__title
+        本人情報の登録
+      .personal__information__main
+        .personal__information__main__description
+          .personal__information__main__description__text
+            お客さまの本人情報をご登録ください。
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .personal__information__main__description__description
+            = link_to root_path, class: "personal__information__main__description__description__link" do
+              .personal__information__main__description__description__link__text
+                本人確認書類のアップロードについて
+              %i.material-icons.personal__information__main__description__description__link__icon keyboard_arrow_right
+        .personal__information__main__name
+          .personal__information__main__name__title
+            お名前
+          .personal__information__main__name__name
+            菅谷翼
+        .personal__information__main__kana
+          .personal__information__main__kana__title
+            お名前カナ
+          .personal__information__main__kana__name
+            スガヤツバサ
+        .personal__information__main__birthday
+          .personal__information__main__birthday__title
+            生年月日
+          .personal__information__main__birthday__text
+            1996/05/15
+        .personal__information__main__postal-code
+          .personal__information__main__postal-code__title
+            郵便番号
+          .personal__information__main__postal-code__logo
+            任意
+          .personal__information__main__postal-code__number
+        .personal__information__main__prefectures
+          .personal__information__main__prefectures__title
+            都道府県
+          .personal__information__main__prefectures__logo
+            任意
+          .personal__information__main__prefectures__input
+            .personal__information__main__prefectures__input__text
+            .personal__information__main__prefectures__input__icon
+        .personal__information__main__city
+          .personal__information__main__city__title
+            市区町村
+          .personal__information__main__city__logo
+            任意
+          .personal__information__main__city__text
+        .personal__information__main__address
+          .personal__information__main__address__title
+            番地
+          .personal__information__main__address__logo
+            任意
+          .personal__information__main__address__text
+        .personal__information__main__building
+          .personal__information__main__building__title
+            建物名
+          .personal__information__main__building__logo
+            任意
+          .personal__information__main__building__text
+        .personal__information__main__submit
+          登録する
+        .personal__information__main__commentary
+          = link_to root_path, class: "personal__information__main__commentary__form" do
+            .personal__information__main__commentary__form__text
+              本人情報の登録について
+            %i.material-icons.personal__information__main__commentary__form__text__icon  keyboard_arrow_right
