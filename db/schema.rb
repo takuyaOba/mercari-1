@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_073205) do
+ActiveRecord::Schema.define(version: 2019_06_15_071646) do
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "first_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +30,10 @@ ActiveRecord::Schema.define(version: 2019_06_14_073205) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
 
+    t.integer "status", null: false
+    t.integer "price", null: false
+    t.text "description", null: false
+    t.bigint "first_category_id"
     t.bigint "second_category_id"
     t.bigint "third_category_id"
     t.bigint "brand_id"
@@ -27,6 +43,10 @@ ActiveRecord::Schema.define(version: 2019_06_14_073205) do
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["third_category_id"], name: "index_items_on_third_category_id"
 
+    t.index ["first_category_id"], name: "index_items_on_first_category_id"
+    t.index ["second_category_id"], name: "index_items_on_second_category_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["third_category_id"], name: "index_items_on_third_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -35,6 +55,42 @@ ActiveRecord::Schema.define(version: 2019_06_14_073205) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "second_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "first_category_id"
+    t.bigint "size_category_id"
+    t.bigint "item_id"
+    t.string "second_category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_category_id"], name: "index_second_categories_on_first_category_id"
+    t.index ["item_id"], name: "index_second_categories_on_item_id"
+    t.index ["size_category_id"], name: "index_second_categories_on_size_category_id"
+  end
+
+  create_table "size_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.bigint "size_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["size_category_id"], name: "index_sizes_on_size_category_id"
+  end
+
+  create_table "third_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "third_category", null: false
+    t.bigint "second_category_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_third_categories_on_item_id"
+    t.index ["second_category_id"], name: "index_third_categories_on_second_category_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,5 +114,15 @@ ActiveRecord::Schema.define(version: 2019_06_14_073205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "second_categories"
+  add_foreign_key "items", "sizes"
+  add_foreign_key "items", "third_categories"
   add_foreign_key "items", "users"
+  add_foreign_key "second_categories", "first_categories"
+  add_foreign_key "second_categories", "items"
+  add_foreign_key "second_categories", "size_categories"
+  add_foreign_key "sizes", "size_categories"
+  add_foreign_key "third_categories", "items"
+  add_foreign_key "third_categories", "second_categories"
 end
