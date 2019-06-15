@@ -5,5 +5,4 @@ root 'items#index'
 resources :items
 resources :users
 get "order-confirm", to: "items#order-confirm"
-get "select/signup", to: "users#select"
 end

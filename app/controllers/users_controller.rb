@@ -4,11 +4,9 @@ class UsersController < ApplicationController
 
 #deviseエラー回避用に作成
   def index
-    redirect_to  new_user_registration_path
+   
   end
 #ユーザー新規登録画面にてメールアドレス,facebook,googleを選択するviewファイル用。
-  def select
-  end
 
 
   def show
