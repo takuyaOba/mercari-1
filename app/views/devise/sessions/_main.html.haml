@@ -1,0 +1,36 @@
+.login-content__main__top
+  .login-content__main__top__theme-login-top
+    %p.login-content__main__top__theme-login-top アカウントをお持ちでない方はこちら
+  = link_to "新規会員登録", new_user_registration_path,class:"login-content__main__top__registration"
+
+.login-content__main__middle
+  .login-content__main__middle__facebook-image
+    = link_to new_user_session_path do
+      =image_tag 'login/facebook.png',id:"image-style-logo"
+  .login-content__main__middle__google-image
+    = link_to new_user_session_path do
+      =image_tag 'login/google.png',id:"image-style-logo"
+.login-content__main__bottom
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    
+    .login-content__main__bottom__content-box
+      = f.label :"メールアドレス",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
+      = render 'layouts/notifications'
+    .login-content__main__bottom__content-box 
+      = f.label :"パスワード",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
+      = render 'layouts/notifications'
+     
+    .login-content__main__bottom__from
+      .login-content__main__bottom__from__tag
+        =image_tag 'login/recapcha.png',id:"image-style-recapcha"
+        -# = recaptcha_tags
+      .login-content__main__bottom__from__sbmit  
+        = f.submit "ログイン",class:"login-content__main__bottom__from__sbmit "
+    .login-content__main__bottom__foget-password
+      = render "devise/shared/links"
