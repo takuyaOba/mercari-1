@@ -63,6 +63,8 @@
 |third_category_id|reference|foreign_key:true|
 |brand_id|reference|foreign_key:true|
 |size_id|reference|foreign_key:true|
+|status|iteger|null:false|
+
 ### Association
 - has_many :item_images
 - has_many :likes
