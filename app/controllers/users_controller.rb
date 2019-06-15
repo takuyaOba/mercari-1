@@ -7,6 +7,16 @@ class UsersController < ApplicationController
     redirect_to  new_user_registration_path
   end
 
+  def telephone
+  end
+
+  def address
+  end
+
+  def login_payment 
+  end
+
+
   def show
   end
 
