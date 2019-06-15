@@ -17,4 +17,5 @@ CarrierWave.configure do |config|
 
     config.fog_directory  = 'mercari-52-a'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari-52-a'
+  end
 end
