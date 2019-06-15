@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_071646) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+
     t.integer "status", null: false
     t.integer "price", null: false
     t.text "description", null: false
@@ -38,6 +39,10 @@ ActiveRecord::Schema.define(version: 2019_06_15_071646) do
     t.bigint "brand_id"
     t.bigint "size_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["second_category_id"], name: "index_items_on_second_category_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["third_category_id"], name: "index_items_on_third_category_id"
+
     t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["second_category_id"], name: "index_items_on_second_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
