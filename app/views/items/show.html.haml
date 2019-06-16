@@ -76,6 +76,7 @@
     .item-button-container.clearfix
       .item-button-left
         %button.item-button.item-button-like
+          .fa.fa-heart
           %span.span いいね!
           %span.span.fade-in-down 23
         %a.a.item-button.item-button-report.clearfix
@@ -91,7 +92,7 @@
 
   .Dcomment
     .Dcomment__box
-      %p.p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %p.p.mes 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %textarea.textarea-default{name: "body", type: "text", value: ""}
       %button.send コメントする
   %ul.ul.nav-item-link.clearfix
