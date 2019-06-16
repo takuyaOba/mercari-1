@@ -1,5 +1,6 @@
 @import 'reset';
 @import "font-awesome";
+@import 'new_login';
 @import 'mixin';
 @import 'mypage';
 @import 'notice';
@@ -12,7 +13,11 @@
 @import 'toppage/toppage';
 @import 'during_trading';
 @import 'sold_list';
+
+
 @import 'logout_page';
 @import 'payment_page';
 @import 'profile_page';
+@import 'personal';
 @import "./modules/show";
+@import 'select_login'

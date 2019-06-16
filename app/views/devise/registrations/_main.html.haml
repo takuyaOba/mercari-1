@@ -1,0 +1,75 @@
+.login-content__main__top
+  .login-content__main__top__theme
+    %h2 会員情報登録
+.login-content__main__bottom
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .login-content__main__bottom__content-box
+      = f.label :"ニックネーム",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder:"メルカリ太郎", class:"login-content__main__bottom__content-box__input"
+    .login-content__main__bottom__content-box
+      = f.label :"メールアドレス",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
+    .login-content__main__bottom__content-box 
+      = f.label :"パスワード",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
+    .login-content__main__bottom__content-box
+      = f.label :"パスワード(確認)",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
+    .login-content__main__bottom__content-box
+      %h3.login-content__main__bottom__content-box__theme 本人確認
+      %p.login-content__main__bottom__content-box__note 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    .login-content__main__bottom__content-box
+      = f.label :"姓(全角)",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.text_field :family_name,placeholder:"山田", class:"login-content__main__bottom__content-box__input"
+
+    .login-content__main__bottom__content-box
+      = f.label :"名(全角)",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.text_field :first_name,placeholder:"彩", class:"login-content__main__bottom__content-box__input"
+      
+
+    .login-content__main__bottom__content-box
+      = f.label :"姓カナ (全角)",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.text_field :family_kana,placeholder:"ヤマダ", class:"login-content__main__bottom__content-box__input"
+
+    .login-content__main__bottom__content-box
+      = f.label :"名カナ (全角)",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      %br/
+      = f.text_field :first_kana,placeholder:"アヤ", class:"login-content__main__bottom__content-box__input"
+    .login-content__main__bottom__content-box
+      = f.label :"生年月日",class:"login-content__main__bottom__content-box__text"
+      %span.login-content__main__bottom__content-box__require 必須
+      .login-content__main__bottom__content-box__birthday-select-wrap
+        .login-content__main__bottom__content-box__birthday-select-wrap
+          = f.select :birth_year,[*(1930..2015)],prompt:"選択"
+          %span.login-content__main__bottom__content-box__birthday-select-wrap__text　年
+        .login-content__main__bottom__content-box__birthday-select-wrap
+          = f.select :birth_month,[*(1..12)],prompt:"選択"
+          %span.login-content__main__bottom__content-box__birthday-select-wrap__text　月
+        .login-content__main__bottom__content-box__birthday-select-wrap
+          = f.select :birth_day,[*(1..12)],prompt:"選択"
+          %span.login-content__main__bottom__content-box__birthday-select-wrap__text　日
+    .login-content__main__bottom__from
+      .login-content__main__bottom__from__tag
+      -# = recaptcha_tags
+      .login-content__main__bottom__from__tag  
+        %span.login-content__main__bottom__from__tag「次へ進む」のボタンを押すことにより、
+        = link_to "利用規約に同意したものとみなします","https://www.mercari.com/jp/tos_list/",class:"login-content__main__bottom__from__tag__text"
+      .login-content__main__bottom__from__sbmit  
+        = f.submit "次に進む",class:"login-content__main__bottom__from__sbmit "
+    .login-content__main__bottom__evocation
+      = link_to "本人情報の登録について","https://www.mercari.com/jp/help_center/article/423/",class:"login-content__main__bottom__evocation"

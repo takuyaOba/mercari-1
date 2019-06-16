@@ -4,8 +4,10 @@ class UsersController < ApplicationController
 
 #deviseエラー回避用に作成
   def index
-    redirect_to  new_user_registration_path
+   
   end
+#ユーザー新規登録画面にてメールアドレス,facebook,googleを選択するviewファイル用。
+
 
   def show
   end
@@ -39,4 +41,12 @@ class UsersController < ApplicationController
   def show_notice
   end
 
+  def personal_information
+    @user = User.new
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id)
+  end
 end
