@@ -158,6 +158,15 @@
           margin: 8px 0 0;
           position: relative;
           background-color: #fff;
+          #user_prefecture_id{
+            width: 572px;
+            height: 48px;
+            z-index: 2;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+          }
           &__text{
             width: 572px;
             height: 48px;
