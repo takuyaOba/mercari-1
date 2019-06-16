@@ -54,6 +54,23 @@
                         %label.label
                           カテゴリー
                           %span.span.form--require 必須
+                        .select__wrap
+                          %select.select__default
+                            %option{:value => ""} ---
+                            %option{:value => "1"} レディース
+                            %option{:value => "2"} メンズ
+                            %option{:value => "3"} ベビー・キッズ
+                            %option{:value => "4"} インテリア・住まい・小物
+                            %option{:value => "5"} 本・音楽・ゲーム
+                            %option{:value => "1328"} おもちゃ・ホビー・グッズ
+                            %option{:value => "6"} コスメ・香水・美容
+                            %option{:value => "7"} 家電・スマホ・カメラ
+                            %option{:value => "8"} スポーツ・レジャー
+                            %option{:value => "9"} ハンドメイド
+                            %option{:value => "1027"} チケット
+                            %option{:value => "1318"} 自動車・オートバイ
+                            %option{:value => "10"} その他
+                          %i.icon-arrow-bottom
                         %div.div
                       .form__group
                         %label.label
@@ -89,7 +106,6 @@
                           %span.span.form--require 必須
                         .select__wrap
                           %select.select__default
-                            %option{:value => ""} ---
                             -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name
                           %i.icon-arrow-bottom
                       .form__group
