@@ -12,6 +12,8 @@ class User < ApplicationRecord
   # has_many :flag_items,through: :flags,source: :item
   # belongs_to :rate
   # belongs_to :payment_information
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
 
 
