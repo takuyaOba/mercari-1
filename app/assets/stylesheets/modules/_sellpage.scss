@@ -63,7 +63,7 @@ main {
 
 .sell--upload {
   &__box {
-    width: 620px;
+    
     padding: 40px;
     border-top: 1px solid $bordercolor;
   }
@@ -148,6 +148,12 @@ main {
 .sell__content {
   padding: 40px;
   border-top: 1px solid $bordercolor;
+  
+}
+.sell__content-price {
+  padding: 40px;
+  border-top: 1px solid $bordercolor;
+  height:300px;
 }
 
 .sell-upload-drop-box{
@@ -284,7 +290,8 @@ label {
   & .form__group .l-right {
     width: 50%;
   }
-  .sell__price--input div {
+}
+  .sell__price--input .div {
     display: inline-block;
     width: 80%;
     margin: 0 0 0 5%;
@@ -293,20 +300,27 @@ label {
     margin: 0;
     text-align: right;
   }
-}
+
 
 .sell__btn__box p {
   line-height: 1.5;
   display:inline;
   word-wrap: break-word;
+  font-size:14px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 .sell__content p a {
   color: $lightblue;
   text-decoration: none;
   display:inline;
   word-wrap: break-word;
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
-.sell__price--input div {
+
+.sell__price--input .div {
   display: inline-block;
   width: 80%;
   margin: 0 0 0 5%;
@@ -379,6 +393,7 @@ label {
   line-height: 14px;
   font-size: 12px;
   text-align: center;
+  float:left;
 }
 .clearfix {
   content: "";
@@ -407,3 +422,20 @@ label {
     font-size: 12px;
   }
 }
+
+.sell-form-box{
+  float: right;
+    width: 400px;
+    margin: 0;
+}
+.form-group{
+  margin-top:16px;
+  padding: 0 0 24px;
+  border: 0;
+}
+.dclearfix{
+  padding: 24px 0;
+  border-top: 1px solid #ccc;
+  margin-top:20px;
+}
+

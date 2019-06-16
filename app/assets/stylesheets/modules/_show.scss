@@ -216,12 +216,12 @@ $filefield: #f5f5f5;
         background-color: #A9A9A9;
         color: white;
         margin-top: 5px;
-        font-size: 20px;
+        font-size: 14px;
         margin:10px auto;
         text-align: center;
         line-height: 80px;
         width: 660px;
-        height: 80px;
+        height: 70px;
       }
     }
   }
@@ -377,6 +377,11 @@ $filefield: #f5f5f5;
   border: 1px solid #f5f5f5;
   background: #f5f5f5;
 }
+
+.fa-heart{
+  float:left;
+}
+
 .item-button {
   display: inline-block;
   padding: 8px 16px;
@@ -618,8 +623,7 @@ $filefield: #f5f5f5;
 
     &-info{
       padding:0 10px;
-      height:110px;
-      
+      height:110px;  
 
       &-name{
         overflow: hidden;
@@ -638,6 +642,7 @@ $filefield: #f5f5f5;
 
       &-tax{
         font-size:10px;
+        margin-left:80px;
       }
 
     }
@@ -662,3 +667,11 @@ $filefield: #f5f5f5;
   margin-bottom: 40px;
 }
 
+.mes{
+  font-size:14px;
+}
+
+.num__price{
+  float:right;
+  margin-right:10px;
+}
