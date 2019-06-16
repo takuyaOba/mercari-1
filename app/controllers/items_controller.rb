@@ -15,9 +15,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
-    item = Item.create(params_create)
-    move_index
+    item = Item.create(item_params)
+    redirect_to :index
   end
 
   def show
@@ -39,8 +38,8 @@ end
 
 private
 
-def params_create
-  params.require(:item).permit(:name).merge(user_id: current_user.id)
+def item_params
+  params.require(:item).permit(:name, :description, :price).merge(user_id: current_user.id)
 end
 
 def move_index
