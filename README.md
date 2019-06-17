@@ -13,6 +13,7 @@
 |birth_month|integer|null :false|
 |birth_day|integer|null :false|
 |telephone|string|null :false unique: true|
+|prefecture|string|null: false|
 ### Association
 - has_many :items
 - has_many :orders
@@ -22,7 +23,7 @@
 - has_many :flag_items,through::flags,source::item
 - belongs_to :rate
 - belongs_to :payment_information
-
+- belongs_to_active_hash :prefecture
 
 # ratesテーブル
 |Column|Type|Options|
@@ -64,6 +65,12 @@
 |brand_id|reference|foreign_key:true|
 |size_id|reference|foreign_key:true|
 |status|iteger|null:false|
+|condition|string|null:false|
+|delivery_burden|string|null:false|
+|delivery_way|string|null:false|
+|prefecure|string|null:false|
+|delivery_days|string|null:false|
+
 
 ### Association
 - has_many :item_images
@@ -79,6 +86,11 @@
 - belongs_to :brand
 - belongs_to :size
 - belongs_to :rate,dependent: :destroy
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :burden
+- belongs_to_active_hash :way
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :days
 
 # item_imageテーブル
 |Column|Type|Options|
