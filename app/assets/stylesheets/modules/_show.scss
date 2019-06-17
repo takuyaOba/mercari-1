@@ -209,7 +209,7 @@ $filefield: #f5f5f5;
         background: #fff;
         font-size: 16px;
         line-height: 1.5;
-        margin-top:10px;
+        margin:10px;
     }
 
       .send {
@@ -219,7 +219,6 @@ $filefield: #f5f5f5;
         font-size: 14px;
         margin:10px auto;
         text-align: center;
-        line-height: 80px;
         width: 660px;
         height: 70px;
       }
@@ -674,4 +673,40 @@ $filefield: #f5f5f5;
 .num__price{
   float:right;
   margin-right:10px;
+}
+
+// editの場合のcssを追加
+
+.or{
+  text-align:center;
+  padding:10px 0 0 0 ;
+}
+.ditem-edit-btn {
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 10px 0 0 60px ;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+  font-size: 16px;
+  width:80%;
+  border-radius: 4px;
+}
+
+.ditem-edit-btn-gray {
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 20px 0 0 60px ;
+  background: gray;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+  font-size: 16px;
+  width:80%;
+  border-radius: 4px;
 }
