@@ -1,0 +1,89 @@
+%header
+  = render partial: "toppage/header"
+.default-container
+  %section.section.item-container
+    %h1.h1 商品タイトル
+    .item-container__main-content
+    .item-container__image
+      =image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
+      
+      %ul.ul.image-slide
+        %li.li
+          =image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image",alt:"", class: "slide-box"
+          =image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image",alt:"", class: "slide-box"
+
+    %table.item-container__detail
+      %tbody
+        %tr.tr
+          %th.th 出品者
+          %td.td
+            = link_to "kaw", "https://www.mercari.com/jp/u/221604517/"
+            %div.div
+              .item-user-ratings
+                %i.icon-good
+                %span.span 1272
+              .item-user-ratings
+                %i.icon-normal
+                %span.span 18
+              .item-user-ratings
+                %i.icon-bad
+                %span.span 8
+        %tr.tr
+          %th.th カテゴリー
+          %td.td
+            = link_to "第一",""
+              
+            = link_to "第二",""
+              
+            = link_to "第三",""
+              
+        %tr.tr
+          %th.th ブランド
+          %td.td
+            = link_to "ブランド名",""
+              
+        %tr.tr
+          %th.th 商品のサイズ
+          %td.td M
+        %tr.tr
+          %th.th 商品の状態
+          %td.td 新品、未使用
+        %tr.tr
+          %th.th 配送料の負担
+          %td.td 送料込み(出品者負担)
+        %tr.tr
+          %th.th 配送の方法
+          %td.td らくらくメルカリ便
+        %tr.tr
+          %th.th 配送元地域
+          %td.td
+            = link_to "新潟県" , "https://www.mercari.com/jp/area/15/"
+        %tr.tr
+          %th.th 発送日の目安
+          %td.td 1~2日で発送
+    .item-container__price
+      %span.span.item-price ¥ 77,480
+      %span.span.item-taxIn (税込)
+      %span.span.item-tax-include 送料込み
+    .item-description
+      %p.p.item-description-inner 
+        新品未使用
+        国内正規品
+        シュプリームオンライン購入
+        16FW
+        改行入れるとそのまま反映
+  %section.section.item-container 
+    .item-description
+      = link_to "商品の編集","/items/edit", class:"ditem-edit-btn"
+      %p.p.or or
+      = link_to "商品を一旦停止する","", class:"ditem-edit-btn-gray"
+      = link_to "この商品を削除する","", class:"ditem-edit-btn-gray"
+
+  .Dcomment
+    .Dcomment__box
+      %p.p.mes 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.textarea-default{name: "body", type: "text", value: ""}
+      %button.send コメントする
+
+%footer
+  = render partial: "toppage/footer"
