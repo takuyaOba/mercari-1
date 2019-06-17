@@ -31,8 +31,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = find_params.delete
-    move_index   
+    @items.destroy if @items.user_id == current_user.id
+    flash[:notice] = "商品を削除しました"
+    redirect_to root_path
   end
 end
 
