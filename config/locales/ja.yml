@@ -18,4 +18,6 @@ ja:
     birth_day              : 生まれた日
     prefecture             : 都道府県
     password               : パスワード
-    
+  recaptcha: 
+     errors: 
+       verification_failed: 'reCAPTCHA認証に失敗しました。' 

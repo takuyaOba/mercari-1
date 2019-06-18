@@ -14,7 +14,7 @@
             %div
               .sell__container__inner
                 %h2.h2.sell__head 商品の情報を入力
-                = form_for [@item] do |f|
+                = form_for @item do |f|
                   %form.form.sell-form
                     .sell--upload__box
                       %h3.h3.sell--upload__head
@@ -41,7 +41,7 @@
                           商品の説明
                           %span.form--require 必須
                         %div
-                          -# = f.text_area :description,class: "textarea__default", placeholder:  "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+                          = f.text_area :description,class: "textarea__default", placeholder:  "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
                     .sell__content.clearfix
                       %h3.sell--sub__head 商品の詳細
                       .sell__form__box
@@ -50,7 +50,7 @@
                             カテゴリー
                             %span.span.form--require 必須
                           .select__wrap
-                          -#   = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, class: "select__default" do
+                            = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, class: "select__default" do
                               -# %option{:value => ""} ---
                               -# %option{:value => "1"} レディース
                               -# %option{:value => "2"} メンズ
@@ -72,14 +72,7 @@
                             商品の状態
                             %span.span.form--require 必須
                           .select__wrap
-                            %select.select__default
-                              %option{value: ""} ---
-                              %option{value: "1"} 新品、未使用
-                              %option{value: "2"} 未使用に近い
-                              %option{value: "3"} 目立った傷や汚れなし
-                              %option{value: "4"} やや傷や汚れあり
-                              %option{value: "5"} 傷や汚れあり
-                              %option{value: "6"} 全体的に状態が悪い
+                            = f.collection_select :condition, Condition.all, :name, :name 
                             %i.icon-arrow-bottom
                     .sell__content.clearfix
                       %h3.sell--sub__head 配送について
@@ -101,8 +94,8 @@
                             %span.span.form--require 必須
                           .select__wrap
                             %select.select__default
-                              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-                            %i.icon-arrow-bottom
+                              = f.collection_select :prefecture, Prefecture.all, :name, :name
+                              %i.icon-arrow-bottom
                         .form__group
                           %label.label
                             発送までの日数

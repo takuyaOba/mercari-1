@@ -52,7 +52,7 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price).merge(user_id: current_user.id)
+  params.require(:item).permit(:name, :description, :price, :prefecture).merge(user_id: current_user.id)
 end
 
 def move_index
