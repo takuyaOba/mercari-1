@@ -32,16 +32,28 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @items.destroy if @items.user_id == current_user.id
-    flash[:notice] = "商品を削除しました"
-    redirect_to root_path
+    if @item.user_id == current_user.id
+      @item.destroy
+      flash[:notice] = "商品を削除しました"
+      redirect_to root_path(current_user.id)
+    else
+      flash[:notice] = "削除に失敗しました"
+      redirect_to root_path(current_user.id)
+    end
   end
+
+  def exhibition_edit
+  end
+
+  def order_confirm
+  end
+
 end
 
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price).merge(user_id: current_user.id)
+  params.require(:item).permit(:name, :description, :price, :prefecture).merge(user_id: current_user.id)
 end
 
 def move_index

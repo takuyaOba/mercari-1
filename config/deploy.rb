@@ -16,6 +16,9 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
+set :linked_files, %w{ config/secrets.yml }
+
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
@@ -74,6 +77,8 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
   BASIC_AUTH_USER:ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD:ENV["BASIC_AUTH_PASSWORD"]
+  BASIC_AUTH_PASSWORD:ENV["BASIC_AUTH_PASSWORD"],
+  RECAPTCHA_PUBLIC_KEY:ENV['RECAPTCHA_PUBLIC_KEY'],
+  RECAPTCHA_PRIVATE_KEY:ENV['RECAPTCHA_PRIVATE_KEY'],
 }
 
