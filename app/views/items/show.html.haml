@@ -65,7 +65,8 @@
       %span.span.item-price ¥ 77,480
       %span.span.item-taxIn (税込)
       %span.span.item-tax-include 送料込み
-    = link_to "購入画面に進む","/order-confirm", class:"ditem-buy-btn"
+    = link_to order_confirm_item_path,  class:"ditem-buy-btn" do
+      購入画面に進む
     .item-description
       %p.p.item-description-inner
         新品未使用
