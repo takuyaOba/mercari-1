@@ -44,7 +44,7 @@
             .personal__information__main__prefectures__logo
               任意
             .personal__information__main__prefectures__input
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "personal__information__main__prefectures__input__text"
+              = f.collection_select :prefecture, Prefecture.all, :name, :name, class: "personal__information__main__prefectures__input__text"
               .personal__information__main__prefectures__input__icon
           .personal__information__main__city
             .personal__information__main__city__title
