@@ -15,118 +15,113 @@
               .sell__container__inner
                 %h2.h2.sell__head 商品の情報を入力
                 = form_for @item do |f|
-                  %form.form.sell-form
-                    .sell--upload__box
-                      %h3.h3.sell--upload__head
-                        出品画像
-                        %span.span.form--require 必須
-                      %p 最大10枚までアップロードできます
-                      .sell-dropbox-container.clearfix.state-image-number-10
-                        .sell-upload-items-container
-                          .sell-upload-items.have-item-0
-                            %ul.ul
-                        .sell-upload-drop-box.have-item-0
-                          %input.input.sell-upload-drop-file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                          %pre.pre.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
-                          %i.icon-camera
-                    .sell__content
-                      .form__group
-                        %label.label
-                          商品名
+                  = f.fields_for :item_image do |fin|
+                    %form.form.sell-form
+                      .sell--upload__box
+                        %h3.h3.sell--upload__head
+                          出品画像
                           %span.span.form--require 必須
-                        %div
-                          = f.text_field :name, class: "input__default", placeholder: "商品名（必須 40文字まで)"
+                        %p 最大10枚までアップロードできます
+                        .sell-dropbox-container.clearfix.state-image-number-10
+                          = fin.file_field :image, placeholder: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                  .sell__content
+                    .form__group
+                      %label.label
+                        商品名
+                        %span.span.form--require 必須
+                      %div
+                        = f.text_field :name, class: "input__default", placeholder: "商品名（必須 40文字まで)"
+                    .form__group
+                      %label.label
+                        商品の説明
+                        %span.form--require 必須
+                      %div
+                        = f.text_area :description,class: "textarea__default", placeholder:  "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+                  .sell__content.clearfix
+                    %h3.sell--sub__head 商品の詳細
+                    .sell__form__box
                       .form__group
                         %label.label
-                          商品の説明
-                          %span.form--require 必須
-                        %div
-                          = f.text_area :description,class: "textarea__default", placeholder:  "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
-                    .sell__content.clearfix
-                      %h3.sell--sub__head 商品の詳細
-                      .sell__form__box
-                        .form__group
-                          %label.label
-                            カテゴリー
-                            %span.span.form--require 必須
+                          カテゴリー
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, id: "item_first_category_id"
+                        .select__wrap
+                          = f.collection_select :second_category_id, SecondCategory.all, :id, :second_category, id: "item_second_category_id"
                           .select__wrap
-                            = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, id: "item_first_category_id"
-                          .select__wrap
-                            = f.collection_select :second_category_id, SecondCategory.all, :id, :second_category, id: "item_second_category_id"
-                            .select__wrap
-                            = f.collection_select :third_category_id, ThirdCategory.all, :id, :third_category, id: "item_third_category_id"
-                        .form__group
-                          %label.label
-                            商品の状態
-                            %span.span.form--require 必須
-                          .select__wrap
-                            = f.collection_select :condition_id, Condition.all, :id, :name
-                            %i.icon-arrow-bottom
-                    .sell__content.clearfix
-                      %h3.sell--sub__head 配送について
-                      = link_to '?', "/jp/help_center/article/68/",class: "form__question"
-                      .sell__form__box
-                        .form__group
-                          %label.label
-                            配送料の負担
-                            %span.span.form--require 必須
-                          .select__wrap
-                            = f.collection_select :delivery_burden_id, Burden.all, :id, :name
-                        .form__group
-                          %label.label
-                            配送料の方法
-                            %span.span.form--require 必須
-                          .select__wrap
-                            = f.collection_select :delivery_way_id, Way.all, :id, :name
-                        .form__group
-                          %label.label
-                            発送元の地域
-                            %span.span.form--require 必須
-                          .select__wrap
-                            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, id: "item_prefecture_id"
-                        .form__group
-                          %label.label
-                            発送までの日数
-                            %span.span.form--require 必須
-                          .select__wrap
-                            = f.collection_select :delivery_days_id, Days.all, :id, :name
-                    .sell__content-price.clearfix
-                      %h3.h3.sell--sub__head 販売価格(300〜9,999,999)
-                      = link_to '?', "/jp/help_center/article/68/",class: "form__question"
-                      .sell-form-box
-                        %ul.sell__price
-                          %li.form-group
-                            .clearfix
-                              %label.label.l-left
-                                価格
-                                %span.span.form--require 必須
-                              .l-right.sell__price--input
-                                ¥
-                                %div.div#sellprice
-                                  %input#input__price.input__default{placeholder: "例）300", value: ""}/
-                          %li.dclearfix
-                            .l-left
-                              販売手数料 (10%)
-                            .l-right#output -
-                          %li.dclearfix.bold
-                            .l-left 販売利益
-                            .l-right#output2 -
-                    .sell__content.sell__btn__box
-                      %div
-                        %p.pnote
-                          = link_to '禁止されている出品', "/jp/help_center/getting_started/prohibited_items/"
-                          、
-                          = link_to '行為を必ずご確認ください。', "/jp/help_center/getting_started/prohibited_conduct/"
-                        %p.pnote
-                          またブランド品でシリアルナンバー等がある場合はご記載ください。
-                          = link_to '偽ブランドの販売', "/jp/help_center/getting_started/counterfeit_goods/"
-                          は犯罪であり処罰される可能性があります。
-                        %p.pnote
-                          また、出品をもちまして
-                          = link_to '加盟店規約', "/jp/seller_terms/"
-                          に同意したことになります。
-                      = f.submit "出品する", class: "btn__default btn--red"
-                      %a.btn-default.btn--gray もどる
+                          = f.collection_select :third_category_id, ThirdCategory.all, :id, :third_category, id: "item_third_category_id"
+                      .form__group
+                        %label.label
+                          商品の状態
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :condition_id, Condition.all, :id, :name
+                          %i.icon-arrow-bottom
+                  .sell__content.clearfix
+                    %h3.sell--sub__head 配送について
+                    = link_to '?', "/jp/help_center/article/68/",class: "form__question"
+                    .sell__form__box
+                      .form__group
+                        %label.label
+                          配送料の負担
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_burden_id, Burden.all, :id, :name
+                      .form__group
+                        %label.label
+                          配送料の方法
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_way_id, Way.all, :id, :name
+                      .form__group
+                        %label.label
+                          発送元の地域
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, id: "item_prefecture_id"
+                      .form__group
+                        %label.label
+                          発送までの日数
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_days_id, Days.all, :id, :name
+                  .sell__content-price.clearfix
+                    %h3.h3.sell--sub__head 販売価格(300〜9,999,999)
+                    = link_to '?', "/jp/help_center/article/68/",class: "form__question"
+                    .sell-form-box
+                      %ul.sell__price
+                        %li.form-group
+                          .clearfix
+                            %label.label.l-left
+                              価格
+                              %span.span.form--require 必須
+                            .l-right.sell__price--input
+                              ¥
+                              %div.div#sellprice
+                                %input#input__price.input__default{placeholder: "例）300", value: ""}/
+                        %li.dclearfix
+                          .l-left
+                            販売手数料 (10%)
+                          .l-right#output -
+                        %li.dclearfix.bold
+                          .l-left 販売利益
+                          .l-right#output2 -
+                  .sell__content.sell__btn__box
+                    %div
+                      %p.pnote
+                        = link_to '禁止されている出品', "/jp/help_center/getting_started/prohibited_items/"
+                        、
+                        = link_to '行為を必ずご確認ください。', "/jp/help_center/getting_started/prohibited_conduct/"
+                      %p.pnote
+                        またブランド品でシリアルナンバー等がある場合はご記載ください。
+                        = link_to '偽ブランドの販売', "/jp/help_center/getting_started/counterfeit_goods/"
+                        は犯罪であり処罰される可能性があります。
+                      %p.pnote
+                        また、出品をもちまして
+                        = link_to '加盟店規約', "/jp/seller_terms/"
+                        に同意したことになります。
+                    = f.submit "出品する", class: "btn__default btn--red"
+                    %a.btn-default.btn--gray もどる
                 .overlay
       .dfooter
         %ul.ul
