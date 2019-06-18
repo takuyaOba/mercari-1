@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_06_17_082309) do
+
+ActiveRecord::Schema.define(version: 2019_06_17_100242) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -41,9 +52,16 @@ ActiveRecord::Schema.define(version: 2019_06_17_082309) do
     t.bigint "third_category_id"
     t.bigint "brand_id"
     t.bigint "size_id"
+
     t.bigint "first_category_id"
+
+    t.string "condition", null: false
+    t.string "delivery_burden", null: false
+    t.string "delivery_way", null: false
+    t.string "prefecture", null: false
+    t.string "delivery_days", null: false
+
     t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["second_category_id"], name: "index_items_on_second_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["third_category_id"], name: "index_items_on_third_category_id"
