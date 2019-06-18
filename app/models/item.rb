@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  # has_many :item_images
+  has_many :item_images
   # has_many :likes
   # has_many :flags
   # has_many :like_users,through: :likes, source: :user

@@ -1,13 +1,14 @@
 class ItemsController < ApplicationController
 
    before_action :find_params, only:[:show,:destroy,:edit]
-
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
   def index
-    @items = Item.all
+    @items = Item.includes(:item_images).where(first_category_id: 1).limit(4).order(created_at: :DESC)
+    @images = ItemImage.all
+
   end
 
   def new
@@ -45,8 +46,4 @@ end
 
 def move_index
   redirect_to action: :index
-end
-
-def find_params
-  
 end
