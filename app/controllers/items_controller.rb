@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.item_images.build
   end
 
   def create
@@ -19,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -30,17 +32,19 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
+      redirect_to root_path(current_user.id)
       flash[:notice] = "商品を削除しました"
-      redirect_to root_path(current_user.id)
     else
-      flash[:notice] = "削除に失敗しました"
       redirect_to root_path(current_user.id)
+      flash[:notice] = "削除に失敗しました"
     end
   end
 
   def exhibition_edit
+    
   end
 
   def order_confirm
@@ -51,7 +55,7 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :prefecture).merge(user_id: current_user.id)
+  params.require(:item).permit(:name, :description, :price, :condition, :delivery_burden_id, :delivery_way_id, :delivery_days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
 end
 
 def move_index

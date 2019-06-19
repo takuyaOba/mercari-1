@@ -1,16 +1,19 @@
 .item-list
   %h3.item-list__title レディース新着アイテム
   .item-list__cards
+
+
     - @items.each do |item|
       .item-list__card
         .item-list__card-image{style:"background-image: url(#{item.item_images[0]});"}
         .item-list__card-info
-          .item-list__card-info-name 
+          .item-list__card-info-name
           .item-list__card-info-num
             .num__price= "#{item.price}円"
             .far.fa-heart
               .num-like 5
             %p.item-list__card-info-tax (税込)
+
 .view-all 全ての商品をみる
 
 
@@ -22,9 +25,9 @@
 -#     - @mens.each do |men|
 -#       .item-list__card
 -#         .item-list__card-image
-        
+
 -#         .item-list__card-info
--#           .item-list__card-info-name 
+-#           .item-list__card-info-name
 -#           .item-list__card-info-num
 -#             .num__price= "#{men.price}円"
 -#             .far.fa-heart
@@ -39,9 +42,9 @@
 -#     - @kids.each do |kid|
 -#       .item-list__card
 -#         .item-list__card-image
-        
+
 -#         .item-list__card-info
--#           .item-list__card-info-name 
+-#           .item-list__card-info-name
 -#           .item-list__card-info-num
 -#             .num__price= "#{kid.price}円"
 -#             .far.fa-heart
