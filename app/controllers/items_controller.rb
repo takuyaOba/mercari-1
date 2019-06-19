@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -31,17 +32,19 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
+      redirect_to root_path(current_user.id)
       flash[:notice] = "商品を削除しました"
-      redirect_to root_path(current_user.id)
     else
-      flash[:notice] = "削除に失敗しました"
       redirect_to root_path(current_user.id)
+      flash[:notice] = "削除に失敗しました"
     end
   end
 
   def exhibition_edit
+    
   end
 
   def order_confirm
