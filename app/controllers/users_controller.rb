@@ -2,13 +2,9 @@ class UsersController < ApplicationController
 
 
 
-#deviseエラー回避用に作成
-  def index
-   
+  def index 
   end
-#ユーザー新規登録画面にてメールアドレス,facebook,googleを選択するviewファイル用。
-
-
+  
   def show
   end
 

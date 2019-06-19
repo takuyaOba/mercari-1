@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
 
    before_action :find_params, only:[:show,:destroy,:edit]
-
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
-  def index
-    @items = Item.all
-  end
+    def index
+     @women = Item.display(1)
+     @men = Item.display(2)
+     @kids = Item.display(3)
+    end
 
   def new
     @item = Item.new
@@ -61,8 +62,4 @@ end
 
 def move_index
   redirect_to action: :index
-end
-
-def find_params
-  
 end

@@ -81,4 +81,6 @@ group :development, :test do
 end
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mini_magick'
+
 gem 'recaptcha', require: "recaptcha/rails"

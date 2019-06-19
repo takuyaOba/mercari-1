@@ -1,0 +1,8 @@
+.item-list__card
+  =image_tag (item.item_images.first.image),class:"item-list__card-image"
+  .item-list__card-info
+    .item-list__card-info-name 
+    .item-list__card-info-num
+      .num__price="#{item.price}円"
+      .far.fa-heart
+      %p.item-list__card-info-tax (税込)
