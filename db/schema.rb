@@ -51,10 +51,20 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
     t.integer "delivery_way_id"
     t.integer "delivery_days_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["second_category_id"], name: "index_items_on_second_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["third_category_id"], name: "index_items_on_third_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -129,6 +139,8 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "third_categories"
   add_foreign_key "items", "users"
+  add_foreign_key "likes", "items"
+  add_foreign_key "likes", "users"
   add_foreign_key "second_categories", "first_categories"
   add_foreign_key "second_categories", "items"
   add_foreign_key "second_categories", "size_categories"
