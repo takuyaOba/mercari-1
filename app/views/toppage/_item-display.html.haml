@@ -1,6 +1,16 @@
 
 .item-list
-  %h3.item-list__title 新着アイテム
+  %h3.item-list__title レディースアイテム
   .item-list__cards
-    = render partial:'toppage/list-display', collection: @items,as:"item"
+    = render partial:'toppage/list-display', collection: @women,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title メンズアイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @men,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title ベビー・キッズアイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @kids,as:"item"
   .view-all 全ての商品をみる

@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
   # before_action :set_item, only: [:create, :destroy]
 
+  
+  
   # def create
   #   @like = current_user.likes.create(item_id: params[:item_id])
   #   @items = Item.all

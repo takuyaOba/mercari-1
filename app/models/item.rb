@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  scope :display, ->(category_first){where(first_category_id:(category_first)).order("RAND()").includes(:item_images).limit(4)}
   has_many :item_images
 
 
