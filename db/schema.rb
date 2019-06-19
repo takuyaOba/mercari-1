@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_065805) do
+ActiveRecord::Schema.define(version: 2019_06_19_070418) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -51,10 +51,20 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
     t.integer "delivery_way_id"
     t.integer "delivery_days_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["second_category_id"], name: "index_items_on_second_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["third_category_id"], name: "index_items_on_third_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,7 +128,15 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
     t.integer "birth_day", null: false
     t.text "profile"
     t.integer "prefecture_id"
+    t.string "city", null: false
+    t.string "adress", null: false
+    t.string "building"
+    t.integer "zip_code", null: false
+    t.integer "point_amount"
+    t.integer "profit_amount"
+    t.bigint "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -135,4 +153,5 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
   add_foreign_key "sizes", "size_categories"
   add_foreign_key "third_categories", "items"
   add_foreign_key "third_categories", "second_categories"
+  add_foreign_key "users", "payment_informations"
 end
