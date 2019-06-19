@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.item_images.build
   end
 
   def create
@@ -55,7 +56,7 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :prefecture).merge(user_id: current_user.id)
+  params.require(:item).permit(:name, :description, :price, :condition, :delivery_burden_id, :delivery_way_id, :delivery_days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
 end
 
 def move_index

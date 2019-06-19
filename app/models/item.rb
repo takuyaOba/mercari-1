@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
-  # has_many :item_images
+  has_many :item_images
+  accepts_nested_attributes_for :item_images
+  
   # has_many :likes
   # has_many :flags
   # has_many :like_users,through: :likes, source: :user
@@ -15,8 +17,8 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  # belongs_to_active_hash :condition
-  # # belongs_to_active_hash :burden
-  # # belongs_to_active_hash :way
-  # # belongs_to_active_hash :days
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :burden
+  belongs_to_active_hash :way
+  belongs_to_active_hash :days
 end
