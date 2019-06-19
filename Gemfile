@@ -61,7 +61,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
-gem 'pry-byebug'
 
 gem 'active_hash'
 gem "font-awesome-rails"
@@ -82,3 +81,5 @@ end
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'payjp'
+gem 'pry-rails'

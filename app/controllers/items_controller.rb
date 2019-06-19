@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
    before_action :find_params, only:[:show,:destroy,:edit]
 
+
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -44,14 +45,29 @@ class ItemsController < ApplicationController
     end
   end
 
+  def pay
+    Payjp.api_key = 'sk_test_09b735f6b6e6eb1497c08c82'
+    charge = Payjp::Charge.create(
+    :amount => @item.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+    redirect_to @item, notice:'ありがとうございました。'
+  end
+
   def exhibition_edit
-    
   end
 
   def order_confirm
+    
   end
 
+
+
 end
+
+
+
 
 private
 

@@ -1,4 +1,6 @@
 %main.osingle-main
+  -if flash[:notice]
+    %p= flash[:notice]
   %header.mheader
     %h1.h1
       = link_to root_path do
@@ -22,7 +24,8 @@
         %span.obuy-item__price-cell
           ¥ 1,370
       .obuy-item__btn
-        購入する
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_1033ea7b46f5ffff1846e34b"}
   .obuy-user-info
     .obuy-user-info__delivery 配送先
     .obuy-user_info__zipcode
@@ -30,7 +33,7 @@
     .obuy-user-info__adress
       大阪府ほげほげ市1-2-3
       %br
-      ほげほげお
+      YUI ARAGAKI
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
@@ -38,11 +41,11 @@
   .obuy-user-info
     .obuy-user-info__delivery 支払い方法
     .obuy-user_info__zipcode
-      *********1111
+      4242 4242 4242 4242
     .obuy-user-info__adress
-      04/22
+      12/20 
       %br
-      VISA
+      VISA 123
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right

@@ -8,6 +8,11 @@ Rails.application.routes.draw do
       get 'exhibition_edit'
       get 'order_confirm'
     end
+
+    collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+    
   end
   
   resources :users do
