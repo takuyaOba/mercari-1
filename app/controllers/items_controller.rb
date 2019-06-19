@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
   end
 
     def index
-     @items = Item.where(first_category_id: 1).order(created_at: :DESC).includes(:item_images).limit(4)
+     @women = Item.where(first_category_id: 1).order("RAND()").includes(:item_images).limit(4)
+     @men = Item.where(first_category_id: 2).order("RAND()").includes(:item_images).limit(4)
+     @kids = Item.where(first_category_id: 3).order("RAND()").includes(:item_images).limit(4)
 
     end
 
