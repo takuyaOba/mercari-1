@@ -1,18 +1,14 @@
+
 .item-list
   %h3.item-list__title 新着アイテム
- 
   .item-list__cards
     - @items.each do |item|
-      - item.item_images.each do |image|
-        .item-list__card
-          =image_tag image.image, class:"item-list__card-image"
-          .item-list__card-info
-            .item-list__card-info-name 
-            .item-list__card-info-num
-              .num__price= "#{item.price}円"
-              .far.fa-heart
-              %p.item-list__card-info-tax (税込)
-.view-all 全ての商品をみる
-
-
-
+      .item-list__card
+        =image_tag (item.item_images.first.image),class:"item-list__card-image"
+        .item-list__card-info
+          .item-list__card-info-name 
+          .item-list__card-info-num
+            .num__price="#{item.price}円"
+            .far.fa-heart
+            %p.item-list__card-info-tax (税込)
+  .view-all 全ての商品をみる
