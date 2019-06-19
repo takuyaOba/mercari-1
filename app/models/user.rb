@@ -6,7 +6,9 @@ class User < ApplicationRecord
          
   has_many :items
   # has_many :orders
-  # has_many :likes
+
+   #userが削除されたらそれに紐づくlikeも削除したい
+  has_many :likes
   # has_many :flags
   # has_many :like_items,through: :likes,source: :item
   # has_many :flag_items,through: :flags,source: :item
@@ -17,3 +19,4 @@ class User < ApplicationRecord
 end
 
 
+# , dependent: :destory
