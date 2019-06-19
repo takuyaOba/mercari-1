@@ -2,8 +2,6 @@
   %h3.item-list__title 新着アイテム
  
   .item-list__cards
-
-
     - @items.each do |item|
       - item.item_images.each do |image|
         .item-list__card
@@ -18,45 +16,3 @@
 
 
 
-
-
--#  = image_tag.item, class:"item-list__card-image"
--# .item-list
--#   %h3.item-list__title メンズ新着アイテム
--#   .item-list__cards
--#     - @mens.each do |men|
--#       .item-list__card
--#         .item-list__card-image
-
--#         .item-list__card-info
--#           .item-list__card-info-name
--#           .item-list__card-info-num
--#             .num__price= "#{men.price}円"
--#             .far.fa-heart
--#               .num-like 5
--#             %p.item-list__card-info-tax (税込)
-
--# .view-all 全ての商品をみる
-
--# .item-list
--#   %h3.item-list__title ベビー・キッズアイテム
--#   .item-list__cards
--#     - @kids.each do |kid|
--#       .item-list__card
--#         .item-list__card-image
-
--#         .item-list__card-info
--#           .item-list__card-info-name
--#           .item-list__card-info-num
--#             .num__price= "#{kid.price}円"
--#             .far.fa-heart
--#               .num-like 5
--#             %p.item-list__card-info-tax (税込)
-
--# .view-all 全ての商品をみる
-
-
-
-
--#  = link_to item_path ("show") do
--#           =image_tag "sample_dog.jpg", class:"item-image"
