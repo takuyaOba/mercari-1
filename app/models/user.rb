@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :items
   # has_many :orders
 
-   #userが削除されたらそれに紐づくlikeも削除したい
   has_many :likes
   # has_many :flags
   # has_many :like_items,through: :likes,source: :item

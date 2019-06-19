@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
      @women = Item.display(1)
      @men = Item.display(2)
      @kids = Item.display(3)
+     @like_count = Like.where(item_id: 23).count
     end
 
   def new
