@@ -4,5 +4,5 @@
     .item-list__card-info-name 
     .item-list__card-info-num
       .num__price="#{item.price}円"
-      .far.fa-heart
+      .far.fa-heart= Like.where(item_id: item.id).count
       %p.item-list__card-info-tax (税込)

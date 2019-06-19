@@ -7,7 +7,6 @@ class Item < ApplicationRecord
 
 
   # has_many :likes
-  # itemsが削除されたらそれに紐づくlikeも削除したい
   has_many :likes
 
   # has_many :flags
