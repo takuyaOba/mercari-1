@@ -58,13 +58,6 @@ ActiveRecord::Schema.define(version: 2019_06_19_070418) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "valid_year", null: false
-    t.integer "valid_month", null: false
-    t.integer "cvc", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "user_id"
@@ -72,6 +65,15 @@ ActiveRecord::Schema.define(version: 2019_06_19_070418) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
