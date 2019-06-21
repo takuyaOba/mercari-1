@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def logout_page
   end
 
-  def payment
+  def payment_page
   end
 
   def show_notice
