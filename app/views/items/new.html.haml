@@ -23,7 +23,7 @@
                           %span.span.form--require 必須
                         %p 最大10枚までアップロードできます
                         .sell-dropbox-container.clearfix.state-image-number-10
-                          = fin.file_field :image, placeholder: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                          = fin.file_field :image, multiple: true, placeholder: "ドラッグアンドドロップ またはクリックしてファイルをアップロード",name: "item_images[image][]"
                   .sell__content
                     .form__group
                       %label.label
@@ -48,7 +48,7 @@
                           = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, id: "item_first_category_id"
                         .select__wrap
                           = f.collection_select :second_category_id, SecondCategory.all, :id, :second_category, id: "item_second_category_id"
-                          .select__wrap
+                        .select__wrap
                           = f.collection_select :third_category_id, ThirdCategory.all, :id, :third_category, id: "item_third_category_id"
                       .form__group
                         %label.label
@@ -98,7 +98,7 @@
                             .l-right.sell__price--input
                               ¥
                               %div.div#sellprice
-                                %input#input__price.input__default{placeholder: "例）300", value: ""}/
+                                = f.text_field :price, id: "input__price", placeholder: "例）300",class:"input__default"
                         %li.dclearfix
                           .l-left
                             販売手数料 (10%)

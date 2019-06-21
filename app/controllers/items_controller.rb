@@ -17,9 +17,12 @@ class ItemsController < ApplicationController
     @item.item_images.build
   end
 
-  def create
+  def create 
     item = Item.create(item_params)
-    redirect_to :index
+    params[:item_images][:image].each do |i|
+      item_image = item.item_images.create!(image: i) 
+    end  
+    move_index
   end
 
   def show
@@ -58,9 +61,19 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :description, :price, :condition, :delivery_burden_id, :delivery_way_id, :delivery_days_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
+  params.require(:item).permit(
+    :status,:name,
+    :description, :price,
+    :delivery_burden_id,
+    :delivery_way_id,
+    :first_category_id,
+    :delivery_days_id,:prefecture_id,
+    item_images_attributes: [:image]
+  ).merge(status: 1)
 end
 
 def move_index
   redirect_to action: :index
 end
+
+
