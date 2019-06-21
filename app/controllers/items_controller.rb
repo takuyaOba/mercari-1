@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
      @women = Item.display(1)
      @men = Item.display(2)
      @kids = Item.display(3)
-    
+
     end
 
   def new
@@ -18,11 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def create 
-    item = Item.create(item_params)
-    params[:item_images][:image].each do |i|
-      item_image = item.item_images.create!(image: i) 
-    end  
-    move_index
+    item = Item.new(item_params)
+    if item.save
+      move_index
+    else
+      redirect_to new_item_path
+    end
+
   end
 
   def show
@@ -60,6 +62,8 @@ end
 
 private
 
+
+
 def item_params
   params.require(:item).permit(
     :status,:name,
@@ -68,7 +72,7 @@ def item_params
     :delivery_way_id,
     :first_category_id,
     :delivery_days_id,:prefecture_id,
-    item_images_attributes: [:image]
+    item_images_attributes:[:image]
   ).merge(status: 1)
 end
 
