@@ -30,6 +30,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:address] = params[:session][:address]
     session[:building] = params[:session][:building]
     session[:telephone] = params[:session][:telephone]
+    session[:sender_family_name] = params[:session][:sender_family_name]
+    session[:sender_first_name] = params[:session][:sender_first_name]
+    session[:sender_family_kana] = params[:session][:sender_family_kana]
+    session[:sender_first_kana] = params[:session][:sender_first_kana]
 
   # end
 

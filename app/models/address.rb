@@ -9,5 +9,6 @@ class Address < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :city, presence: true
   validates :address, presence: true
+  validates :building, presence: true
   validates :telephone, format: { with: /\A\d{10}\Z|\A\d{11}\Z/ }, presence: true
 end
