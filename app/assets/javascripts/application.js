@@ -16,6 +16,3 @@
 
 //= require_tree .
 
-
-// jqueryの挙動がおかしかったので、外しています
-// // require turbolinks

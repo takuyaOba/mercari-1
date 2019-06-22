@@ -13,14 +13,13 @@ class Item < ApplicationRecord
   # has_many :flags
   # has_many :like_users,through: :likes, source: :user
   # has_many :flag_users,through: :flags, source: :user
-
-  belongs_to :user
+  # belongs_to :order
+  belongs_to :user, optional: true
   belongs_to :first_category,  dependent: :destroy
   belongs_to :second_category,  dependent: :destroy
   belongs_to :third_category,  dependent: :destroy
-  belongs_to :brand
-  belongs_to :size
-  # belongs_to :order
+  belongs_to :brand, optional: true
+  belongs_to :size, optional: true
   # belongs_to :rate,dependent: :destroy
  
 
