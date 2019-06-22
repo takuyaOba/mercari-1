@@ -15,14 +15,14 @@
               .sell__container__inner
                 %h2.h2.sell__head 商品の情報を入力
                 = form_for @item do |f|
-                  = f.fields_for :item_images do |i|
-                    .form.sell-form
-                      .sell--upload__box
-                        %h3.h3.sell--upload__head
-                          出品画像
-                          %span.span.form--require 必須
-                        %p 最大10枚までアップロードできます
-                        .sell-dropbox-container.clearfix.state-image-number-10
+                  .form.sell-form
+                    .sell--upload__box
+                      %h3.h3.sell--upload__head
+                        出品画像
+                        %span.span.form--require 必須
+                      %p 最大10枚までアップロードできます
+                      .sell-dropbox-container.clearfix.state-image-number-10
+                        = f.fields_for :item_images do |i|
                           = i.file_field :image, placeholder:"ドラッグアンドドロップ またはクリックしてファイルをアップロード"
                   .sell__content
                     .form__group
