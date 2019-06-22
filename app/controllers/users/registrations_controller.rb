@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def credit
     session[:zip_code] = params[:session][:zip_code]
-    session[:prefecture] = params[:session][:prefecture]
+    session[:prefecture_id] = params[:session][:prefecture_id]
     session[:city] = params[:session][:city]
     session[:address] = params[:session][:address]
     session[:building] = params[:session][:building]
@@ -54,6 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.address = @user.build_address(
       zip_code: session[:zip_code],
       city: session[:city],
+      prefecture_id: session[:prefecture_id],
       address: session[:address],
       building: session[:building],
       telephone: session[:telephone]
