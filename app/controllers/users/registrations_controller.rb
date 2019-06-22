@@ -57,7 +57,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       prefecture_id: session[:prefecture_id],
       address: session[:address],
       building: session[:building],
-      telephone: session[:telephone]
+      telephone: session[:telephone],
+      sender_family_name: session[:sender_family_name],
+      sender_first_name: session[:sender_first_name],
+      sender_family_kana: session[:sender_family_kana],
+      sender_first_kana: session[:sender_first_kana],
     )
     # @user.credit = @user.build_credit(
     #   token: token

@@ -6,15 +6,15 @@
       = f.label :"お名前",class:"login-content__main__bottom__content-box__text"
       %span.login-content__main__bottom__content-box__require 必須
       %br/
-      = f.text_field :family_name, value: session[:family_name], class:"login-content__main__bottom__content-box__input"
-      = f.text_field :first_name,value: session[:first_name], class:"login-content__main__bottom__content-box__input"
+      = f.text_field :senderfamily_name, value: session[:family_name], class:"login-content__main__bottom__content-box__input"
+      = f.text_field :sender_first_name,value: session[:first_name], class:"login-content__main__bottom__content-box__input"
 
     .login-content__main__bottom__content-box
       = f.label :"お名前カナ",class:"login-content__main__bottom__content-box__text"
       %span.login-content__main__bottom__content-box__require 必須
       %br/
-      = f.text_field :family_kana,value: session[:family_kana], class:"login-content__main__bottom__content-box__input"
-      = f.text_field :first_kana,value: session[:first_kana], class:"login-content__main__bottom__content-box__input"
+      = f.text_field :sender_family_kana,value: session[:family_kana], class:"login-content__main__bottom__content-box__input"
+      = f.text_field :sender_first_kana,value: session[:first_kana], class:"login-content__main__bottom__content-box__input"
 
     .login-content__main__bottom__content-box
       = f.label :"郵便番号",class:"login-content__main__bottom__content-box__text"
