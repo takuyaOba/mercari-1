@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       get 'exhibition_edit'
       get 'order_confirm'
     end
+    collection do
+      get 'second'
+      get 'third'
+    end
   end
   
   resources :users do
