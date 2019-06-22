@@ -82,3 +82,4 @@ end
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'jquery-rails'
