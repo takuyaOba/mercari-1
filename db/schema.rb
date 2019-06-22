@@ -12,6 +12,23 @@
 
 ActiveRecord::Schema.define(version: 2019_06_21_093324) do
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.string "zip_code", null: false
+    t.string "point_amount"
+    t.string "profit_amount"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "prefecture_id_id"
+    t.integer "prefecture_id"
+    t.string "telephone"
+    t.index ["prefecture_id_id"], name: "index_addresses_on_prefecture_id_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -132,19 +149,13 @@ ActiveRecord::Schema.define(version: 2019_06_21_093324) do
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
     t.text "profile"
-    t.integer "prefecture_id"
-    t.string "city", null: false
-    t.string "adress", null: false
-    t.string "building"
-    t.integer "zip_code", null: false
-    t.integer "point_amount"
-    t.integer "profit_amount"
     t.bigint "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "first_categories"
