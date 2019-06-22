@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_070418) do
+ActiveRecord::Schema.define(version: 2019_06_20_111751) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.string "zip_code", null: false
+    t.string "point_amount"
+    t.string "profit_amount"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "prefecture_id_id"
+    t.integer "prefecture_id"
+    t.string "telephone"
+    t.index ["prefecture_id_id"], name: "index_addresses_on_prefecture_id_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -58,13 +75,6 @@ ActiveRecord::Schema.define(version: 2019_06_19_070418) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "valid_year", null: false
-    t.integer "valid_month", null: false
-    t.integer "cvc", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "user_id"
@@ -72,6 +82,15 @@ ActiveRecord::Schema.define(version: 2019_06_19_070418) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_likes_on_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -134,19 +153,13 @@ ActiveRecord::Schema.define(version: 2019_06_19_070418) do
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
     t.text "profile"
-    t.integer "prefecture_id"
-    t.string "city", null: false
-    t.string "adress", null: false
-    t.string "building"
-    t.integer "zip_code", null: false
-    t.integer "point_amount"
-    t.integer "profit_amount"
     t.bigint "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "first_categories"

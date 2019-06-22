@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_one :address
   # has_many :orders
 
    #userが削除されたらそれに紐づくlikeも削除したい

@@ -1,8 +1,28 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   resources :likes
   root 'items#index'
+
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+    passwords: "users/passwords",
+  },
+                     skip: %i[sessions registrations]
+  as :user do
+    # ログイン
+    get 'login' => 'users/sessions#new', as: :new_user_session
+    post 'login' => 'users/sessions#create', as: :user_session
+    # ログアウト
+    delete 'logout' => 'users/sessions#destroy', as: :destroy_user_session
+    # サインアップ
+    get 'signup' => 'users/registrations#signup'
+    get "/signup/registration" => "users/registrations#new"
+    post "signup/address" => "users/registrations#address"
+    post "signup/credit" => "users/registrations#credit"
+    post "/signup/completed" => "users/registrations#create"
+    get "/signup/done" => "users/registrations#done"
+  end
 
   resources :items do
     member do
@@ -12,6 +32,7 @@ Rails.application.routes.draw do
   end
   
   resources :users do
+
     member do
       get 'during_trading'
     end

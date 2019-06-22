@@ -41,8 +41,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  
+
   private
   def user_params
-    params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id)
+    params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id, :city, :adress, :building, :zip_code, :point_amount, :profile_amount, :payment_information_id)
   end
 end
