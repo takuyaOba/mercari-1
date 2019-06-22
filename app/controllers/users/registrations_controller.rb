@@ -2,7 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   # prepend_before_action :check_captcha, only: [:create]
-  # prepend_before_action :customize_sign_up_params, only: [:address]
+  prepend_before_action :customize_sign_up_params, only: [:address]
 
   def new
   end
@@ -49,9 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birth_month: session[:birth_month],
       birth_year: session[:birth_year]
     )
-    @user.save!
-
-    binding.pry
+    @user.save
 
     @user.address = @user.build_address(
       zip_code: session[:zip_code],
