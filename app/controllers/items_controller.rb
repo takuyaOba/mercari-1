@@ -1,14 +1,16 @@
 class ItemsController < ApplicationController
 
    before_action :find_params, only:[:show,:destroy,:edit]
-
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
-  def index
-    @items = Item.all
-  end
+    def index
+     @women = Item.display(1)
+     @men = Item.display(2)
+     @kids = Item.display(3)
+
+    end
 
   def new
     @item = Item.new
@@ -31,9 +33,13 @@ class ItemsController < ApplicationController
     end
   end
   
-  def create
-    item = Item.create(item_params)
-    redirect_to controller: :items, action: :index
+  def create 
+    item = Item.new(item_params)
+    if item.save
+      move_index
+    else
+      redirect_to new_item_path
+    end
   end
 
   def show
@@ -71,6 +77,8 @@ end
 
 private
 
+
+
 def item_params
   params.require(:item).permit(:name, :description, :price, :condition_id, :delivery_burden_id, :delivery_way_id, :delivery_days_id, :prefecture_id,  :first_category_id, :second_category_id, :third_category_id, images_attributes: [:image]).merge(status: 1)
 end
@@ -79,6 +87,4 @@ def move_index
   redirect_to action: :index
 end
 
-def find_params
-  
-end
+

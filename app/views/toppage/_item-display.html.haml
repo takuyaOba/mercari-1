@@ -1,46 +1,16 @@
-.item-list
-  %h3.item-list__title 仮置き
-  .item-list__cards
 
-    .item-list__card
-      .item-list__card-image
-        = link_to item_path (3) do
-          =image_tag "sample_dog.jpg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-    .item-list__card
-      .item-list__card-image
-        =image_tag "sample_dog.jpg", class:"item-image"
-      .item-list__card-info
-        .item-list__card-info-name 犬うううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううううう
-        .item-list__card-info-num
-          .num__price ￥500円
-          .far.fa-heart
-            .num-like 5
-          %p.item-list__card-info-tax (税込)
-.view-all 全ての商品をみる
+.item-list
+  %h3.item-list__title レディースアイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @women,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title メンズアイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @men,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title ベビー・キッズアイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @kids,as:"item"
+  .view-all 全ての商品をみる
