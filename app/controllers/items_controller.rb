@@ -14,12 +14,16 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.item_images.build
+    3.times{@item.item_images.build}
+   
   end
 
   def create 
+   
     item = Item.new(item_params)
+
     if item.save
+
       move_index
     else
       redirect_to new_item_path
@@ -36,6 +40,7 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.update(params_create)
+   
     move_index
   end
 
@@ -72,6 +77,7 @@ def item_params
     :delivery_way_id,
     :first_category_id,
     :delivery_days_id,:prefecture_id,
+    # item_images_attributes:[:image]
     item_images_attributes:[:image]
   ).merge(status: 1)
 end
@@ -79,5 +85,3 @@ end
 def move_index
   redirect_to action: :index
 end
-
-

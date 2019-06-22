@@ -1,9 +1,10 @@
 class Item < ApplicationRecord
   scope :display, ->(category_first){where(first_category_id:(category_first)).order("RAND()").includes(:item_images).limit(4)}
 
-  has_many :item_images,inverse_of: :item
+  has_many :item_images
   accepts_nested_attributes_for :item_images
-  validates :price, presence: true
+  validates :name,:description, presence: true
+
 
 
 
@@ -14,12 +15,12 @@ class Item < ApplicationRecord
   # has_many :like_users,through: :likes, source: :user
   # has_many :flag_users,through: :flags, source: :user
 
-  belongs_to :user
-  belongs_to :first_category,  dependent: :destroy
-  belongs_to :second_category,  dependent: :destroy
-  belongs_to :third_category,  dependent: :destroy
-  belongs_to :brand
-  belongs_to :size
+  belongs_to :user,optional: true
+  belongs_to :first_category,  dependent: :destroy,optional: true
+  belongs_to :second_category,  dependent: :destroy,optional: true
+  belongs_to :third_category,  dependent: :destroy,optional: true
+  belongs_to :brand,optional: true
+  belongs_to :size,optional: true 
   # belongs_to :order
   # belongs_to :rate,dependent: :destroy
  
