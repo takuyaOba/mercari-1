@@ -13,13 +13,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # common callback method
   def callback_for(provider)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    provider = provider.to_s
+
+    @user = User.find_for_oauth(request.env["omniauth.auth"])
+
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
       session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to new_user_registration_url
+      session[:uid] = session["devise.#{provider}_data"][:uid]
+      session[:provider] = session["devise.#{provider}_data"][:provider]
+      session[:facebook_email] = session["devise.#{provider}_data"][:info][:email]
+      session[:name] = session["devise.#{provider}_data"][:info][:name]
+      redirect_to signup_registration_path controller: 'registration', action: 'new'
     end
   end
 

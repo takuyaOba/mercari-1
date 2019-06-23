@@ -98,6 +98,6 @@ gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'jquery-rails'
 gem 'mini_magick'
-
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

@@ -19,6 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_day] = params[:session][:birth_day]
     session[:birth_month] = params[:session][:birth_month]
     session[:birth_year] = params[:session][:birth_year]
+
+
   end
 
   def credit
@@ -49,7 +51,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       first_kana: session[:first_kana],
       birth_day: session[:birth_day],
       birth_month: session[:birth_month],
-      birth_year: session[:birth_year]
+      birth_year: session[:birth_year],
+      uid: session[:uid],
+      provider: session[:provider]
     )
     @user.save
 
@@ -88,7 +92,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation family_name first_name family_kana first_kana birth_day birth_month birth_year city address building zip_code telephone]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation family_name first_name family_kana first_kana birth_day birth_month birth_year city address building zip_code telephone uid provider]
   end
 
   # def check_captcha
