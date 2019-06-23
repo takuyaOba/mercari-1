@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :items
   has_one :address
@@ -32,6 +32,34 @@ class User < ApplicationRecord
   # belongs_to :payment_information
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    user ||= User.create(
+      uid: auth.uid,
+      provider: auth.provider,
+      nickname: User.dummy_nickname(auth),
+      email: User.dummy_email(auth),
+      password: Devise.friendly_token[0, 20]
+    )
+
+    user
+ end
+
+  private
+
+  def self.dummy_email(auth)
+    if auth.provider == "facebook" # facebook時の処理
+      "#{auth.uid}-#{auth.provider}@example.com"
+    else
+      auth.info.email.to_s
+    end
+  end
+
+  def self.dummy_nickname(auth)
+    auth.info.name.to_s
+  end
 end
 
 
