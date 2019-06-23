@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_06_22_073453) do
 ActiveRecord::Schema.define(version: 2019_06_21_093324) do
 
 
@@ -26,6 +27,10 @@ ActiveRecord::Schema.define(version: 2019_06_21_093324) do
     t.bigint "prefecture_id_id"
     t.integer "prefecture_id"
     t.string "telephone"
+    t.string "sender_family_name", null: false
+    t.string "sender_first_name", null: false
+    t.string "sender_family_kana", null: false
+    t.string "sender_first_kana", null: false
     t.index ["prefecture_id_id"], name: "index_addresses_on_prefecture_id_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
