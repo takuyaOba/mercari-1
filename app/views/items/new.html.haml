@@ -15,15 +15,15 @@
               .sell__container__inner
                 %h2.h2.sell__head 商品の情報を入力
                 = form_for @item do |f|
-                  = f.fields_for :item_image do |fin|
-                    .form.sell-form
-                      .sell--upload__box
-                        %h3.h3.sell--upload__head
-                          出品画像
-                          %span.span.form--require 必須
-                        %p 最大10枚までアップロードできます
-                        .sell-dropbox-container.clearfix.state-image-number-10
-                          = fin.file_field :image, placeholder: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                  .form.sell-form
+                    .sell--upload__box
+                      %h3.h3.sell--upload__head
+                        出品画像
+                        %span.span.form--require 必須
+                      %p 最大10枚までアップロードできます
+                      .sell-dropbox-container.clearfix.state-image-number-10
+                        = f.fields_for :item_images do |i|
+                          = i.file_field :image, placeholder:"ドラッグアンドドロップ またはクリックしてファイルをアップロード"
                   .sell__content
                     .form__group
                       %label.label
@@ -45,21 +45,19 @@
                           カテゴリー
                           %span.span.form--require 必須
                         .select__wrap
-                          = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, id: "item_first_category_id"
-                        .select__wrap
-                          = f.collection_select :second_category_id, SecondCategory.all, :id, :second_category, id: "item_second_category_id"
-                          .select__wrap
-                          = f.collection_select :third_category_id, ThirdCategory.all, :id, :third_category, id: "item_third_category_id"
+                          = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, {prompt:'---'},id: "item_first_category_id"
+                        #select__wrap2
+                        #select__wrap3
                       .form__group
                         %label.label
                           商品の状態
                           %span.span.form--require 必須
                         .select__wrap
-                          = f.collection_select :condition_id, Condition.all, :id, :name
+                          = f.collection_select :condition_id, Condition.all, :id, :name,{prompt:'---'}
                           %i.icon-arrow-bottom
                   .sell__content.clearfix
                     %h3.sell--sub__head 配送について
-                    = link_to '?', "/jp/help_center/article/68/",class: "form__question"
+                    = link_to '?', "https://www.mercari.com/jp/help_center/article/68/",class: "form__question"
                     .sell__form__box
                       .form__group
                         %label.label
@@ -87,7 +85,7 @@
                           = f.collection_select :delivery_days_id, Days.all, :id, :name
                   .sell__content-price.clearfix
                     %h3.h3.sell--sub__head 販売価格(300〜9,999,999)
-                    = link_to '?', "/jp/help_center/article/68/",class: "form__question"
+                    = link_to '?', "https://www.mercari.com/jp/help_center/article/64/",class: "form__question"
                     .sell-form-box
                       %ul.sell__price
                         %li.form-group
@@ -98,7 +96,7 @@
                             .l-right.sell__price--input
                               ¥
                               %div.div#sellprice
-                                %input#input__price.input__default{placeholder: "例）300", value: ""}/
+                                = f.text_field :price, id: "input__price", placeholder: "例）300",class:"input__default"
                         %li.dclearfix
                           .l-left
                             販売手数料 (10%)
@@ -109,16 +107,16 @@
                   .sell__content.sell__btn__box
                     %div
                       %p.pnote
-                        = link_to '禁止されている出品', "/jp/help_center/getting_started/prohibited_items/"
+                        = link_to '禁止されている出品', "https://www.mercari.com/jp/help_center/article/64/"
                         、
-                        = link_to '行為を必ずご確認ください。', "/jp/help_center/getting_started/prohibited_conduct/"
+                        = link_to '行為を必ずご確認ください。', "https://www.mercari.com/jp/help_center/article/64/"
                       %p.pnote
                         またブランド品でシリアルナンバー等がある場合はご記載ください。
-                        = link_to '偽ブランドの販売', "/jp/help_center/getting_started/counterfeit_goods/"
+                        = link_to '偽ブランドの販売', "https://www.mercari.com/jp/help_center/article/64/"
                         は犯罪であり処罰される可能性があります。
                       %p.pnote
                         また、出品をもちまして
-                        = link_to '加盟店規約', "/jp/seller_terms/"
+                        = link_to '加盟店規約', "https://www.mercari.com/jp/help_center/article/64/"
                         に同意したことになります。
                     = f.submit "出品する", class: "btn__default btn--red"
                     %a.btn-default.btn--gray もどる

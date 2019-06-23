@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
    #userが削除されたらそれに紐づくlikeも削除したい
   has_many :likes
+  has_many :likes,  dependent: :destroy
   # has_many :flags
   # has_many :like_items,through: :likes,source: :item
   # has_many :flag_items,through: :flags,source: :item
