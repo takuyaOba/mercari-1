@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
   end
 
-
   def address
     session[:nickname] = params[:session][:nickname]
     session[:email] = params[:session][:email]
@@ -20,7 +19,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_day] = params[:session][:birth_day]
     session[:birth_month] = params[:session][:birth_month]
     session[:birth_year] = params[:session][:birth_year]
-
   end
 
   def credit
