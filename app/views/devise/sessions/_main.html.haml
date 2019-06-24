@@ -1,36 +1,35 @@
-.login-content__main__top
-  .login-content__main__top__theme-login-top
-    %p.login-content__main__top__theme-login-top アカウントをお持ちでない方はこちら
-  = link_to "新規会員登録",  users_path,class:"login-content__main__top__registration"
+.login-dec-content__main__top
+  .login-dec-content__main__top__theme-login-dec-top
+    アカウントをお持ちでない方はこちら
+    = link_to "新規会員登録",  users_path,class:"login-content__main__top__registration"
 
-.login-content__main__middle
-  .login-content__main__middle__facebook-image
-    = link_to new_user_session_path do
-      =image_tag 'login/facebook.png',id:"image-style-logo"
-  .login-content__main__middle__google-image
-    = link_to new_user_session_path do
-      =image_tag 'login/google.png',id:"image-style-logo"
-.login-content__main__bottom
+.login-dec-content__main__body__content
+  .login-dec-content__main__body__content__facebook
+    = link_to user_facebook_omniauth_authorize_path ,id:"image-style-logo-facebook"do
+      Facebookでログイン
+  .login-dec-content__main__body__content__google
+    = link_to user_google_oauth2_omniauth_authorize_path,id:"image-style-logo-google"do
+      Googleでログイン
+
+
+
+.login-dec-content__main__bottom
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     
-    .login-content__main__bottom__content-box
-      = f.label :"メールアドレス",class:"login-content__main__bottom__content-box__text"
-      %span.login-content__main__bottom__content-box__require 必須
+    .login-dec-content__main__bottom__content-box
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
+      = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"メールアドレス", class:"login-dec-content__main__bottom__content-box__input"
       = render 'layouts/notifications'
-    .login-content__main__bottom__content-box 
-      = f.label :"パスワード",class:"login-content__main__bottom__content-box__text"
-      %span.login-content__main__bottom__content-box__require 必須
+    .login-dec-content__main__bottom__content-box 
       %br/
-      = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
+      = f.password_field :password, autocomplete: "new-password",placeholder:"パスワード", class:"login-dec-content__main__bottom__content-box__input"
       = render 'layouts/notifications'
      
-    .login-content__main__bottom__from
-      .login-content__main__bottom__from__tag
+    .login-dec-content__main__bottom__from
+      .login-dec-content__main__bottom__from__tag
         =image_tag 'login/recapcha.png',id:"image-style-recapcha"
         -# = recaptcha_tags
-      .login-content__main__bottom__from__sbmit  
-        = f.submit "ログイン",class:"login-content__main__bottom__from__sbmit "
-    .login-content__main__bottom__foget-password
+      .login-dec-content__main__bottom__from__sbmit  
+        = f.submit "ログイン",class:"login-dec-content__main__bottom__from__sbmit "
+    .login-dec-content__main__bottom__foget-password
       = render "devise/shared/links"

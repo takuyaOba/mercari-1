@@ -99,3 +99,9 @@ gem 'payjp'
 gem 'pry-rails'
 gem "jquery-rails"
 gem 'mini_magick'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+
