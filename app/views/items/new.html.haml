@@ -20,10 +20,11 @@
                       %h3.h3.sell--upload__head
                         出品画像
                         %span.span.form--require 必須
-                      %p 最大10枚までアップロードできます
+                      %p 最大5枚までアップロードできます
                       .sell-dropbox-container.clearfix.state-image-number-10
+                      %label
                         = f.fields_for :item_images do |i|
-                          = i.file_field :image, placeholder:"ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                          = i.file_field :image
                   .sell__content
                     .form__group
                       %label.label
