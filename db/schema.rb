@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_065805) do
+ActiveRecord::Schema.define(version: 2019_06_23_034547) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "customer_id"
+    t.string "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,10 +59,38 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
     t.integer "delivery_way_id"
     t.integer "delivery_days_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["first_category_id"], name: "index_items_on_first_category_id"
     t.index ["second_category_id"], name: "index_items_on_second_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["third_category_id"], name: "index_items_on_third_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "payment_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "customer_id"
+    t.integer "card_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,7 +154,15 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
     t.integer "birth_day", null: false
     t.text "profile"
     t.integer "prefecture_id"
+    t.string "city", null: false
+    t.string "adress", null: false
+    t.string "building"
+    t.integer "zip_code", null: false
+    t.integer "point_amount"
+    t.integer "profit_amount"
+    t.bigint "payment_information_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -129,10 +173,13 @@ ActiveRecord::Schema.define(version: 2019_06_18_065805) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "third_categories"
   add_foreign_key "items", "users"
+  add_foreign_key "likes", "items"
+  add_foreign_key "likes", "users"
   add_foreign_key "second_categories", "first_categories"
   add_foreign_key "second_categories", "items"
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"
   add_foreign_key "third_categories", "items"
   add_foreign_key "third_categories", "second_categories"
+  add_foreign_key "users", "payment_informations"
 end

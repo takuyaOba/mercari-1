@@ -45,15 +45,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def pay
-    Payjp.api_key = 'sk_test_09b735f6b6e6eb1497c08c82'
-    charge = Payjp::Charge.create(
-    :amount => @item.price,
-    :card => params['payjp-token'],
-    :currency => 'jpy',
-    )
-    redirect_to @item, notice:'ありがとうございました。'
-  end
 
   def exhibition_edit
   end

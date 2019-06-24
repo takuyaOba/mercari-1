@@ -83,3 +83,6 @@ gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'payjp'
 gem 'pry-rails'
+gem "jquery-rails"
+gem 'payjp'
+
