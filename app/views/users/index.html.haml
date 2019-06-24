@@ -4,19 +4,19 @@
       = link_to root_path do
         = image_tag 'header_icon.png',id:"image-style-header-logo"
   .select-content__main
-
     .select-content__main__top
       %h2.select-content__main__top 新規会員登録
     .select-content__main__body  
       .select-content__main__body__content
-        = link_to "メールアドレスで登録", signup_registration_path,class:"select-content__main__body__content-email"
-
-      .select-content__main__body__content
-        = link_to user_facebook_omniauth_authorize_path do
-          =image_tag 'login/facebook.png',id:"image-style-logo"
-      .select-content__main__body__content
-        = link_to user_google_oauth2_omniauth_authorize_path do
-          =image_tag 'login/google.png',id:"image-style-logo"  
+        .select-content__main__body__content__email
+          = link_to signup_registration_path,id:"image-style-logo-email"do
+            メールアドレスで登録
+        .select-content__main__body__content__facebook
+          = link_to user_facebook_omniauth_authorize_path ,id:"image-style-logo-facebook"do
+            Facebookで登録 
+        .select-content__main__body__content__google
+          = link_to user_google_oauth2_omniauth_authorize_path,id:"image-style-logo-google"do
+            Googleで登録 
 
 
   .select-content__footer
