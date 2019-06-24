@@ -36,9 +36,11 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
-    item.save
-  
-    move_index
+    if item.save
+      move_index
+    else
+      redirect_to new_item_path
+    end
   end
 
   def show
