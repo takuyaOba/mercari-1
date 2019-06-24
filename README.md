@@ -13,7 +13,16 @@
 |birth_month|integer|null :false|
 |birth_day|integer|null :false|
 |telephone|string|null :false unique: true|
-|prefecture|string|null: false|
+|prefecture_id|reference|foreign_key: true|
+|city|string|null:false|
+|adress|string|null:false|
+|building|string|	
+|zip_code|integer|null:false|
+|reset_password_token|string|	
+|reset_password_sent_at|dyatime|	
+|point_amount|integer|	
+|profit_amount|integer|	
+|payment_information_id|reference|foreign_key: true|
 ### Association
 - has_many :items
 - has_many :orders
@@ -201,3 +210,5 @@ belongs_to :item
 |user_id|reference|null:false,foreign_key:ture|
 ### Association
 - belongs_to :user,dependent: :destroy
+
+

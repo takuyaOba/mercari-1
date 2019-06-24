@@ -2,13 +2,9 @@ class UsersController < ApplicationController
 
 
 
-#deviseエラー回避用に作成
-  def index
-   
+  def index 
   end
-#ユーザー新規登録画面にてメールアドレス,facebook,googleを選択するviewファイル用。
-
-
+  
   def show
   end
 
@@ -35,7 +31,7 @@ class UsersController < ApplicationController
   def logout_page
   end
 
-  def payment
+  def payment_page
   end
 
   def show_notice
@@ -45,8 +41,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  
+
   private
   def user_params
-    params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id)
+    params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id, :city, :adress, :building, :zip_code, :point_amount, :profile_amount, :payment_information_id)
   end
 end
