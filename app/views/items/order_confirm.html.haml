@@ -1,6 +1,4 @@
 %main.osingle-main
-  -if flash[:notice]
-    %p= flash[:notice]
   %header.mheader
     %h1.h1
       = link_to root_path do
@@ -24,8 +22,7 @@
         %span.obuy-item__price-cell
           ¥ 1,370
       .obuy-item__btn
-      = form_tag(action: :pay, method: :post) do
-        %button 購入する
+        購入する
   
     .obuy-user-info__delivery 配送先
     .obuy-user_info__zipcode
