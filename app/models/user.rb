@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :cards
 
 
-  # has_many :orders
+
 
   validates :nickname, presence: true
   validates :family_name, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: "名 に数字や特殊文字は使用できません" }, presence: true
