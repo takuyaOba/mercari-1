@@ -15,18 +15,6 @@
       %br/
       = f.email_field :email, value: session[:facebook_email], autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
 
-    .login-content__main__bottom__content-box 
-      = f.label :"パスワード",class:"login-content__main__bottom__content-box__text"
-      %span.login-content__main__bottom__content-box__require 必須
-      %br/
-      = f.password_field :password, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
-    
-    .login-content__main__bottom__content-box
-      = f.label :"パスワード(確認)",class:"login-content__main__bottom__content-box__text"
-      %span.login-content__main__bottom__content-box__require 必須
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"6文字以上", class:"login-content__main__bottom__content-box__input"
-    
     .login-content__main__bottom__content-box
       %h3.login-content__main__bottom__content-box__theme 本人確認
       %p.login-content__main__bottom__content-box__note 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
