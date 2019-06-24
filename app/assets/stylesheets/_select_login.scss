@@ -8,14 +8,22 @@
   height:60px;
   width:200px;
 }
-#image-style-logo{
-  height:65px;
-  width:340px;
+#image-style-logo-facebook{
+  color: white;
+  margin-top: 10px;
+}
+#image-style-logo-google{
+  color: black;
+  margin-top: 10px;
+}
+#image-style-logo-email{
+  color: black;
+  margin-top: 10px;
 }
 
 .select-content{
   font-family: sans-serif;
-  width: 500px;
+  width: 700px;
   margin: 0 auto;
   &__header{
     height: 100px;  
@@ -33,7 +41,7 @@
     &__body{
       text-align: center;
       height: 300px;
-      padding-top: 30px;
+      padding: 64px;
         &__content-email{
           margin-top:20px; 
           display: block;
@@ -46,6 +54,33 @@
         }
         &__content{
           padding-bottom: 20px;
+          &__email{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            background: #eee;
+          }
+          &__facebook{
+            height: 50px;
+            width:320px;
+            background-color: #385185;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            text-align: center;
+          }
+          &__google{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            border: #979797 solid 1px;
+            color: #333;     
+            text-align: center;
+          }
         }
     }
   }

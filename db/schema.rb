@@ -153,6 +153,8 @@ ActiveRecord::Schema.define(version: 2019_06_23_061852) do
     t.integer "point_amount"
     t.integer "profit_amount"
     t.bigint "payment_information_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

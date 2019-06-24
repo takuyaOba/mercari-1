@@ -7,12 +7,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
   end
 
-
   def address
     session[:nickname] = params[:session][:nickname]
     session[:email] = params[:session][:email]
-    session[:password] = params[:session][:password]
-    session[:password_confirmation] = params[:session][:password_confirmation]
     session[:family_name] = params[:session][:family_name]
     session[:first_name] = params[:session][:first_name]
     session[:family_kana] = params[:session][:family_kana]
@@ -20,6 +17,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_day] = params[:session][:birth_day]
     session[:birth_month] = params[:session][:birth_month]
     session[:birth_year] = params[:session][:birth_year]
+    
+    if params[:session][:password] = ""
+      session[:password] = "Devise.friendly_token.first(6)"
+      session[:password_confirmation] = "Devise.friendly_token.first(6)"
+    else
+      session[:password] = params[:session][:password]
+      session[:password_confirmation] = params[:session][:password_confirmation]
+    end
+
 
   end
 
@@ -51,7 +57,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       first_kana: session[:first_kana],
       birth_day: session[:birth_day],
       birth_month: session[:birth_month],
-      birth_year: session[:birth_year]
+      birth_year: session[:birth_year],
+      uid: session[:uid],
+      provider: session[:provider]
     )
     @user.save
 
@@ -90,7 +98,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation family_name first_name family_kana first_kana birth_day birth_month birth_year city address building zip_code telephone]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation family_name first_name family_kana first_kana birth_day birth_month birth_year city address building zip_code telephone uid provider]
   end
 
   # def check_captcha
