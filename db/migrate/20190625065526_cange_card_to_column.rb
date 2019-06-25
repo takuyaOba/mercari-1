@@ -1,4 +1,4 @@
-class ChangeColumnToCard < ActiveRecord::Migration[5.2]
+class CangeCardToColumn < ActiveRecord::Migration[5.2]
   def change
     change_column :cards, :user_id, :integer, null: true
     change_column :cards, :customer_id, :string, null: true
