@@ -26,6 +26,7 @@ class PurchasesController < ApplicationController
     :currency => 'jpy', #日本円
     )
     redirect_to(done_card_purchases_path) #完了画面に移動
+    @item.update(status: 1)
   end
 
   private
