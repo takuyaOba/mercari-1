@@ -21,18 +21,19 @@
             .y-list-boxs-icon  
               .y-item-user-ratings
                 %i.icon-good=image_tag ("show/icon_good"),width:18,heigh:18
-                %span.y-span 100
+                %span.y-span=@good
               .y-item-user-ratings
                 %i.icon-normal=image_tag ("show/icon_soso"),width:20,heigh:20
-                %span.y-span 100
+                %span.y-span=@usually
               .y-item-user-ratings
                 %i.icon-bad=image_tag ("show/icon_bad"),width:20,heigh:20
-                %span.y-span 100
+                %span.y-span=@bad
         %tr.tr
           %th.th カテゴリー
           %td.td
-           
-              
+            .first_category=@item.first_category.first_category
+            .second_category=@item.second_category.second_category
+            .third_category=@item.third_category.third_category     
         %tr.tr
           %th.th ブランド
           %td.td
@@ -40,13 +41,13 @@
               
         %tr.tr
           %th.th 商品のサイズ
-          %td.td 
+          %td.td
         %tr.tr
           %th.th 商品の状態
           %td.td=@item.condition.name
         %tr.tr
           %th.th 配送料の負担
-          %td.td
+          %td.td=@item.delivery_way.name
         %tr.tr
           %th.th 配送の方法
           %td.td らくらくメルカリ便
@@ -55,7 +56,7 @@
           %td.td=@item.prefecture.name
         %tr.tr
           %th.th 発送日の目安
-          %td.td
+          %td.td=@item.delivery_days.name
     .item-container__price
       %span.span.item-price=@item.price
       %span.span.item-taxIn (税込)
@@ -89,9 +90,9 @@
       %button.send コメントする
   %ul.ul.nav-item-link.clearfix
     %li.li.nav-item-link--prev
-      = link_to "<< 前の商品",item_path
+     
     %li.li.nav-item-link--next
-      =  link_to "次の商品>>",item_path
+     
   .item-social-media-box
     .text-center
     %ul.ul.social-media
@@ -110,10 +111,10 @@
   .items-in-user-profile
     %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
       %h2.h2.items-box-head
-        =link_to "ユーザーの名前を入れる", "https://www.mercari.com/jp/u/221604517/"
+        =link_to @user.name,""
         .items-box-content.clearfix
           .item-list__cards
-            -@items.each do |i|
+            -@exhibiton_items.each do |i|
               .item-list__card
                 .item-list__card-image
                   =image_tag (i.item_images.first.image.to_s),height:"220" ,width:"200" ,class:"item-image"

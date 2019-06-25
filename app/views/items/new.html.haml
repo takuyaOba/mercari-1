@@ -71,7 +71,7 @@
                           配送料の方法
                           %span.span.form--require 必須
                         .select__wrap
-                          = f.collection_select :delivery_way_id, Way.all, :id, :name
+                          = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
                       .form__group
                         %label.label
                           発送元の地域
@@ -83,7 +83,7 @@
                           発送までの日数
                           %span.span.form--require 必須
                         .select__wrap
-                          = f.collection_select :delivery_days_id, Days.all, :id, :name
+                          = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name
                   .sell__content-price.clearfix
                     %h3.h3.sell--sub__head 販売価格(300〜9,999,999)
                     = link_to '?', "https://www.mercari.com/jp/help_center/article/64/",class: "form__question"

@@ -18,12 +18,23 @@ class ItemsController < ApplicationController
 
   def show
     @item.likes
+    #この商品を投稿したユーザーが誰なのかIDを取得
+    @user =  Item.find(params[:id])
     #ユーザーが投稿した商品を全て取得
-    # # user =  User.find(params[:id])
-    # # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
-    # @exhibiton_items = user.items.where(status: 1)
-    #仮で準備。ユーザーIDが発行できるまで
-    @items = Item.all.order(created_at: :DESC).limit(3)
+    items = Item.where(user_id: @user)  
+    # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
+    @exhibiton_items = items.where(status: 1)
+   
+    # 評価を表示するロジックの実装
+    rate = Rate.all
+    rates = rate.where(user_id: @user.id)
+  
+    @good  = rate.where(value:1).count
+    @usually  = rate.where(value:2).count
+    @bad  = rate.where(value:3).count
+
+   
+ 
   end
 
   def create
