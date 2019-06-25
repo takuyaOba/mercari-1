@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
 
+
+   before_action :find_params, only:[:show,:destroy,:edit]
    before_action :set_item,only:[:show]
+
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -71,14 +74,21 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def exhibition_edit
 
   end
 
   def order_confirm
+    
   end
 
+
+
 end
+
+
+
 
 private
 

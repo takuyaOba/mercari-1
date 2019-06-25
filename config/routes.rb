@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :likes
+
   root 'items#index'
 
   devise_for :users, controllers: {
@@ -30,10 +32,12 @@ Rails.application.routes.draw do
       get 'exhibition_edit'
       get 'order_confirm'
     end
+
     collection do
       get 'second'
       get 'third'
     end
+
   end
   
   resources :users do
@@ -55,6 +59,29 @@ Rails.application.routes.draw do
       get 'personal_information'
     end
   end
+
+  resources :cards do
+    member do
+      post 'delete'
+      
+    end
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      post "new" , to: "cards#new"
+      
+    end
+    
+    resources :purchases, only: [:index] do
+      collection do
+        post 'pay', to: 'purchases#pay'
+        get 'done', to: 'purchases#done'
+      end
+    end
+    
+  end
+
 
 end
 

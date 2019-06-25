@@ -1,4 +1,6 @@
 %main.osingle-main
+  -if flash[:notice]
+    %p= flash[:notice]
   %header.mheader
     %h1.h1
       = link_to root_path do
@@ -10,7 +12,7 @@
       = image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image"
     .obuy-item__name.obold
       貴重！【相澤仁美】雑誌付録DVD 4枚
-    %form.obuy-item__box
+    .obuy-item__box
       .obuy-item__price.obold
         ¥ 1,370
         %span.obuy-item__shipping-fee
@@ -21,9 +23,9 @@
         支払い金額
         %span.obuy-item__price-cell
           ¥ 1,370
-      .obuy-item__btn
-        購入する
-  
+      = form_tag(action: :pay, method: :post) do
+        %button.obuy-item__btn 購入する
+  .obuy-user-info
     .obuy-user-info__delivery 配送先
     .obuy-user_info__zipcode
       〒123-4567
@@ -38,11 +40,12 @@
   .obuy-user-info
     .obuy-user-info__delivery 支払い方法
     .obuy-user_info__zipcode
-      4242 4242 4242 4242
-    .obuy-user-info__adress
-      12/20 
-      %br
-      VISA 123
+    - if @default_card_information.blank?
+      %br /
+    - else
+      -#以下カード情報を表示
+      = "**** **** **** " + @default_card_information.last4
+    %br
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
