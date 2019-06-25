@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
+
    before_action :find_params, only:[:show,:destroy,:edit]
+   before_action :set_item,only:[:show]
 
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
@@ -10,13 +12,30 @@ class ItemsController < ApplicationController
      @women = Item.display(1)
      @men = Item.display(2)
      @kids = Item.display(3)
-
     end
 
   def new
     @item = Item.new
     5.times{@item.item_images.build}
+  end
 
+  def show
+    @item.likes
+    #ユーザーが投稿した商品を全て取得
+    # # user =  User.find(params[:id])
+    # # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
+    # @exhibiton_items = user.items.where(status: 1)
+    #仮で準備。ユーザーIDが発行できるまで
+    @items = Item.all.order(created_at: :DESC).limit(3)
+  end
+
+  def create
+    item = Item.new(item_params)
+    if item.save
+      move_index
+    else
+      redirect_to new_item_path
+    end
   end
 
   def second
@@ -35,25 +54,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def create
-    item = Item.new(item_params)
-    if item.save
-      move_index
-    else
-      redirect_to new_item_path
-    end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def edit
   end
 
   def update
     item = Item.update(params_create)
-
     move_index
   end
 
@@ -104,6 +109,11 @@ def item_params
   :third_category_id,
   :status,
   item_images_attributes:[:image])
+
+end
+
+def set_item
+  @item = Item.find(params[:id])
 end
 
 def move_index
