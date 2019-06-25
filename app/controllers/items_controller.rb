@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-   
+   before_action :set_item
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -17,17 +17,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-  @item = Item.find(params[:id])
-  @like = Like.where(item_id: params[:id])
-  
-  #ユーザーが投稿した商品を全て取得
-  @user_items =  Item.where(user_id: params[:id])
-  
-  # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
-  @exhibiton_items = @user_items.where(status: 1)
-
-  #仮で準備。ユーザーIDが発行できるまで
-  @itemss = Item.all.order(created_at: :DESC).limit(3)
+    @item.likes
+    #ユーザーが投稿した商品を全て取得
+    user =  User.find(params[:id])
+    # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
+    @exhibiton_items = user.items.where(status: 1)
+    #仮で準備。ユーザーIDが発行できるまで
+    @items = Item.all.order(created_at: :DESC).limit(3)
   end
 
   def create
@@ -104,6 +100,10 @@ def item_params
   :status,
   item_images_attributes:[:image])
 
+end
+
+def set_item
+  @item = Item.find(params[:id])
 end
 
 def move_index
