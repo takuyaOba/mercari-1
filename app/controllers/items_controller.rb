@@ -21,12 +21,14 @@ class ItemsController < ApplicationController
 
   def show
     @item.likes
-    #ユーザーが投稿した商品を全て取得
-    # # user =  User.find(params[:id])
-    # # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
-    # @exhibiton_items = user.items.where(status: 1)
-    #仮で準備。ユーザーIDが発行できるまで
-    @items = Item.all.order(created_at: :DESC).limit(3)
+    # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
+    @exhibiton_items =  Item.where(user_id: @item.user_id, status: 1)
+    
+    # 評価を表示するロジックの実装
+    rates     = Rate.where(user_id:@item.user_id)
+    @good     = rates.where(value:1).count
+    @usually  = rates.where(value:2).count
+    @bad      = rates.where(value:3).count
   end
 
   def create

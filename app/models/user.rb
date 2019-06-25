@@ -24,15 +24,13 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
 
-
-   #userが削除されたらそれに紐づくlikeも削除したい
-  has_many :likes
   has_many :likes,  dependent: :destroy
   # has_many :flags
-  # has_many :like_items,through: :likes,source: :item
-  # has_many :flag_items,through: :flags,source: :item
-  # belongs_to :rate
-  # belongs_to :payment_information
+  has_many :like_items,through: :likes,source: :item
+  has_many :flag_items,through: :flags,source: :item
+  belongs_to :rate
+  belongs_to :payment_information
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
@@ -59,8 +57,4 @@ class User < ApplicationRecord
   def self.dummy_nickname(auth)
     "#{auth.info.name}"
   end
-end
-
-
-
-# , dependent: :destory
+ end
