@@ -113,7 +113,7 @@
         =link_to "ユーザーの名前を入れる", "https://www.mercari.com/jp/u/221604517/"
         .items-box-content.clearfix
           .item-list__cards
-            -@itemss.each do |i|
+            -@items.each do |i|
               .item-list__card
                 .item-list__card-image
                   =image_tag (i.item_images.first.image.to_s),height:"220" ,width:"200" ,class:"item-image"
