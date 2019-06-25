@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   def show
     @item.likes
-    #この商品を投稿したユーザーが誰なのかIDを取得
+    #詳細ページの商品の情報を追加
     @user =  Item.find(params[:id])
     #ユーザーが投稿した商品を全て取得
     items = Item.where(user_id: @user)  
