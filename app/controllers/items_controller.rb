@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 
 
-   before_action :find_params, only:[:show,:destroy,:edit]
    before_action :set_item,only:[:show]
 
    rescue_from ActiveRecord::RecordInvalid do |exception|

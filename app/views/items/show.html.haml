@@ -2,15 +2,21 @@
   = render partial: "toppage/header"
 .default-container
   %section.section.item-container
-    %h1.h1 商品タイトル
+    %h1.h1 
+      = @item.name
     .item-container__main-content
-    .item-container__image
-      =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
-      
-      %ul.ul.image-slide
-        %li.li
-          -  @item.item_images.each do |image|
-            = image_tag (image.image.to_s),id:"y-box",class: "slide-box"
+      .item-container__image
+        - if @item.status == 1
+          .item-sold-out-badge
+          .sold-text
+            SOLD
+        =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
+        
+        %ul.ul.image-slide
+          %li.li
+            -  @item.item_images.each do |image|
+              = image_tag (image.image.to_s),id:"y-box",class: "slide-box"
+
     %table.item-container__detail
       %tbody
         %tr.tr
@@ -61,8 +67,13 @@
       %span.span.item-price=@item.price
       %span.span.item-taxIn (税込)
       %span.span.item-tax-include 送料込み
-    = link_to order_confirm_item_path,  class:"ditem-buy-btn" do
-      購入画面に進む
+    - if @item.status == 0
+      = link_to "/purchase/index/items/#{@item.id}",  class:"ditem-buy-btn" do
+        購入画面に進む
+    -else
+      .ditem-edit-btn-gray
+        売り切れました
+
     .item-description
       %p.p.item-description-inner
         =@item.description  

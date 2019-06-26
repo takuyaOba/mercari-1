@@ -73,15 +73,17 @@ Rails.application.routes.draw do
       
     end
     
-    resources :purchases, only: [:index] do
-      collection do
-        post 'pay', to: 'purchases#pay'
-        get 'done', to: 'purchases#done'
-      end
-    end
+
     
   end
 
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index/items/:id', to: 'purchases#index'
+      post 'pay/items/:id', to: 'purchases#pay'
+      get 'done/items', to: 'purchases#done'
+    end
+  end
 
 end
 
