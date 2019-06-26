@@ -9,12 +9,13 @@
     購入を確定しますか？
   .obuy-item
     .obuy-item__image
-      = image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image"
+      =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
     .obuy-item__name.obold
-      貴重！【相澤仁美】雑誌付録DVD 4枚
+      = @item.name
     .obuy-item__box
       .obuy-item__price.obold
-        ¥ 1,370
+        ¥ 
+        = @item.price
         %span.obuy-item__shipping-fee
           送料込み
       .obuy-item__toggle
@@ -22,7 +23,8 @@
       .obuy-item__cell
         支払い金額
         %span.obuy-item__price-cell
-          ¥ 1,370
+          ¥ 
+          = @item.price
       = form_tag(action: :pay, method: :post) do
         %button.obuy-item__btn 購入する
   .obuy-user-info
