@@ -116,9 +116,15 @@ header{
     display: inline-block;
     float: right;
     &-new{
+      float: left;
+      @include btn();
+    }
+    &-new_user{
       color:$white;
       float: left;
       @include btn();
+      background: $red;
+      border: 1px solid $red;
     }
 
     &-login{
@@ -126,8 +132,17 @@ header{
       border: 1px solid $light-blue;
       color: $light-blue;
       @include btn();
+      
+      
     }
   }
+}
+
+.new_user{
+  color:white;
+}
+.login_user{
+  color:$light-blue;
 }
 
 .header-link {
@@ -571,3 +586,5 @@ list-style: none;
   font-size: 70px;
   color: $white;
   }
+
+  
