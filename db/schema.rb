@@ -108,6 +108,14 @@ ActiveRecord::Schema.define(version: 2019_06_25_065526) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rates_on_user_id"
+  end
+
   create_table "second_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "first_category_id"
     t.bigint "size_category_id"
@@ -178,6 +186,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_065526) do
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "rates", "users"
   add_foreign_key "second_categories", "first_categories"
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"
