@@ -3,8 +3,6 @@ $(function(){
     e.preventDefault();
     var input = $(this).data('id');
     var parent2 = $(this).parents('.item__image__change__field').remove().attr('id');
-    console.log(parent2)
-    console.log(input)
     $.ajax({
       type: 'get',
       url: '/item_images',

@@ -66,10 +66,11 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    # @image = @item.item_images
-    # @image.update(params[:image].to_h)
-    move_index
+    if @item.update(item_params)
+      move_index
+    else
+      redirect_to edit_item_path
+    end
   end
 
   def destroy

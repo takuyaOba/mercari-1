@@ -60,7 +60,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :item_images
+  resources :item_images, only: [:index]
 
   resources :cards do
     member do
