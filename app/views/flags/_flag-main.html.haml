@@ -1,0 +1,17 @@
+%h2.flag-main__head 商品の報告
+.flag-main__main
+  .flag-main__main__item-label
+  %h3.flag-main__main__item-label 対象商品
+  .flag-main__main__item-box
+    = image_tag (@item.item_images.first.image.to_s),class:"flag-main__main__item-box__image"
+    %h4.flag-main__main__item-box__item-theme=@item.name
+  .flag-main__main__flags-select
+    %p.flag-main__main__flags-select__wrap__info-text
+      %br不適切な商品の報告に基づいて随時
+      %br事務局でチェックさせていただき対応してまいります。
+      %br特に返答はいたしませんがご了承ください
+    =flag_judgment
+  
+
+
+

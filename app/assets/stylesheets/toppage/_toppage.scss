@@ -55,6 +55,16 @@ header {
 
   .material-icons.header{
     color:red;
+    padding-bottom: 20px;
+    cursor: pointer;
+    &:hover{
+      .header-under__left-word {
+      color:$light-blue;
+      }
+      ul.category li{
+        font-weight: 50;
+      }
+    }
   }
 
   .search-icon{
@@ -89,6 +99,7 @@ header{
       display: inline-block;
       font-size: 18px;
       margin:0 11px;
+
     }
     
     &-word{
@@ -97,19 +108,23 @@ header{
       vertical-align: 40%;
       font-weight: bold;
       color: $black;
+      
     }
   }
 
   &__right{
     display: inline-block;
     float: right;
-
     &-new{
-      background: $red;
-      border: 1px solid $red;
+      float: left;
+      @include btn();
+    }
+    &-new_user{
       color:$white;
       float: left;
       @include btn();
+      background: $red;
+      border: 1px solid $red;
     }
 
     &-login{
@@ -117,10 +132,122 @@ header{
       border: 1px solid $light-blue;
       color: $light-blue;
       @include btn();
+      
+      
     }
   }
 }
+
+.new_user{
+  color:white;
+}
+.login_user{
+  color:$light-blue;
+}
+
+.header-link {
+  padding: 0 14px;
+  float:left;
+}
+
+.far, .fa-check{
+  font-size: 20px;
+  color: #ccc;
+  padding:2px;
+}
+
+.fa-tag{
+  color:red;
+}
  
+ul.category{
+  top:100px;
+  left:130px;
+  color: black;
+  width: 224px;
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+  
+}
+
+ul.category li{
+  padding: 0 16px;
+  line-height: 40px;
+  overflow: hidden;
+  height: 0;
+}
+
+ul.category_s{
+  top: 0;
+  bottom: 0;
+  left: 224px;
+  width: 224px;
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+  height:0;
+  &li{
+    font-size: 14px;
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+ul.category_t{
+  top: 0;
+  left: 224px;
+  width: 320px;
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+  &li{
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+.material-icons.header:hover > .header-under__left-word > ul.category > li{
+  overflow: visible;
+  height: 40px;
+  
+}
+
+ul.category li:hover{
+background-color: #ea352d;
+color:white;
+}
+
+ul.category li:hover > ul.category_s {
+  height: 100%;
+  color:black
+}
+
+ul.category li:hover > ul.category_s > li {
+  overflow: visible;
+  height: 27px;
+  line-height: 27px;
+}
+ul.category_s li:hover{
+  background-color: #f5f5f5;
+  color:black;
+  }
+
+ul.category_s li:hover > ul.category_t {
+  height: 100%;
+}
+
+ul.category_s li:hover > ul.category_t > li {
+  overflow: visible;
+  height: 27px;
+  line-height: 27px;
+}
+
+
+
 .moving-display{
   text-align: center;
   background: #e4e1e1;
@@ -459,3 +586,5 @@ list-style: none;
   font-size: 70px;
   color: $white;
   }
+
+  

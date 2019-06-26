@@ -26,43 +26,84 @@
     &__top{
       text-align: center;
       margin-top:30px;
-      height: 150px;
-      border-bottom: solid 1px #f5f5f5;
+      height: 97px;
         &__theme{
-          padding: 30px 16px;
-          font-size: 20px;
           font-weight: bold;
+          padding: 32px 16px;
+          font-size: 22px;
           border-bottom: solid 1px #f5f5f5;
         }
         &__theme-login-top{
-          font-size:15px;
-          padding-top:10px;
+          padding: 40px 64px;
         }
         &__registration{
           display: block;
-          margin: 30px 180px 0;
+          margin: 0 auto;
+          height: 50px;
+          width: 320px;
           border: 1px solid #0099e8;
           background: #0099e8;
           color: #fff;
           line-height: 40px;
         }
     }
-    &__middle{
-      height:140px;
-      margin-left:180px;
-      
+    &__body{
+      text-align: center;
+      height: 300px;
+      padding: 64px;
+        &__content-email{
+          margin-top:20px; 
+          display: block;
+          margin: 0 auto;
+          width: 340px;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          background: #eee;
+        }
+        &__content{
+          padding: 32px 64px 0 64px;
+          &__email{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            background: #eee;
+          }
+          &__facebook{
+            height: 50px;
+            width:320px;
+            background-color: #385185;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            text-align: center;
+          }
+          &__google{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            padding-top: 17px;
+            border: #979797 solid 1px;
+            color: #333;     
+            text-align: center;
+          }
+        }
     }
+      
     &__bottom{
+      max-width: 320px;;
+      margin:0 auto;
+      padding-bottom:40px;
       &__foget-password{
-        margin-left: 90px;
-        margin-top: 10px;
-        color: blue;  
+        margin: 40px 0 0;
+        color: #0099e8;
+        text-align: left;
+
       }
       &__content-box{
-        padding-bottom: 15px;
-        padding-top: 15px;
-        margin-left: 180px;
-        margin-right:180px;
+        margin-top: 40px;
           &__note{
             font-size: 15px;
             padding-top:10px;
@@ -103,7 +144,7 @@
           } 
         }
         &__input{
-          height: 40px;
+          height: 48px;
           margin-left:0;
           margin-right:0;  
           padding: 10px 16px 8px;
@@ -112,30 +153,28 @@
           background: #fff;
           line-height: 1.5;
           font-size: 16px;
-          width: 340px;
+          width: 320px;
         }
       }
       &__from{
-        margin-right: 180px;
-        margin-left: 180px;
+        text-align: center;
         &__sbmit{
           width: 100%;
           color: white;
-          background: red;
+          background: #ea352d;
           line-height:4;
         }
         &__tag{
           line-height: 2;
             &__text{
-              color: blue;
+              color: #0099e8;;
               text-align: center;
             }
         }
       }
       &__evocation{
         margin-top: 50px;
-        margin-left: 180px;
-        color: blue;
+        color: #0099e8;;
       }
     }
   }

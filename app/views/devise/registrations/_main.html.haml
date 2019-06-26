@@ -7,14 +7,14 @@
       = f.label :"ニックネーム",class:"login-content__main__bottom__content-box__text"
       %span.login-content__main__bottom__content-box__require 必須
       %br/
-      = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder:"メルカリ太郎", class:"login-content__main__bottom__content-box__input"
+      = f.text_field :nickname, value: session[:name],autofocus: true, autocomplete: "nickname",placeholder:"メルカリ太郎", class:"login-content__main__bottom__content-box__input"
 
     .login-content__main__bottom__content-box
       = f.label :"メールアドレス",class:"login-content__main__bottom__content-box__text"
       %span.login-content__main__bottom__content-box__require 必須
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
-    
+      = f.email_field :email, value: session[:facebook_email], autofocus: true, autocomplete: "email",placeholder:"PC.携帯どちらでも可", class:"login-content__main__bottom__content-box__input"
+
     .login-content__main__bottom__content-box 
       = f.label :"パスワード",class:"login-content__main__bottom__content-box__text"
       %span.login-content__main__bottom__content-box__require 必須

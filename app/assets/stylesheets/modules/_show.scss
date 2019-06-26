@@ -503,35 +503,6 @@ $filefield: #f5f5f5;
   text-align: center;
 }
 
-.fa-facebook-square{
-  color: #fff;
-  background: #385185;
-  font-size: 18px;
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  line-height: 44px;
-}
-
-.fa-twitter-square{
-  color: #fff;
-  background: #5d9dc9;
-  font-size: 16px;width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  line-height: 44px;
-}
-.fa-pinterest-square{
-  color: #fff;
-  background: #aa262a;
-  font-size: 18px;width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  line-height: 44px;
-}
-
-
-
 // 下部の商品リスト
 .items-in-user-profile {
   width: 700px;
@@ -710,3 +681,47 @@ $filefield: #f5f5f5;
   width:80%;
   border-radius: 4px;
 }
+// 川浪が追加で加工　サーバーサイド構築の際に
+#y-box{
+  width: 50px
+}
+.y-list-boxs-icon{
+  margin-top: 10px;
+  display: flex;
+}
+
+.y-item-user-ratings{
+  margin-right: 10px;
+
+}
+
+// アイコンのデザイン
+
+// .fa-facebook-square{
+//   color: #fff;
+//   background: #385185;
+//   font-size: 18px;
+//   width: 44px;
+//   height: 44px;
+//   border-radius: 4px;
+//   line-height: 44px;
+// }
+
+// .fa-twitter-square{
+//   color: #fff;
+//   background: #5d9dc9;
+//   font-size: 16px;width: 44px;
+//   height: 44px;
+//   border-radius: 4px;
+//   line-height: 44px;
+// }
+// .fa-pinterest-square{
+//   color: #fff;
+//   background: #aa262a;
+//   font-size: 18px;width: 44px;
+//   height: 44px;
+//   border-radius: 4px;
+//   line-height: 44px;
+// }
+
+

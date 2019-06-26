@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :likes
   root 'items#index'
+
+  #いいね機能
+  post "likes/:item_id/create" => "likes#create"
+  delete "likes/:item_id/create" => "likes#destory"
+ 
+  #flag機能
+  get "flags/:item_id/new" => "flags#new"
+  post "flags/:item_id/create" => "flags#create"
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations",
     passwords: "users/passwords",
+    omniauth_callbacks: 'users/omniauth_callbacks',
   },
                      skip: %i[sessions registrations]
   as :user do
@@ -29,11 +37,13 @@ Rails.application.routes.draw do
       get 'exhibition_edit'
       get 'order_confirm'
     end
+
     collection do
       get 'under_exhibition'
       get 'second'
       get 'third'
     end
+
   end
   
   resources :users do
@@ -52,5 +62,24 @@ Rails.application.routes.draw do
 
   resources :item_images
 
+  resources :cards do
+    member do
+      post 'delete'
+    end
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      post "new" , to: "cards#new"
+    end
+  end
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index/items/:id', to: 'purchases#index'
+      post 'pay/items/:id', to: 'purchases#pay'
+      get 'done/items', to: 'purchases#done'
+    end
+  end
 end
 

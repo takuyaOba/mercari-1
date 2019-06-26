@@ -37,9 +37,10 @@
 # ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|rating|string||
+|value|integer||
+|user_id|reference|foreign_key: true|
+
 ### Association
-- has_many :items
 - has_many :users
 
 

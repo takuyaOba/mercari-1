@@ -1,7 +1,16 @@
-.login-content 
-  .login-content__header
-    = render 'header'
-  .login-content__main
-    = render 'main'
-  .login-content__footer
-    = render 'footer'
+-if session[:uid].present?
+  .login-content 
+    .login-content__header
+      = render 'header'
+    .login-content__main
+      = render 'main_sns'
+    .login-content__footer
+      = render 'footer'
+-else
+  .login-content 
+    .login-content__header
+      = render 'header'
+    .login-content__main
+      = render 'main'
+    .login-content__footer
+      = render 'footer'

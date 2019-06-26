@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_061852) do
+ActiveRecord::Schema.define(version: 2019_06_26_024033) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "city", null: false
@@ -35,10 +35,27 @@ ActiveRecord::Schema.define(version: 2019_06_23_061852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "customer_id"
+    t.string "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "first_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "flags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_flags_on_item_id"
+    t.index ["user_id"], name: "index_flags_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +117,14 @@ ActiveRecord::Schema.define(version: 2019_06_23_061852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rates_on_user_id"
+  end
+
   create_table "second_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "first_category_id"
     t.bigint "size_category_id"
@@ -153,12 +178,16 @@ ActiveRecord::Schema.define(version: 2019_06_23_061852) do
     t.integer "point_amount"
     t.integer "profit_amount"
     t.bigint "payment_information_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_information_id"], name: "index_users_on_payment_information_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "flags", "items"
+  add_foreign_key "flags", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "first_categories"
@@ -168,6 +197,7 @@ ActiveRecord::Schema.define(version: 2019_06_23_061852) do
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "rates", "users"
   add_foreign_key "second_categories", "first_categories"
   add_foreign_key "second_categories", "size_categories"
   add_foreign_key "sizes", "size_categories"

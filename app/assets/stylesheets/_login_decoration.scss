@@ -1,0 +1,219 @@
+
+.login-dec-content{
+  font-family: sans-serif;
+  width: 456px;
+  margin: 0 auto;
+  &__header{
+    text-align: center;
+    height: 100px;
+    padding-bottom:0;
+    &__image-logo{
+      width: 30%;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    &__information{
+      width: 70%;
+      text-align: right;
+    }
+  }
+  &__main{
+    background-color: white;
+    &__top{
+      text-align: center;
+        &__theme{
+          font-weight: bold;
+          padding: 32px 16px;
+          font-size: 22px;
+          border-bottom: solid 1px #f5f5f5;
+        }
+        &__theme-login-dec-top{
+          padding: 40px 64px;
+        }
+        &__registration{
+          display: block;
+          margin: 0 auto;
+          height: 50px;
+          width: 320px;
+          border: 1px solid #0099e8;
+          background: #0099e8;
+          color: #fff;
+          line-height: 40px;
+        }
+    }
+    &__body{
+      text-align: center;
+      height: 300px;
+      padding: 64px;
+        &__content-email{
+          margin-top:20px; 
+          display: block;
+          margin: 0 auto;
+          width: 340px;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          background: #eee;
+        }
+        &__content{
+          padding: 32px 64px 0 64px;
+          border-top: 1px solid #eee;
+          &__email{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            background: #eee;
+          }
+          &__facebook{
+            height: 50px;
+            width:320px;
+            background-color: #385185;
+            margin: auto;
+            margin-bottom: 16px;
+            padding-top: 17px;
+            text-align: center;
+          }
+          &__google{
+            height: 50px;
+            width:320px;
+            margin: auto;
+            padding-top: 17px;
+            border: #979797 solid 1px;
+            color: #333;     
+            text-align: center;
+          }
+        }
+    }
+      
+    &__bottom{
+      max-width: 320px;;
+      margin:0 auto;
+      padding-bottom:40px;
+      margin-top:50px;
+      &__foget-password{
+        margin: 40px 0 0;
+        color: #0099e8;
+        text-align: left;
+
+      }
+      &__content-box{
+                  &__note{
+            font-size: 15px;
+            padding-top:10px;
+          }
+          &__birthday-select-wrap{
+            display: flex;
+            height: 48px;
+            font-size: 16px;
+            line-height: 3.5;
+            margin-top: 5px;
+              &__text{
+                padding-right: 10px;
+              }
+          }
+          &__text{
+            font-weight: 600;
+            margin: 0px 0 0 0px;
+          }
+          &__require{
+            background: #ea352d;
+            padding: 2px 4px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          &__input{
+            margin: 10px;
+          }  
+        &__theme{
+          font-size:15px;
+          font-weight: bold;
+        }
+        &__note{
+          font-size:15px;
+        }
+        &__birthday-select-wrap{
+          &__select-wrap{
+          } 
+        }
+        &__input{
+          height: 48px;
+          margin-left:0;
+          margin-right:0;  
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 320px;
+        }
+      }
+      &__from{
+        text-align: center;
+        &__sbmit{
+          width: 100%;
+          color: white;
+          background: #ea352d;
+          line-height:4;
+        }
+        &__tag{
+          line-height: 2;
+            &__text{
+              color: #0099e8;;
+              text-align: center;
+            }
+        }
+      }
+      &__evocation{
+        margin-top: 50px;
+        color: #0099e8;;
+      }
+    }
+  }
+}
+
+// あとで結合する部分
+.login-dec-content{
+  &__footer{
+    text-align: center;
+    padding-top: 50px;
+      &__ul{
+        margin:0;
+        padding:0;
+        display: flex;
+      }  
+      &__li{
+        display: inline;
+        list-style: none;
+        width: 40%;
+        font-size: 12px; 
+        min-width: 90px;
+      }
+      &__logo{
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+  }
+}
+
+// ロゴ画像に関するcssの記述
+#image-style-footer-logo{
+  height:65px;
+  width:80px;
+}
+#image-style-header-logo{
+  height:90px;
+  width:300px;
+}
+#image-style-logo{
+  height:65px;
+  width:340px;
+}
+#image-style-recapcha{
+  height:90px;
+  width:300px;
+}

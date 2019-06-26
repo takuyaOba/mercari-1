@@ -2,11 +2,14 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :items
+  has_many :cards
   has_one :address
-  # has_many :orders
+
+
+
 
   validates :nickname, presence: true
   validates :family_name, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: "名 に数字や特殊文字は使用できません" }, presence: true
@@ -21,19 +24,37 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
 
-
-   #userが削除されたらそれに紐づくlikeも削除したい
-  has_many :likes
   has_many :likes,  dependent: :destroy
-  # has_many :flags
-  # has_many :like_items,through: :likes,source: :item
-  # has_many :flag_items,through: :flags,source: :item
-  # belongs_to :rate
-  # belongs_to :payment_information
+  has_many :flags
+  has_many :like_items,through: :likes,source: :item
+  has_many :flag_items,through: :flags,source: :item
+  belongs_to :rate
+  belongs_to :payment_information
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-end
 
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
 
+    unless user
+      user = User.create(
+      uid: auth.uid,
+      provider: auth.provider,
+      nickname: User.dummy_nickname(auth),
+      email:    User.dummy_email(auth),
+      password: Devise.friendly_token[0, 20]
+      )
+    end
+    user
+  end
+  private
 
-# , dependent: :destory
+  def self.dummy_email(auth)
+    "#{auth.info.email}"
+  end
+
+  def self.dummy_nickname(auth)
+    "#{auth.info.name}"
+  end
+ end
