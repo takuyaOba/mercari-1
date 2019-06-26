@@ -86,7 +86,7 @@ class ItemsController < ApplicationController
 
 
 
-
+end
 
 
 
@@ -119,6 +119,4 @@ end
 
 def move_index
   redirect_to action: :index
-end
-
 end
