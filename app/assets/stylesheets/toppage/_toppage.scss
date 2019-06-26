@@ -140,6 +140,10 @@ header{
   color: #ccc;
   padding:2px;
 }
+
+.fa-tag{
+  color:red;
+}
  
 ul.category{
   top:100px;
@@ -194,6 +198,7 @@ ul.category_t{
 .material-icons.header:hover > .header-under__left-word > ul.category > li{
   overflow: visible;
   height: 40px;
+  
 }
 
 ul.category li:hover{

@@ -27,8 +27,10 @@
                               =t.third_category
       .header-under__left-element
         .material-icons.header
-          tag
-          .header-under__left-word ブランドから探す
+          .header-under__left-word 
+            %i.fa.fa-tag
+            %span ブランドから探す
+          
     .header-under__right
       - if user_signed_in?
         .header-under__right-new

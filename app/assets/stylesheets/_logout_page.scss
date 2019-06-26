@@ -2,6 +2,7 @@
   height: 179px;
   width: 700px;
   background-color: #ffffff;
+  padding-top: 10px;
   &__content{
     height: 179px;
     width: 700px;
@@ -14,6 +15,22 @@
       line-height: 50px;
       background-color: #ea352d;
       color: #fff;
+      
     }
   }
+}
+
+.logout-btn {
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 46px 0 0 60px ;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: all ease-out .3s;
+  font-size: 24px;
+  width:80%;
+  border-radius: 4px;
 }
