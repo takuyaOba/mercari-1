@@ -116,8 +116,6 @@ header{
     display: inline-block;
     float: right;
     &-new{
-      background: $red;
-      border: 1px solid $red;
       color:$white;
       float: left;
       @include btn();
@@ -130,6 +128,17 @@ header{
       @include btn();
     }
   }
+}
+
+.header-link {
+  padding: 0 14px;
+  float:left;
+}
+
+.far, .fa-check{
+  font-size: 20px;
+  color: #ccc;
+  padding:2px;
 }
  
 ul.category{
