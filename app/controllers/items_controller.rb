@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item,only:[:show, :edit]
+  before_action :set_item,only:[:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -60,7 +60,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       move_index
     else
@@ -69,7 +68,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
       redirect_to root_path(current_user.id)
