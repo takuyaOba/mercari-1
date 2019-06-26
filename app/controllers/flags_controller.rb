@@ -8,8 +8,7 @@ class FlagsController < ApplicationController
   end
 
   def create
-    #current_userの代わりに代替えのidを入れています
-    flag = Flag.new(user_id: 8,item_id: params[:item_id])
+    flag = Flag.new(user_id:current_user.id,item_id: params[:item_id])
     flag.save
     redirect_to item_path(params[:item_id])
   end

@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
     def index
+     
      @women = Item.display(1)
      @men = Item.display(2)
      @kids = Item.display(3)
