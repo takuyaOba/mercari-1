@@ -96,7 +96,7 @@ private
 
 def item_params
 
-  params.require(:item).merge(status:1, user_id: current_user.id).permit(:name,
+  params.require(:item).merge(status:0, user_id: current_user.id).permit(:name,
   :description,
   :price,
   :condition_id,
