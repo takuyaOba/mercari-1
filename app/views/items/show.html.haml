@@ -82,10 +82,10 @@
         %button.item-button.item-button-like
           .fa.fa-heart
           %span.span いいね!
-          %span.span.fade-in-down=@item.likes.count
+          %span.span.fade-in-down=like_judgment
         %a.a.item-button.item-button-report.clearfix
           .fa.fa-flag
-          %span.span 不適切な商品の報告
+          %span.span=flag_list
         %input.input{name: "like_add_url", type: "hidden", value: "https://www.mercari.com/jp/like/add/m13632202360/"}/
         %input.input{name: "like_del_url", type: "hidden", value: "https://www.mercari.com/jp/like/delete/m13632202360/"}/
         %input.input{name: "__csrf_value", type: "hidden", value: "5529b73b5b5685f22efb8585db8a2ef4b3efba42bfd51bbf8d27247f7b9bc06d2f231667afc1a0ee9f67ad2df38d5c73d97776bb5f77cdaa95d6694ac5ae54ed7"}/

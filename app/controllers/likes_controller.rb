@@ -1,22 +1,15 @@
 class LikesController < ApplicationController
-  # before_action :set_item, only: [:create, :destroy]
-
   
-  
-  # def create
-  #   @like = current_user.likes.create(item_id: params[:item_id])
-  #   @items = Item.all
-  # end
+  def create
+    #current_userの代わりに代替えのidを入れています
+    like = Like.new(user_id: 8,item_id: params[:item_id])
+    like.save
+    redirect_to item_path(params[:item_id])
+  end
 
-  # def destroy
-  #   like = current_user.likes.find_by(item_id: params[:item_id])
-  #   like.destroy
-  #   @items = Item.all
-  # end
-
-  # private
-
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  # end
+  def destroy
+    # current_userの代わりに8を入れています
+    like = Like.find_by(user_id:8,item_id: params[:item_id])
+    like.destroy
+  end
 end

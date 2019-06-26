@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_065526) do
+ActiveRecord::Schema.define(version: 2019_06_26_024033) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "city", null: false
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2019_06_25_065526) do
     t.string "first_category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "flags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_flags_on_item_id"
+    t.index ["user_id"], name: "index_flags_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -177,6 +186,8 @@ ActiveRecord::Schema.define(version: 2019_06_25_065526) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "flags", "items"
+  add_foreign_key "flags", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "first_categories"

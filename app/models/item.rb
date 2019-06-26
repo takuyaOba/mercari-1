@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 
 
   has_many :likes,  dependent: :destroy
-  # has_many :flags
+  has_many :flags
   # has_many :like_users,through: :likes, source: :user
   # has_many :flag_users,through: :flags, source: :user
 
