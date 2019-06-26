@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @item.likes
     #ユーザーが投稿した商品を全て取得
     # # user =  User.find(params[:id])

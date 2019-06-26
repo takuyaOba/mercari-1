@@ -1,9 +1,9 @@
 class PurchasesController < ApplicationController
 
   require 'payjp'
+  before_action :set_item,only:[:index, :pay]
 
   def index
-    @item = Item.find(params[:id])
     card = current_user.cards.first
     #テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -19,7 +19,6 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
     card = current_user.cards.first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
@@ -29,6 +28,10 @@ class PurchasesController < ApplicationController
     )
     redirect_to ( done_items_purchase_index_path) #完了画面に移動
      @item.update(status: 1)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
