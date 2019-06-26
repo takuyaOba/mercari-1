@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+ 
     @item.likes
     # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
     @exhibiton_items =  Item.where(user_id: @item.user_id, status: 1)
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
+    
     if item.save
       move_index
     else

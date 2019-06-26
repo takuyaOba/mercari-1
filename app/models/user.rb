@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
 
   has_many :likes,  dependent: :destroy
-  # has_many :flags
+  has_many :flags
   has_many :like_items,through: :likes,source: :item
   has_many :flag_items,through: :flags,source: :item
   belongs_to :rate
