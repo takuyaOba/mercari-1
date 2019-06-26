@@ -86,7 +86,6 @@ class ItemsController < ApplicationController
 
 
 
-end
 
 
 
@@ -97,7 +96,7 @@ private
 
 def item_params
 
-  params.require(:item).merge(status:1).permit(:name,
+  params.require(:item).merge(status:1, user_id: current_user.id).permit(:name,
   :description,
   :price,
   :condition_id,
@@ -109,6 +108,7 @@ def item_params
   :second_category_id,
   :third_category_id,
   :status,
+  :user_id,
   item_images_attributes:[:image])
 
 end
@@ -119,4 +119,6 @@ end
 
 def move_index
   redirect_to action: :index
+end
+
 end
