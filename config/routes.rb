@@ -30,22 +30,17 @@ Rails.application.routes.draw do
       get 'order_confirm'
     end
     collection do
+      get 'under_exhibition'
       get 'second'
       get 'third'
     end
   end
   
   resources :users do
-
-    member do
-      
-    end
-
     collection do
       get 'show_todo'
       get 'during_trading'
       get 'like_list'
-      get 'under_exhibition'
       get 'sold_list'
       get 'profile'
       get 'logout_page'
@@ -54,6 +49,8 @@ Rails.application.routes.draw do
       get 'personal_information'
     end
   end
+
+  resources :item_images
 
 end
 

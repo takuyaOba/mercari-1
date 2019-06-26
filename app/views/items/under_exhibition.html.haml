@@ -1,7 +1,7 @@
 %header
   = render "toppage/header"
 %main.mypage
-  = render "mypage"
+  = render "users/mypage"
   .exhibition
     .exhibition__list
       %h2.exhibition__list__heading
@@ -21,20 +21,22 @@
               売却済み
       .exhibition__list__one
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
-          %li.list
-            = link_to root_path, class: "mypage-item-link" do
-              %figure
-                = image_tag "mercari_icon.png", class: "lazyloaded"
-              .mypage-item-body
-                .mypage-item-text 出品した商品
-                .state
-                  %i.far.fa-heart
-                    %span 1
-                  %i.far.fa-comment-alt
-                    %span 1
-                  .state__name
-                    出品中
-              %i.material-icons.right keyboard_arrow_right
+          - @items.each do |item|
+            %li.list
+              = link_to edit_item_path(item), class: "mypage-item-link" do
+                %figure
+                  - item.item_images.each do |image| 
+                    = image_tag image.image.url, class: "lazyloaded"
+                .mypage-item-body
+                  = item.name
+                  .state
+                    %i.far.fa-heart
+                      %span 1
+                    %i.far.fa-comment-alt
+                      %span 1
+                    .state__name
+                      出品中
+                %i.material-icons.right keyboard_arrow_right
 %aside
   = render "toppage/aside"
 %footer
