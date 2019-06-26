@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item,only:[:show]
+  before_action :set_item,only:[:show, :edit]
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -56,12 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @images = @item.item_images
-    # binding.pry
-    # @item_image = @item.item_images.find_by(item_id: @item.id)
-    # @new_images = @item.item_images.new
-    # @item_image = ItemImage.where(item_id: params[:id])
   end
 
   def update
