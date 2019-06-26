@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'items#index'
 
   #いいね機能
@@ -36,10 +37,12 @@ Rails.application.routes.draw do
       get 'exhibition_edit'
       get 'order_confirm'
     end
+
     collection do
       get 'second'
       get 'third'
     end
+
   end
   
   resources :users do
@@ -59,6 +62,31 @@ Rails.application.routes.draw do
       get 'payment_page'
       get 'show_notice'
       get 'personal_information'
+    end
+  end
+
+  resources :cards do
+    member do
+      post 'delete'
+      
+    end
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      post "new" , to: "cards#new"
+      
+    end
+    
+
+    
+  end
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index/items/:id', to: 'purchases#index'
+      post 'pay/items/:id', to: 'purchases#pay'
+      get 'done/items', to: 'purchases#done'
     end
   end
 

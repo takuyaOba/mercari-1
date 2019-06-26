@@ -1,4 +1,6 @@
 %main.osingle-main
+  -if flash[:notice]
+    %p= flash[:notice]
   %header.mheader
     %h1.h1
       = link_to root_path do
@@ -7,12 +9,13 @@
     購入を確定しますか？
   .obuy-item
     .obuy-item__image
-      = image_tag "sample_dog.jpg", height:"220" ,width:"200" ,class:"item-image"
+      =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
     .obuy-item__name.obold
-      貴重！【相澤仁美】雑誌付録DVD 4枚
-    %form.obuy-item__box
+      = @item.name
+    .obuy-item__box
       .obuy-item__price.obold
-        ¥ 1,370
+        ¥ 
+        = @item.price
         %span.obuy-item__shipping-fee
           送料込み
       .obuy-item__toggle
@@ -20,9 +23,10 @@
       .obuy-item__cell
         支払い金額
         %span.obuy-item__price-cell
-          ¥ 1,370
-      .obuy-item__btn
-        購入する
+          ¥ 
+          = @item.price
+      = form_tag(action: :pay, method: :post) do
+        %button.obuy-item__btn 購入する
   .obuy-user-info
     .obuy-user-info__delivery 配送先
     .obuy-user_info__zipcode
@@ -30,7 +34,7 @@
     .obuy-user-info__adress
       大阪府ほげほげ市1-2-3
       %br
-      ほげほげお
+      YUI ARAGAKI
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
@@ -38,11 +42,12 @@
   .obuy-user-info
     .obuy-user-info__delivery 支払い方法
     .obuy-user_info__zipcode
-      *********1111
-    .obuy-user-info__adress
-      04/22
-      %br
-      VISA
+    - if @default_card_information.blank?
+      %br /
+    - else
+      -#以下カード情報を表示
+      = "**** **** **** " + @default_card_information.last4
+    %br
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right

@@ -1,0 +1,33 @@
+html, body {
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color:#333333;
+  background-color: rgb(245, 245, 245);
+}
+
+.purchase-complete {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 170px;
+  font-weight: bold;
+  font-size: 22px;
+  &__notice {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #FF3333;
+  }
+  &__thank {
+    margin-bottom: 20px;
+    color: #FF3333;
+  }
+  &__shop {
+    margin-bottom: 20px;
+    color: #FF3333;
+  }
+  &__text {
+    color: #FF3333
+  }
+}

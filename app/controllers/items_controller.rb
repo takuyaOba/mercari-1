@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
+
    before_action :set_item,only:[:show]
+
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -64,6 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
@@ -75,14 +78,20 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def exhibition_edit
 
   end
 
   def order_confirm
+    
   end
 
+
+
 end
+
+
 
 private
 
@@ -90,7 +99,7 @@ private
 
 def item_params
 
-  params.require(:item).merge(status:1).permit(:name,
+  params.require(:item).merge(status:0, user_id: current_user.id).permit(:name,
   :description,
   :price,
   :condition_id,
@@ -102,6 +111,7 @@ def item_params
   :second_category_id,
   :third_category_id,
   :status,
+  :user_id,
   item_images_attributes:[:image])
 
 end
