@@ -1,6 +1,7 @@
 .item-list__card
 
-  =link_to item_path(item.id) do
+  =link_to "items/#{(item.id)}", method: :delete do
+    a
     -# =image_tag (item.item_images.first.image.to_s),class:"item-list__card-image"
 
   .item-list__card-info
