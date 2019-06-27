@@ -28,7 +28,7 @@
                             - images.each_with_index do |image, i|
                               %li.item__image__change__field{id: "item__image__change__field_#{i}"}
                                 .item__image__change__field__image{id: "item__image__change__field__image_#{i}"}
-                                  %img{src: "#{image.image.url}", class: "item__image__change__field__image__url",id: "item__image__change__field__image__url_#{i}"}
+                                  = image_tag image.image.url,id: "item__image__change__field__image__url_#{i}"
                                 .item__image__change__field__btn{id: "item__image__change__field__btn_#{i}"}
                                   .item__image__change__field__btn__fix{id: "item__image__change__field__btn__fix_#{i}"}
                                     編集
