@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
 
 
-
+  belongs_to :purchase
 
 
   has_many :likes,  dependent: :destroy

@@ -73,7 +73,7 @@
         .space
       - elsif @item.status == 0
         %div{"data-turbolinks" => "false"} 
-          = link_to "/purchase/index/items/#{@item.id}",  class:"ditem-buy-btn" do
+          = link_to purchases_path(@item),  class:"ditem-buy-btn" do
             購入画面に進む
       - elsif @item.status == 1
         .ditem-edit-btn-gray
