@@ -7,7 +7,7 @@
     %span.login-content__main__bottom__content-box__require 必須
     %br/
     = text_field_tag "number", "", placeholder:"半角数字のみ", class:"login-content__main__bottom__content-box__input number", maxlength: "16", type: "text", id: "card_number"
-    .card__image
+    = image_tag "card_logo_all.gif", class:"card_image"
     %label.login-content__main__bottom__content-box__text 有効期限
     %span.login-content__main__bottom__content-box__require 必須
     %br/
@@ -46,7 +46,8 @@
     %span.login-content__main__bottom__content-box__require 必須
     %br/
     = text_field_tag "cvc", "", class: "login-content__main__bottom__content-box__input", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" 
-    カード裏面の番号とは
+    .attention 
+      =link_to "カード裏面の番号とは"
     #card_token
-    = submit_tag "追加する",class:"login-content__main__bottom__from__sbmit", id:"token_submit"
+    = submit_tag "登録する",class:"login-content__main__bottom__from__sbmit", id:"token_submit"
   
