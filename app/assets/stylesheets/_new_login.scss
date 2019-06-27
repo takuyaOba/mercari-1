@@ -91,7 +91,9 @@
           }
         }
     }
-      
+    
+
+
     &__bottom{
       max-width: 320px;;
       margin:0 auto;
@@ -131,7 +133,11 @@
           }
           &__input{
             margin: 10px;
-          }  
+          }
+          &__credit{
+            margin:10px;
+
+          }
         &__theme{
           font-size:15px;
           font-weight: bold;
@@ -220,4 +226,8 @@
 #image-style-recapcha{
   height:90px;
   width:300px;
+}
+
+select.login-content__main__bottom__content-box__input{
+  width:40%;
 }

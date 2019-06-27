@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     post "signup/credit" => "users/registrations#credit"
     post "/signup/completed" => "users/registrations#create"
     get "/signup/done" => "users/registrations#done"
+    get "signup/credit_new" => "users/registrations#credit_new"
   end
 
   resources :items do
