@@ -66,13 +66,20 @@
       %span.span.item-price=@item.price
       %span.span.item-taxIn (税込)
       %span.span.item-tax-include 送料込み
-    - if @item.status == 0
-      = link_to "/purchase/index/items/#{@item.id}",  class:"ditem-buy-btn" do
-        購入画面に進む
-    -else
-      .ditem-edit-btn-gray
-        売り切れました
+    - if user_signed_in?
 
+      - if user_signed_in? && current_user.id == @item.user_id
+        .space
+      - elsif @item.status == 0
+        %div{"data-turbolinks" => "false"} 
+          = link_to "/purchase/index/items/#{@item.id}",  class:"ditem-buy-btn" do
+            購入画面に進む
+      - elsif @item.status == 1
+        .ditem-edit-btn-gray
+          売り切れました
+    - else
+      = link_to new_user_session_path, class: "ditem-edit-btn-gray" do
+        ログインしてください
     .item-description
       %p.p.item-description-inner
         =@item.description  
@@ -92,6 +99,13 @@
         = link_to "https://www.mercari.com/jp/safe/description/" do
           .fa.fa-lock
           %span.spam あんしん・あんぜんへの取り組み
+  - if user_signed_in? && current_user.id == @item.user_id
+    %section.section.item-container
+      .item-description
+        = link_to "商品の編集","/items/edit", class:"ditem-edit-btn"
+        %p.p.or or
+        = link_to "商品を一旦停止する","", class:"ditem-edit-btn-gray"
+        = link_to "この商品を削除する", item_path, method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' }, class: "ditem-edit-btn-gray"
 
   .Dcomment
     .Dcomment__box
