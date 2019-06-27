@@ -74,17 +74,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     if session[:user_id] = @user.id
       sign_up(@user, current_user)
+      redirect_to action: 'credit_new'
     else
       redirect_to action: 'new'
     end
   end
 
   def done; 
+  end
+
+  def credit_new
+  end
+
+
 end
-
-
-
-
 
   private
   def customize_sign_up_params
@@ -98,5 +101,3 @@ end
   #     respond_with_navigational(resource) { render :new }
   #   end
   # end
-
-end
