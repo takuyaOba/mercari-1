@@ -47,17 +47,20 @@ Rails.application.routes.draw do
 
   end
   
+  #マイページからのリンク
   resources :users do
     collection do
-      get 'show_todo'
-      get 'during_trading'
-      get 'like_list'
-      get 'sold_list'
+      get ':id/show_notice', to: 'users#show_notice'
+      get ':id/show_todo', to: 'users#show_todo'
+      get ':id/during_trading', to: 'users#during_trading'
+      get ':id/like_list', to: 'users#like_list'
+      get ':id/sold_list', to: 'users#sold_list'
       get 'profile'
       get 'logout_page'
       get 'payment_page'
-      get 'show_notice'
       get 'personal_information'
+      
+      
     end
   end
 

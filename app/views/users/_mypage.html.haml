@@ -2,21 +2,21 @@
   %nav.mypage__side__nav
     %ul.mypage__side__nav__list
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one active" do
+        = link_to user_path, class: "mypage__side__nav__list__item__one active" do
           マイページ
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to show_notice_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to "/users/#{params[:id]}/show_notice", class: "mypage__side__nav__list__item__one" do
           お知らせ
           %span.mypage-nav-number
             99+
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to show_todo_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to "/users/#{params[:id]}/show_todo", class: "mypage__side__nav__list__item__one" do
           やることリスト
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to like_list_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to "/users/#{params[:id]}/like_list", class: "mypage__side__nav__list__item__one" do
           いいね！一覧
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
@@ -24,15 +24,15 @@
           出品する
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to under_exhibition_items_path, class: "mypage__side__nav__list__item__one" do
+        = link_to root_path, class: "mypage__side__nav__list__item__one" do
           出品した商品 - 出品中
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to during_trading_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to "/users/#{params[:id]}/during_trading", class: "mypage__side__nav__list__item__one" do
           出品した商品 - 取引中
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to sold_list_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to"/users/#{params[:id]}/sold_list", class: "mypage__side__nav__list__item__one" do
           出品した商品 - 売却済み
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
