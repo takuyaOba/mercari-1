@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_user,only:[:show]
 
 
   def index 
@@ -44,4 +44,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :family_name, :first_name, :family_kana, :first_kana, :avatar, :profile, :birth_year, :birth_month, :birth_day, :telephone, :prefecture_id, :city, :adress, :building, :zip_code, :point_amount, :profile_amount, :payment_information_id)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end
