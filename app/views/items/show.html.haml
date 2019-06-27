@@ -67,10 +67,8 @@
       %span.span.item-taxIn (税込)
       %span.span.item-tax-include 送料込み
     
-    - unless user_signed_in?
-      = link_to new_user_session_path, class: "ditem-edit-btn-gray" do
-        ログインしてください
-    - else
+    - if user_signed_in?
+
       - if user_signed_in? && current_user.id == @item.user_id
         .space
       - elsif @item.status == 0
@@ -80,7 +78,9 @@
       - elsif @item.status == 1
         .ditem-edit-btn-gray
           売り切れ
-
+    - else
+      = link_to new_user_session_path, class: "ditem-edit-btn-gray" do
+        ログインしてください
     .item-description
       %p.p.item-description-inner
         =@item.description  
