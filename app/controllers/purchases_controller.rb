@@ -26,8 +26,9 @@ class PurchasesController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
     )
-    redirect_to ( done_items_purchase_index_path) #完了画面に移動
      @item.update(status: 1)
+     @item.update(customer_id: current_user.id)
+     redirect_to ( done_items_purchase_index_path) #完了画面に移動
   end
 
   def set_item
