@@ -2,8 +2,9 @@ class ItemImagesController < ApplicationController
   def index
     @item_image = ItemImage.find(params[:id])
     if @item_image.delete
-    else
-      redirect_to edit_item_path
+      respond_to do |format|
+        format.html
+        format.json
     end
   end
 end
