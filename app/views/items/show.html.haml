@@ -69,7 +69,7 @@
       %span.span.item-tax-include 送料込み
     
     - unless user_signed_in?
-      .ditem-edit-btn-gray
+      = link_to new_user_session_path, class: "ditem-edit-btn-gray" do
         ログインしてください
     - else
       - if user_signed_in? && current_user.id == @item.user_id
