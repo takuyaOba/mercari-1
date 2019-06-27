@@ -5,6 +5,9 @@ class ItemImagesController < ApplicationController
       respond_to do |format|
         format.html
         format.json
+      end
+    else
+      redirect_to controller: 'items', action: 'under_exhibition', alert: '削除に失敗しました'
     end
   end
 end
