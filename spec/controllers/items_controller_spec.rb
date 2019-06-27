@@ -17,6 +17,16 @@ describe ItemsController do
       expect(response).to render_template :index
     end
   end
- 
 
+  describe 'GET#show' do
+  let(:item) { create(:item) }
+  before { get :show, params: { id: item.id }, session: {} }
+    it  '200レスポンスが返ってきているか？' do
+      expect(response).to render_template :show
+    end
+    it 'renders the :show template' do
+      expect(response).to render_template :show
+    end
+  end
 end
+
