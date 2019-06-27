@@ -333,6 +333,15 @@ ul.slide-content__link-store{
   font-size: 28px;
 }
 
+.item-list__card-image__small{
+  position: relative;
+  height: 220px;
+  width: 200px;
+  margin-left:6px;
+}
+
+
+
 .item-list{
   width: 940px;
   margin: 0 auto;
@@ -355,6 +364,13 @@ ul.slide-content__link-store{
     height: 330px;
     background-color:$white;
     display: inline-block;
+
+    .item-list__card-link__small{
+      height: 220px;
+      width: 200px;
+      display:block;
+      position: relative;
+    }
 
     &-info{
       padding:16px;
