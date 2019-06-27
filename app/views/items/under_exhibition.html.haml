@@ -21,22 +21,7 @@
               売却済み
       .exhibition__list__one
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
-          - @items.each do |item|
-            %li.list
-              = link_to edit_item_path(item), class: "mypage-item-link" do
-                %figure
-                  - item.item_images.each do |image| 
-                    = image_tag image.image.url, class: "lazyloaded"
-                .mypage-item-body
-                  = item.name
-                  .state
-                    %i.far.fa-heart
-                      %span 1
-                    %i.far.fa-comment-alt
-                      %span 1
-                    .state__name
-                      出品中
-                %i.material-icons.right keyboard_arrow_right
+          = render partial: "item-show", collection: @items, as: :item
 %aside
   = render "toppage/aside"
 %footer
