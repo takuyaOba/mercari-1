@@ -1,4 +1,4 @@
--# パンくずの表示にて必要
+-# パンくずの表示のキー
 -breadcrumb :user, @user
 %header
   = render "toppage/header"
@@ -9,8 +9,7 @@
       = link_to root_path, class: "mypage__content__user-icon__user" do
         %figure.figure
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "figure__img", size: "60x60"
-        %h2.bold 
-        = current_user.nickname
+        %h2.bold=current_user.nickname
         .mypage__content__user-icon__user-number
           .rate
             評価

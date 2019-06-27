@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,only:[:show]
+  before_action :set_user,only:[:show,:show_notice,:show_todo,:like_list, :during_trading,:sold_list]
 
 
   def index 
@@ -8,16 +8,24 @@ class UsersController < ApplicationController
   def show
   end
 
+  #お知らせリンク
+  def show_notice
+  end
+
+  #やる事リスト
   def show_todo
   end
-
+  #いいね！一覧
   def like_list
-
   end
 
+
+
+  #出品した商品(取引中)
   def during_trading
   end
 
+  #出品した商品(売却済)
   def sold_list
   end
 
@@ -29,9 +37,6 @@ class UsersController < ApplicationController
   end
 
   def payment_page
-  end
-
-  def show_notice
   end
 
   def personal_information
