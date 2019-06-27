@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-
-  resources :likes
-
   root 'items#index'
+
+  #いいね機能
+  post "likes/:item_id/create" => "likes#create"
+  delete "likes/:item_id/create" => "likes#destory"
+ 
+  #flag機能
+  get "flags/:item_id/new" => "flags#new"
+  post "flags/:item_id/create" => "flags#create"
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
@@ -35,6 +40,7 @@ Rails.application.routes.draw do
     end
 
     collection do
+      get 'under_exhibition'
       get 'second'
       get 'third'
     end
@@ -42,16 +48,10 @@ Rails.application.routes.draw do
   end
   
   resources :users do
-
-    member do
-      
-    end
-
     collection do
       get 'show_todo'
       get 'during_trading'
       get 'like_list'
-      get 'under_exhibition'
       get 'sold_list'
       get 'profile'
       get 'logout_page'
@@ -61,21 +61,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :item_images, only: [:index]
+
   resources :cards do
     member do
       post 'delete'
-      
     end
     collection do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
       post "new" , to: "cards#new"
-      
     end
-    
-
-    
   end
 
   resources :purchase, only: [:index] do
@@ -85,6 +82,5 @@ Rails.application.routes.draw do
       get 'done/items', to: 'purchases#done'
     end
   end
-
 end
 

@@ -1,0 +1,155 @@
+!!!
+%html{lang:  "ja-JP"}
+  %body
+    %noscript
+      %iframe{height: "0", src: "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", style:  "display:none;visibility:hidden", width: "0"}
+    .single-container
+      %header.mheader
+        %h1.h1
+          = link_to root_path do
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3270184656"
+      %main#main
+        %section.container
+          #sell__container
+            %div
+              .sell__container__inner
+              = form_for item do |f|
+                %h2.h2.sell__head 商品の情報を入力
+                .form.sell-form
+                  .sell--upload__box
+                    %h3.h3.sell--upload__head
+                      出品画像
+                      %span.span.form--require 必須
+                    %p.image-description 最大10枚までアップロードできます
+                    .sell-dropbox-container-king
+                      .sell-dropbox-container-king__already
+                        .sell-dropbox-container-king__already__1
+                          %ul.item__image__change
+                            - images.each_with_index do |image, i|
+                              %li.item__image__change__field{id: "item__image__change__field_#{i}"}
+                                .item__image__change__field__image{id: "item__image__change__field__image_#{i}"}
+                                  = image_tag image.image.url,id: "item__image__change__field__image__url_#{i}"
+                                .item__image__change__field__btn{id: "item__image__change__field__btn_#{i}"}
+                                  .item__image__change__field__btn__fix{id: "item__image__change__field__btn__fix_#{i}"}
+                                    編集
+                                  %a.item__image__change__field__btn__delete{"data-id": image.id, href: "", id: "item__image__change__field__btn__delete_#{i}"}
+                                    削除
+                        .sell-dropbox-container-already__2
+                      .sell-dropbox-container-king__new.clearfix.state-image-number-10
+                        = f.fields_for :item_images do |i|
+                          = i.file_field :image, multiple: true, placeholder: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                  .sell__content
+                    .form__group
+                      %label.label
+                        商品名
+                        %span.span.form--require 必須
+                      %div
+                        = f.text_field :name, class: "input__default", placeholder: "商品名（必須 40文字まで)"
+                    .form__group
+                      %label.label
+                        商品の説明
+                        %span.form--require 必須
+                      %div
+                        = f.text_area :description,class: "textarea__default", placeholder:  "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+                  .sell__content.clearfix
+                    %h3.sell--sub__head 商品の詳細
+                    .sell__form__box
+                      .form__group
+                        %label.label
+                          カテゴリー
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, {prompt:'---'},id: "item_first_category_id"
+                        #select__wrap2
+                          = f.collection_select :second_category_id, SecondCategory.where(first_category_id: @item.first_category_id), :id, :second_category, {prompt: '---'},id: "item_second_category_id"
+                        #select__wrap3
+                          = f.collection_select :third_category_id, ThirdCategory.where(second_category_id: @item.second_category_id), :id, :third_category, {prompt: '---'},id: "item_third_category_id"
+                      .form__group
+                        %label.label
+                          商品の状態
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :condition_id, Condition.all, :id, :name,{prompt:'---'}
+                          %i.icon-arrow-bottom
+                  .sell__content.clearfix
+                    %h3.sell--sub__head 配送について
+                    = link_to '?', "https://www.mercari.com/jp/help_center/article/68/",class: "form__question"
+                    .sell__form__box
+                      .form__group
+                        %label.label
+                          配送料の負担
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_burden_id, Burden.all, :id, :name
+                      .form__group
+                        %label.label
+                          配送料の方法
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
+                      .form__group
+                        %label.label
+                          発送元の地域
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, id: "item_prefecture_id"
+                      .form__group
+                        %label.label
+                          発送までの日数
+                          %span.span.form--require 必須
+                        .select__wrap
+                          = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :name
+                  .sell__content-price.clearfix
+                    %h3.h3.sell--sub__head 販売価格(300〜9,999,999)
+                    = link_to '?', "https://www.mercari.com/jp/help_center/article/64/",class: "form__question"
+                    .sell-form-box
+                      %ul.sell__price
+                        %li.form-group
+                          .clearfix
+                            %label.label.l-left
+                              価格
+                              %span.span.form--require 必須
+                            .l-right.sell__price--input
+                              ¥
+                              %div.div#sellprice
+                                = f.text_field :price, id: "input__price", placeholder: "例）300",class:"input__default"
+                        %li.dclearfix
+                          .l-left
+                            販売手数料 (10%)
+                          .l-right#output
+                            = "- #{(@item.price * 0.1).floor}"
+                        %li.dclearfix.bold
+                          .l-left 販売利益
+                          .l-right#output2
+                            = "- #{(@item.price * 0.9).floor}"
+                  .sell__content.sell__btn__box
+                    %div
+                      %p.pnote
+                        = link_to '禁止されている出品', "https://www.mercari.com/jp/help_center/article/64/"
+                        、
+                        = link_to '行為を必ずご確認ください。', "https://www.mercari.com/jp/help_center/article/64/"
+                      %p.pnote
+                        またブランド品でシリアルナンバー等がある場合はご記載ください。
+                        = link_to '偽ブランドの販売', "https://www.mercari.com/jp/help_center/article/64/"
+                        は犯罪であり処罰される可能性があります。
+                      %p.pnote
+                        また、出品をもちまして
+                        = link_to '加盟店規約', "https://www.mercari.com/jp/help_center/article/64/"
+                        に同意したことになります。
+                    = f.submit "変更する", class: "btn__default btn--red"
+                    = link_to under_exhibition_items_path, class: "btn--gray" do
+                      キャンセル
+                .overlay
+      .dfooter
+        %ul.ul
+          %li.li
+            = link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/"
+          %li.li
+            = link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/"
+          %li.li
+            = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei/"
+        = link_to root_path, class: "footer__logo" do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1076135930", height: "65", width: "80"
+        %p.p
+          %small © 2019 Mercari
+
