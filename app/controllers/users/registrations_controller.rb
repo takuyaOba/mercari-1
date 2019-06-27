@@ -40,12 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:sender_first_name] = params[:session][:sender_first_name]
     session[:sender_family_kana] = params[:session][:sender_family_kana]
     session[:sender_first_kana] = params[:session][:sender_first_kana]
-
-  # end
-
-  # def create
-    # token = params[:"payjp-token"]
-
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -75,26 +69,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sender_family_kana: session[:sender_family_kana],
       sender_first_kana: session[:sender_first_kana],
     )
-    # @user.credit = @user.build_credit(
-    #   token: token
-    # )
 
     @user.address.save
-    # @user.credit.save
 
     if session[:user_id] = @user.id
       sign_up(@user, current_user)
-      redirect_to action: 'done'
+      redirect_to action: 'credit_new'
     else
       redirect_to action: 'new'
     end
   end
 
-  def done; end
+  def done; 
+  end
+
+  def credit_new
+  end
 
 
-
-
+end
 
   private
   def customize_sign_up_params
@@ -108,5 +101,3 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #     respond_with_navigational(resource) { render :new }
   #   end
   # end
-
-end
