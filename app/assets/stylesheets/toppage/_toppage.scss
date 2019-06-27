@@ -349,12 +349,18 @@ ul.slide-content__link-store{
     font-size:0;
   }
 
-  &__card{
+  &__card {
     margin:0 0 0 20px;
     width: 213px;
     height: 330px;
     background-color:$white;
     display: inline-block;
+
+    a{
+      height: 220px;
+      width: 200px;
+      display:block;
+    }
 
     &-info{
       padding:16px;

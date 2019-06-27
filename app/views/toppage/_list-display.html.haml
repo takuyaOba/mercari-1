@@ -1,6 +1,7 @@
 .item-list__card
   =link_to item_path(item.id) do
     =image_tag (item.item_images.first.image.to_s),class:"item-list__card-image"
+    
   .item-list__card-info
     .item-list__card-info-name 
     .item-list__card-info-num

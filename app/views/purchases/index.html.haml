@@ -25,7 +25,7 @@
         %span.obuy-item__price-cell
           ¥ 
           = @item.price
-      = link_to pay_purchases_path(@item) do
+      = form_tag(action: :pay, method: :post) do
         %button.obuy-item__btn 購入する
   .obuy-user-info
     .obuy-user-info__delivery 配送先
