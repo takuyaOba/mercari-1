@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-
-  resources :likes
-
   root 'items#index'
+
+  #いいね機能
+  post "likes/:item_id/create" => "likes#create"
+  delete "likes/:item_id/create" => "likes#destory"
+ 
+  #flag機能
+  get "flags/:item_id/new" => "flags#new"
+  post "flags/:item_id/create" => "flags#create"
 
   devise_for :users, controllers: {
     sessions: "users/sessions",

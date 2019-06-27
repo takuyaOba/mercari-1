@@ -2,12 +2,14 @@ class ItemsController < ApplicationController
 
 
    before_action :set_item,only:[:show]
+   before_action :authenticate_user!, only: [:show,:new]
 
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
     def index
+     
      @women = Item.display(1)
      @men = Item.display(2)
      @kids = Item.display(3)
@@ -19,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+ 
     @item.likes
     # ユーザーが投稿した商品のうち、アイテム状態が１の商品のみをピック
     @exhibiton_items =  Item.where(user_id: @item.user_id, status: 1)
@@ -32,6 +35,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
+    
     if item.save
       move_index
     else
@@ -64,6 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
@@ -86,14 +91,13 @@ end
 
 
 
-
 private
 
 
 
 def item_params
 
-  params.require(:item).merge(status:1).permit(:name,
+  params.require(:item).merge(status:0, user_id: current_user.id).permit(:name,
   :description,
   :price,
   :condition_id,
@@ -105,6 +109,7 @@ def item_params
   :second_category_id,
   :third_category_id,
   :status,
+  :user_id,
   item_images_attributes:[:image])
 
 end
