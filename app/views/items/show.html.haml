@@ -108,7 +108,7 @@
         = link_to "商品の編集","/items/edit", class:"ditem-edit-btn"
         %p.p.or or
         = link_to "商品を一旦停止する","", class:"ditem-edit-btn-gray"
-        = link_to "この商品を削除する", item_path, method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' }, class: "ditem-edit-btn-gray"
+        = link_to "この商品を削除する", "/items/#{params[:id]}", method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' }, class: "ditem-edit-btn-gray"
 
   .Dcomment
     .Dcomment__box
