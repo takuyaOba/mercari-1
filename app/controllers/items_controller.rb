@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
 
    before_action :set_item,only:[:show]
+   before_action :authenticate_user!, only: [:show,:new]
 
    rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
