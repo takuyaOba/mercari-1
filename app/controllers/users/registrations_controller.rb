@@ -18,12 +18,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_month] = params[:session][:birth_month]
     session[:birth_year] = params[:session][:birth_year]
     
-    if params[:session][:password] = ""
-      session[:password] = "Devise.friendly_token.first(6)"
-      session[:password_confirmation] = "Devise.friendly_token.first(6)"
-    else
+    if params[:session][:password].present?
       session[:password] = params[:session][:password]
       session[:password_confirmation] = params[:session][:password_confirmation]
+    else
+      session[:password] = "Devise.friendly_token.first(6)"
+      session[:password_confirmation] = "Devise.friendly_token.first(6)"
     end
 
 
