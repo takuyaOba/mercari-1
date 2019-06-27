@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 
 
-   before_action :set_item,only:[:show]
+   before_action :set_item,only:[:show,:edit]
    before_action :authenticate_user!, only: [:new]
 
    rescue_from ActiveRecord::RecordInvalid do |exception|
