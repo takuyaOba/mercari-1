@@ -9,7 +9,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(){
-      var parent2 = $(this).parents('.item__image__change__field').remove().attr('id');
+      var parent2 = $('.item__image__change__field__btn__delete').parents('.item__image__change__field').remove().attr('id');
     })
   })
 })
