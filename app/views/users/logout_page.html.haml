@@ -3,8 +3,9 @@
 %main.mypage
   = render "mypage"
   .logout
-    = link_to destroy_user_session_path,method: :delete, class: "logout-btn" do
-      ログアウト
+    = link_to destroy_user_session_path,method: :delete  do
+      .logout-btn
+        ログアウト
 %aside
   = render "toppage/aside"
 %footer

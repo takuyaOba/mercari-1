@@ -21,16 +21,14 @@
 }
 
 .logout-btn {
-  height: 60px;
-  line-height: 60px;
-  display: block;
-  margin: 46px 0 0 60px ;
-  background: #ea352d;
-  color: #fff;
+  height:50px;
+  background-color:#ea352c;
+  line-height:50px;
   text-align: center;
-  font-weight: 600;
-  transition: all ease-out .3s;
-  font-size: 24px;
-  width:80%;
-  border-radius: 4px;
+  color:white;
+  font-size: 14px;
+  font-weight:bold;
+  max-width: 320px;
+  margin: 50px 0 0 200px;
+  
 }
