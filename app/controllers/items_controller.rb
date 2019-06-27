@@ -80,10 +80,6 @@ class ItemsController < ApplicationController
 
   end
 
-  def order_confirm
-    
-  end
-
 
 
 end
