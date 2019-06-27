@@ -15,9 +15,6 @@ class UsersController < ApplicationController
 
   end
 
-  def under_exhibition
-  end
-
   def during_trading
   end
 

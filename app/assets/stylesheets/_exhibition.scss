@@ -35,8 +35,8 @@
             }
             .mypage-item-body{
               @include mypage-item-body();
+              font-size: 13px;
               .mypage-item-text{
-                font-size: 13px;
               }
               .state{
                 height: 18px;
