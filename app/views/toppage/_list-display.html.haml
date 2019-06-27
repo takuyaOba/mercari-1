@@ -1,6 +1,10 @@
 .item-list__card
-  =link_to item_path(item.id) do
-    =image_tag (item.item_images.first.image.to_s),class:"item-list__card-image"
+  =link_to item_path(item.id),class: "item-list__card-link__small" do
+    = image_tag (item.item_images.first.image.to_s),class:"item-list__card-image__small" 
+    - if item.status == 1
+      .item-sold-out-small-badge
+        .sold-small-text
+          SOLD
   .item-list__card-info
     .item-list__card-info-name 
     .item-list__card-info-num
