@@ -60,20 +60,20 @@
       %span.login-content__main__bottom__content-box__require 必須
       .login-content__main__bottom__content-box__birthday-select-wrap
         .login-content__main__bottom__content-box__birthday-select-wrap
-          = f.select :birth_year,[*(1930..2015)],prompt:"選択"
+          = f.select :birth_year,birth_years,prompt:"選択"
           %span.login-content__main__bottom__content-box__birthday-select-wrap__text 年
         .login-content__main__bottom__content-box__birthday-select-wrap
-          = f.select :birth_month,[*(1..12)],prompt:"選択"
+          = f.select :birth_month,birth_momths,prompt:"選択"
           %span.login-content__main__bottom__content-box__birthday-select-wrap__text 月
         .login-content__main__bottom__content-box__birthday-select-wrap
-          = f.select :birth_day,[*(1..12)],prompt:"選択"
+          = f.select :birth_day,birth_days,prompt:"選択"
           %span.login-content__main__bottom__content-box__birthday-select-wrap__text 日
     .login-content__main__bottom__from
-      .login-content__main__bottom__from__tag
+      .login-content__main__bottom__from_tag
       -# = recaptcha_tags
       .login-content__main__bottom__from__tag  
-        %span.login-content__main__bottom__from__tag「次へ進む」のボタンを押すことにより、
-        = link_to "利用規約に同意したものとみなします","https://www.mercari.com/jp/tos_list/",class:"login-content__main__bottom__from__tag__text"
+        %span.login-content__main__bottom__from__tag
+        = link_to "「次へ進む」のボタンを押すことにより,利用規約に同意したものとみなします","https://www.mercari.com/jp/tos_list/",class:"login-content__main__bottom__from__tag__text"
       .login-content__main__bottom__from__sbmit  
         = f.submit "次に進む",class:"login-content__main__bottom__from__sbmit "
     .login-content__main__bottom__evocation

@@ -149,7 +149,7 @@
                 .item-list__card-info
                   .item-list__card-info-name=i.name
                   .item-list__card-info-num
-                    .num__price="¥#{i.price.to_s(:delimited)}"
+                    .num__price_d="¥#{i.price.to_s(:delimited)}円"
                     - if i.likes.ids.present?
                       .far.fa-heart
                         .num-like=Like.where(item_id: i.id).count
