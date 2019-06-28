@@ -66,7 +66,7 @@
           %th.th 発送日の目安
           %td.td=@item.delivery_days.name
     .item-container__price
-      %span.span.item-price=@item.price.to_s(:delimited)
+      %span.span.item-price="¥#{@item.price.to_s(:delimited)}"
       %span.span.item-taxIn (税込)
       %span.span.item-tax-include 送料込み
     - if user_signed_in?
