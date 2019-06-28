@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   before_action :set_item,only:[:index, :pay]
 
   def index
+    @address = current_user.address
     card = current_user.cards.first
     #テーブルからpayjpの顧客IDを検索
     if card.blank?
