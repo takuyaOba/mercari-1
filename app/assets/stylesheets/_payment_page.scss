@@ -103,3 +103,14 @@
     }
   }
 }
+.card_delete{
+  @include btn();
+  border: 1px solid $red;
+  color: $red;
+  float:left;
+  margin: 0 0 200px 240px ;
+}
+
+.payment_plan{
+  float:right;
+}
