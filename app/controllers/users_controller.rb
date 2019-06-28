@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   #出品した商品(売却済)
   def sold_list
   end
-
+  
+  #出品した商品(売却済)
   def profile
     @user = User.new
   end
