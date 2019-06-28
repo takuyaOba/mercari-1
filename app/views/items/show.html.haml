@@ -137,8 +137,9 @@
             = image_tag ("show/rakuten_icon"),width:50,heigh:50
   .items-in-user-profile
     %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
-      %h2.h2.items-box-head
-        =link_to @item.user.nickname
+      .items-box-head
+      -  if @exhibiton_items.present?
+        =link_to "#{@item.user.nickname}さんのその他の出品", user_path(@item.user_id), class:"items-box-head"
         .items-box-content.clearfix
           .item-list__cards
             -@exhibiton_items.each do |i|
@@ -148,9 +149,10 @@
                 .item-list__card-info
                   .item-list__card-info-name=i.name
                   .item-list__card-info-num
-                    .num__price=i.price
-                    .far.fa-heart
-                      .num-like=Like.where(item_id: i.id).count
-                    %p.p.item-list__card-info-tax (税込)
+                    .num__price_d="¥#{i.price.to_s(:delimited)}円"
+                    - if i.likes.ids.present?
+                      .far.fa-heart
+                        .num-like=Like.where(item_id: i.id).count
+                      %p.p.item-list__card-info-tax
 %footer
   = render partial: "toppage/footer"
