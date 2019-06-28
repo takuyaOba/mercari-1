@@ -14,8 +14,7 @@
       = @item.name
     .obuy-item__box
       .obuy-item__price.obold
-        ¥ 
-        = @item.price
+        ="¥ #{@item.price.to_s(:delimited)}"
         %span.obuy-item__shipping-fee
           送料込み
       .obuy-item__toggle
@@ -23,18 +22,17 @@
       .obuy-item__cell
         支払い金額
         %span.obuy-item__price-cell
-          ¥ 
-          = @item.price
+        ="¥ #{@item.price.to_s(:delimited)}"
       = form_tag(action: :pay, method: :post) do
         %button.obuy-item__btn 購入する
   .obuy-user-info
     .obuy-user-info__delivery 配送先
     .obuy-user_info__zipcode
-      〒123-4567
+      ="〒 #{@address.zip_code}"
     .obuy-user-info__adress
-      大阪府ほげほげ市1-2-3
+      ="#{@address.address}"
       %br
-      YUI ARAGAKI
+      ="#{@address.sender_family_name} #{@address.sender_first_name}"
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
@@ -46,8 +44,14 @@
       %br /
     - else
       -#以下カード情報を表示
+
       = "**** **** **** " + @default_card_information.last4
+      %br
+      = "#{@default_card_information.exp_month.to_s} / #{@default_card_information.exp_year.to_s.slice(2,3)}"
+      .payment__contents__one__lists__list__card__information__type
+        = image_tag "visa_image.png", class: "payment__contents__one__lists__list__card__information__type__image"
     %br
+ 
     %a.obuy-user-info__change-btn
       %span.change-link 変更する
       %i.fa.fa-angle-right
