@@ -2,100 +2,101 @@
   %nav.mypage__side__nav
     %ul.mypage__side__nav__list
       %li.mypage__side__nav__list__item
-        = link_to user_path, class: "mypage__side__nav__list__item__one active" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one active" do
           マイページ
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to "/users/#{params[:id]}/show_notice", class: "mypage__side__nav__list__item__one" do
+        = link_to  show_notice_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           お知らせ
           %span.mypage-nav-number
-            99+
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to "/users/#{params[:id]}/show_todo", class: "mypage__side__nav__list__item__one" do
+        = link_to show_todo_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           やることリスト
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to "/users/#{params[:id]}/like_list", class: "mypage__side__nav__list__item__one" do
+        = link_to like_list_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           いいね！一覧
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to new_item_path, class: "mypage__side__nav__list__item__one" do
+        = link_to new_item_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           出品する
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to under_exhibition_item_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           出品した商品 - 出品中
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to "/users/#{params[:id]}/during_trading", class: "mypage__side__nav__list__item__one" do
+        = link_to during_trading_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           出品した商品 - 取引中
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to"/users/#{params[:id]}/sold_list", class: "mypage__side__nav__list__item__one" do
+        = link_to sold_list_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           出品した商品 - 売却済み
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           購入した商品 - 取引中
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           購入した商品 - 過去の取引
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           ニュース一覧
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           評価一覧
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           ガイド
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           お問い合わせ
           %i.material-icons.right keyboard_arrow_right
     %h3.mypage__side__nav__head メルペイ
     %ul.mypage__side__nav__list
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           売上・振込申請
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           ポイント
           %i.material-icons.right keyboard_arrow_right
     %h3.mypage__side__nav__head 設定
     %ul.mypage__side__nav__list
       %li.mypage__side__nav__list__item
-        = link_to profile_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to  profile_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           プロフィール
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           発送元・お届け先住所変更
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to payment_page_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to payment_page_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           支払い方法
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           メール/パスワード
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to personal_information_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to  personal_information_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           本人情報
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to root_path, class: "mypage__side__nav__list__item__one" do
+        = link_to user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           電話番号の確認
           %i.material-icons.right keyboard_arrow_right
       %li.mypage__side__nav__list__item
-        = link_to logout_page_users_path, class: "mypage__side__nav__list__item__one" do
+        = link_to logout_page_user_path(params[:id]), class: "mypage__side__nav__list__item__one" do
           ログアウト
           %i.material-icons.right keyboard_arrow_right
+
+          

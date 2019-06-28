@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item,only:[:show, :edit, :update, :destroy]
+  before_action :set_user,only:[:under_exhibition]
   before_action :authenticate_user!, only: [:new]
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
@@ -87,6 +88,7 @@ class ItemsController < ApplicationController
     
   end
 
+  #出品中の商品
   def under_exhibition
     @items = Item.where(user_id: current_user.id)
   end
@@ -109,6 +111,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def move_index
