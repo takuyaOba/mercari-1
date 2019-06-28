@@ -37,6 +37,24 @@ class UsersController < ApplicationController
   end
 
   def payment_page
+   
+    card = current_user.cards.first
+    redirect_to new_card_path(current_user.id) if card.blank?
+    Payjp.api_key  ="sk_test_09b735f6b6e6eb1497c08c82"
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+
+  end
+
+  def delete #PayjpとCardデータベースを削除します
+    card = current_user.cards.first
+    if card.present?
+      Payjp.api_key  ="sk_test_09b735f6b6e6eb1497c08c82"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "new"
   end
 
   def personal_information

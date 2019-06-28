@@ -58,6 +58,7 @@ Rails.application.routes.draw do
       get 'profile'
       get 'logout_page'
       get 'payment_page'
+      post 'delete', to: 'cards#delete'
       get 'personal_information'
       
       

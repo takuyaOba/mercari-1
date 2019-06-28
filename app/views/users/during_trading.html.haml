@@ -34,17 +34,7 @@
                     発送待ち
               %i.material-icons.right keyboard_arrow_right
 
-        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
-          %li.list
-            = link_to exhibition_edit_item_path (3), class: "mypage-item-link" do
-              %figure
-                = image_tag "sample_dog.jpeg", class: "lazyloaded"
-              .mypage-item-body
-                .mypage-item-text 出品中アイテムの編集リンク用に作成
-                .state
-                  .state__shipping
-                    出品中
-              %i.material-icons.right keyboard_arrow_right
+        
 %aside
   = render "toppage/aside"
 %footer
