@@ -153,7 +153,6 @@ header{
 .far, .fa-check{
   font-size: 20px;
   color: #ccc;
-  padding:2px;
 }
 
 .fa-tag{
@@ -333,14 +332,14 @@ ul.slide-content__link-store{
   font-size: 28px;
 }
 
+
+
 .item-list__card-image__small{
   position: relative;
   height: 220px;
-  width: 200px;
-  margin-left:6px;
+  width: 213px;
+  
 }
-
-
 
 .item-list{
   width: 940px;
@@ -353,11 +352,6 @@ ul.slide-content__link-store{
     margin: 26px 11px;
   }
 
-  &__cards{
-    width: auto;
-    font-size:0;
-  }
-
   &__card{
     margin:0 0 0 20px;
     width: 213px;
@@ -367,14 +361,14 @@ ul.slide-content__link-store{
 
     .item-list__card-link__small{
       height: 220px;
-      width: 200px;
+      width: 213px;
       display:block;
       position: relative;
     }
 
-    &-info{
-      padding:16px;
+    &-info_d{
       height:110px;
+      padding:16px;
 
       &-name{
         overflow: hidden;
@@ -387,29 +381,37 @@ ul.slide-content__link-store{
         font-size: 16px;
       }
 
-      &-num{
+      &__num{
         margin:8px 0 0;
       }
 
       &-tax{
         font-size:10px;
+        float:left;
       }
 
     }
   }
 }
 
-.num__price{
-  font-size:15px;
-  display: inline-block
-}
-.fa-heart{
+.num__price_d{
+  font-size: 17px;
   display: inline-block;
-  float: right;
-  margin-top:3px;
+  float:left;
+}
+.price-heart{
+  float:right;
 }
 .num-like{
-  display: inline-block
+  display: inline-block;
+  float:right;
+}
+
+.like_count{
+  color:black;
+  float:right;
+  padding: 0 0 0 7px;
+  font-size:18px;
 }
 
 .view-all{
