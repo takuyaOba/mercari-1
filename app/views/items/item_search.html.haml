@@ -1,0 +1,16 @@
+%header
+  = render partial: "toppage/header"
+.item-search-main
+  .item-search-main__left
+  .item-search-main__right
+    .item-search-main__right__head  
+      %h2.item-search-main__right__head__theme=search_judgment
+      %p.item-search-main__right__head__search-count=search_count
+    .item-search-main__right__display-lists
+      .item-list__cards
+        = render partial:'toppage/list-display', collection: @item_search,as:"item"
+    .item-search-main__right__footer
+%aside
+  = render partial: "toppage/aside"
+%footer
+  = render partial: "toppage/footer"

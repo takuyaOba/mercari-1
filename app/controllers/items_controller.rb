@@ -6,6 +6,11 @@ class ItemsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
+
+  def item_search
+   @items = params[:page][:name]
+   @item_search = Item.item_search(@items) if @items.present?
+  end
   
   def index
     @women = Item.display(1)

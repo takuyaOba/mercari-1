@@ -1,7 +1,6 @@
 module ApplicationHelper
 
   # items/showいいねの表示部分
-
   def like_judgment
     if Like.find_by(user_id:current_user&.id,item_id: @item.id)
       link_to @item.likes.count,"/likes/#{@item.id}/create",method: :delete
