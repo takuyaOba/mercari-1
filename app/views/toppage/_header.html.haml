@@ -1,11 +1,17 @@
+-# %form.header-search__box
+-#       %input.input-default{name:"keyword", placeholder:"何かお探しですか？", type:"search", value:""}/
+-#       %i.material-icons.search-icon search
+
+
 .header-inner
   .header-search
     .header-search__logo
       = link_to root_path do
         = image_tag 'header_icon.png', class:"image-logo"
-    %form.header-search__box
-      %input.input-default{name:"keyword", placeholder:"何かお探しですか？", type:"search", value:""}/
-      %i.material-icons.search-icon search
+    = form_tag  item_search_items_path,method: :get,class:"header-search__box" do
+      = text_field :page,:name, placeholder:"何かお探しですか？",class:"y-text-box"
+      = button_tag "a",class:"y-buttom.search-icon" do
+        .material-icons.search-icon search
   .header-under
     .header-under__left
       .header-under__left-element
