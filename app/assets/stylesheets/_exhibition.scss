@@ -40,25 +40,16 @@
               }
               .state{
                 height: 18px;
-                display: flex;
-                .fa-heart{
-                  height: 18px;
-                  width: 31px;
-                  margin-right: 6px;
-                  color: #ccc;
-                  margin-top: 13px;
+                display: block;
                   span {
                     color: #888;
                     font-weight: 600;
                   }
-                }
                 .fa-comment-alt{
-                  height: 18px;
-                  width: 29px;
-                  margin-right: 6px;
-                  margin-top: 1px;
+                  margin:0 6px 0 12px;
+                  margin-top: 2px;
                   color: #ccc;
-                  margin-top: 14px;
+     
                   span {
                     color: #888;
                     font-weight: 600;
@@ -67,11 +58,13 @@
                 &__name{
                   @include name();
                   background: #0099e8;
+                  width:50px;
                 }
               }
             }
             .right{
               @include right();
+            } 
             }
           }
         }
