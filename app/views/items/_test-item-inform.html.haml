@@ -26,8 +26,8 @@
                               削除
                   .sell-dropbox-container-already__2
                 .sell-dropbox-container-king__new.clearfix.state-image-number-10
-                  = f.fields_for :item_images do |fimage|
-                    = fimage.file_field :image, name: "item_images[image][]", class: "sell-upload__drop-box-0-input", multiple: true
+                =f.fields_for :item_images do |i|
+                  = i.file_field :image, name:"images[]", class: "sell-upload__drop-box-0-input", multiple: true
             .sell__content
               .form__group
                 %label.label

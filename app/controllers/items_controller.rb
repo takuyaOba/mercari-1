@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item,only:[:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new]
+  before_action :set_new_images,only:[:edit]
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
@@ -57,18 +58,21 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @images = @item.item_images
+    @new_images = []
+    5.times do |i|
+    @new_images << @item.item_images.build
+    end
   end
 
   def update
-    if @item.update(item_params)
-      if params[:item_images].present?
-        params[:item_images][:image].each do |i|
-          @item_image =  @item.item_images.create!(image: i)
-        end
-      end
+    binding.pry
+    @item.update(item_params)
+     params[:images].each do |i|
+      @item_image = @item.item_images.create!(image: i)
+     end
+
       redirect_to root_path
-    end
+
   end
 
   def destroy
@@ -90,6 +94,12 @@ class ItemsController < ApplicationController
     
   end
 
+  def set_new_images
+    @images = Item.find(params[:id]).item_images
+  end
+
+
+
   def under_exhibition
     @items = Item.where(user_id: current_user.id)
   end
@@ -107,7 +117,7 @@ class ItemsController < ApplicationController
     :first_category_id,
     :second_category_id,
     :third_category_id,
-    {image: []} ).merge(status:0, user_id: current_user.id)
+    item_images_attributes:[:image] ).merge(status:0, user_id: current_user.id)
   end
 
   def set_item
