@@ -11,9 +11,16 @@
     .category-main__block__theme
       %h2.category-main__block__theme
       レディース
+    .category-main__block__all
+      %p.category-main__block__all 
+      すべて
     .category-main__block__lists
-      = render partial: 'second_category_list',collection: @lists,as:"list"
-
+      .category-main__block__lists__theme
+      %p.category-main__block__lists__theme トップス
+      = render partial: 'second_category_list',collection: @tops,as:"list"
+      %p.category-main__block__lists__theme ジャケットアウター
+      = render partial: 'second_category_list',collection: @jackets,as:"list"
+      
 %aside
   = render partial: "toppage/aside"
 %footer

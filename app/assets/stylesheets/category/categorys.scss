@@ -1,9 +1,9 @@
 .category-main {
-  min-height: 900px;
   width: 100%;
   margin: 50px 330px 0 330px;
+  height: 5000px;
     &__head{
-      margin: 0 330px 0 330px;
+      margin: 0 330px 0 0;
         &__theme{
             font-size: 20px;
             font-weight: bold;
@@ -25,9 +25,8 @@
         }    
     }
     &__block{
-      height: 1000px;
-      margin: 20px 640px 0 330px;
-      background-color: aqua;
+      margin: 20px 640px 0 0;
+      background-color: white;
         &__theme{
           font-size: 20px;
           line-height: 2.0;
@@ -36,13 +35,39 @@
           border-radius: 2px;
           padding:0 0 0 20px;
           font-weight: bold;
+        }
+        &__all{
+          margin:20px 0 0 20px;
+          font-size:20px;
+      
+        }
+        &__lists{
+          margin:20px 0 0 20px;
 
+            &__theme{
+              font-size: 15px;
+              font-weight: bold;
+            }
+            &__list{
+              margin:10px 50px 10px 30px;
+              display: inline-block;
+              width: 400px; 
+            }
         }
     }
 
 }
 
 
+// インライン要素
 li.category-main__head__lists__list {
   list-style: none;
+}
+p.category-main__block__lists__theme {
+  margin: 20px 0 20px 0 ;
+}
+
+p.category-main__block__lists__list {
+  font-size:15px;
+  color: blue;
 }
