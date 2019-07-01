@@ -2,14 +2,98 @@
   = render partial: "toppage/header"
 .item-search-main
   .item-search-main__left
-  .item-search-main__right
-    .item-search-main__right__head  
-      %h2.item-search-main__right__head__theme=search_judgment
-      %p.item-search-main__right__head__search-count=search_count
+    .search-sort
+      .form__group_t
+        .select__wrap_t
+          %select.select-default_t{:name => "sort_order"}
+            %option{:value => ""} 並び替え
+            %option{:value => "price_asc"}
+              価格の安い順
+            %option{:value => "price_desc"}
+              価格の高い順
+            %option{:value => "created_asc"}
+              出品の古い順
+            %option{:value => "created_desc"}
+              出品の新しい順
+            %option{:value => "like_desc"}
+              いいね!の多い順
+    .side_wrapper
+      .side_wrapper__title.label_t
+        詳細検索
+      = search_form_for @search , url:item_search_items_path do |f|
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-plus.side_logo
+            キーワードを追加する
+            = f.search_field :name_cont, class: "input__default_t", placeholder: "例）値下げ"
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-list.side_logo
+            カテゴリーを選択する
+          .select__wrap_t
+            = f.collection_select :first_category_id, FirstCategory.all, :id, :first_category, {prompt:'---'},id: "item_first_category_id",class:"select__wrap_pull"
+          #select__wrap2
+          #select__wrap3
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-tshirt.side_logo
+            ブランド
+          .select__wrap_t
+            = f.search_field :name, class: "input__default_t", placeholder: "例) シャネル"
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-expand.side_logo
+            サイズを指定する
+          .select__wrap_t
+            = f.collection_select :size_id, Size.all, :id, :size, id: "size_id", include_blank: "サイズを指定してください"
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-coins.side_logo
+            価格
+          .select__wrap_t
+            %select.select-default_t
+              %option{:value => ""} 選択してください
+              %option
+                300~1000
+              %option
+                1000~5000
+              %option
+                5000~10000
+              %option
+                10000~30000
+              %option
+                30000~
+          .price_t
+            .select__price
+              -# より大きい
+              = f.number_field :price_gteq, class: "input__price", placeholder: "¥ min"
+            %p.uneri ~
+            .select__price
+              -# より小さい
+              = f.number_field :price_lteq, class: "input__price", placeholder: "¥ max"
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-star.side_logo
+            商品の状態
+          .select__wrap_t
+            = f.collection_check_boxes :condition_id_eq_any, Condition.all, :id, :name, id: "item_condition_id"
+        .form__group_t
+          %label.label_t
+            %i.fas.fa-luggage-cart.side_logo
+            送料の方法
+          .select__wrap_t
+            = f.collection_check_boxes :delivery_way_id_eq_any, DeliveryWay.all, :id, :name, class:"checked"
+        .search-extend-btn.clearfix
+          .btn-default_t.btn-gray_t{"data-search" => "reset"} クリア
+          = f.submit ("完了") , class: "btn-default_t", class: "btn-red_t"
+
+  .item-search-main__right__head  
+    %h2.item-search-main__right__head__theme=search_judgment
+    %p.item-search-main__right__head__search-count=search_count
     .item-search-main__right__display-lists
       .item-list__cards
         = render partial:'toppage/list-display', collection: @item_search,as:"item"
-    .item-search-main__right__footer
+  .item-search-main__right__footer
 %aside
   = render partial: "toppage/aside"
 %footer

@@ -7,11 +7,16 @@ class ItemsController < ApplicationController
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
+
   def item_search
-   @items = params[:page][:name]
+   @item = Item.new
+  #  @items = params[:page][:name]
    @item_search = Item.item_search(@items) if @items.present?
+    # サイドの検索
+   @search = Item.ransack(params[:q])
+   @item_search = @search.result(distinct: true)
   end
-  
+
   def index
     @women = Item.display(1)
     @men = Item.display(2)
