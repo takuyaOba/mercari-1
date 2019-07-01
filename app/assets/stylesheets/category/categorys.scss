@@ -1,0 +1,48 @@
+.category-main {
+  min-height: 900px;
+  width: 100%;
+  margin: 50px 330px 0 330px;
+    &__head{
+      margin: 0 330px 0 330px;
+        &__theme{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        &__lists{
+          margin: 20px 0 0 0;
+          width: 700px;
+            &__list{
+              margin:0 10px 10px 0;
+              display: inline-block;  
+              line-height: 2;
+              border-radius: 4px;
+              background-color: white;
+              min-width: 150px;
+              color: #333;
+              font-size: 16px;
+              text-align: center;
+            }
+        }    
+    }
+    &__block{
+      height: 1000px;
+      margin: 20px 640px 0 330px;
+      background-color: aqua;
+        &__theme{
+          font-size: 20px;
+          line-height: 2.0;
+          color: white;
+          background-color: red;
+          border-radius: 2px;
+          padding:0 0 0 20px;
+          font-weight: bold;
+
+        }
+    }
+
+}
+
+
+li.category-main__head__lists__list {
+  list-style: none;
+}
