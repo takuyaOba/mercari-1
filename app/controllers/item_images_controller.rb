@@ -16,4 +16,12 @@ class ItemImagesController < ApplicationController
   def find
     @item_image = ItemImage.find(params[:id])
   end
+
+  def create
+    @image = ItemImage.new(image: params[:file])
+    if @image.save
+      render json: {message: "success", fileID: @image.id}, :status => 200
+    else
+      render json: { error: @image.errors.full_messages.join(',')}, :status => 400
+    end
 end

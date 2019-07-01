@@ -62,9 +62,12 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      move_index
-    else
-      redirect_to edit_item_path
+      if params[:item_images].present?
+        params[:item_images][:image].each do |i|
+          @item_image =  @item.item_images.create!(image: i)
+        end
+      end
+      redirect_to root_path
     end
   end
 
@@ -104,7 +107,7 @@ class ItemsController < ApplicationController
     :first_category_id,
     :second_category_id,
     :third_category_id,
-    item_images_attributes:[:image]).merge(status:0, user_id: current_user.id)
+    {image: []} ).merge(status:0, user_id: current_user.id)
   end
 
   def set_item

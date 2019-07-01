@@ -44,6 +44,8 @@ Rails.application.routes.draw do
       get 'second'
       get 'third'
     end
+    resources :item_images, only: [:create]
+
 
   end
   
@@ -63,8 +65,6 @@ Rails.application.routes.draw do
       
     end
   end
-
-  resources :item_images, only: [:index]
 
   resources :cards do
     member do

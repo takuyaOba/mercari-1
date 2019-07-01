@@ -1,14 +1,11 @@
+require "active_record"
+
 class Item < ApplicationRecord
   scope :display, ->(category_first){where(first_category_id:(category_first)).order("RAND()").includes(:item_images).limit(4)}
   
-  has_many :item_images, foreign_key: "item_id",  dependent: :destroy
-
-  accepts_nested_attributes_for :item_images
+  has_many :item_images, foreign_key: "item_id",  dependent: :destroy, inverse_of: :item
+  accepts_nested_attributes_for :item_images,  allow_destroy: true, reject_if: :all_blank
   validates :name, :description,:price,:first_category_id,:second_category_id, :third_category_id,:status, presence: true
-
-
-
-
 
 
   has_many :likes,  dependent: :destroy
