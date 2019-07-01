@@ -13,4 +13,16 @@ module ItemsHelper
     p "検索ヒット数 #{@item_search.count}" if @item_search.present?   
   end
 
+
+  #items#show ブラントとサイズの条件式
+
+  def brand
+    @item.brand.name if @item.brand.present?
+  end
+
+  def size
+    @item.size.size if @item.size.present?
+  end
+
+
 end
