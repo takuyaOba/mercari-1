@@ -58,15 +58,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    num = 10 - @item.item_images.length
     @new_images = []
-    5.times do |i|
+    num.times do |i|
     @new_images << @item.item_images.build
     end
   end
 
   def update
-    binding.pry
-    @item.update(item_params)
      params[:images].each do |i|
       @item_image = @item.item_images.create!(image: i)
      end
