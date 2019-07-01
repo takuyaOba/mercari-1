@@ -3,7 +3,7 @@
     #sell__container
       %div
         .sell__container__inner
-        = form_for item do |f|
+        = form_for item ,multipart:true do |f|
           %h2.h2.sell__head 商品の情報を入力
           .form.sell-form
             .sell--upload__box
@@ -26,8 +26,8 @@
                               削除
                   .sell-dropbox-container-already__2
                 .sell-dropbox-container-king__new.clearfix.state-image-number-10
-                =f.fields_for :item_images do |i|
-                  = i.file_field :image, name:"images[]", class: "sell-upload__drop-box-0-input", multiple: true
+                  =f.fields_for :item_images do |i|
+                    = i.file_field :image, name:"images[]", class: "sell-upload__drop-box-0-input"
             .sell__content
               .form__group
                 %label.label
