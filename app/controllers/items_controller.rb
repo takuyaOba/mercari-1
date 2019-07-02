@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
 
   def item_search
    @item = Item.new
-  #  @items = params[:page][:name]
+   @items = params[:name]
    @item_search = Item.item_search(@items) if @items.present?
     # サイドの検索
    @search = Item.ransack(params[:q])
    @item_search = @search.result(distinct: true)
   end
+  
 
   def index
     @women = Item.display(1)
