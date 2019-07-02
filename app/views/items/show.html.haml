@@ -13,7 +13,7 @@
           .item-sold-out-badge
           .sold-text
             SOLD
-        =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
+        =image_tag (@item.item_images.first&.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
         
         %ul.ul.image-slide
           %li.li
@@ -145,7 +145,7 @@
             -@exhibiton_items.each do |i|
               .item-list__card
                 .item-list__card-image
-                  =image_tag (i.item_images.first.image.to_s),height:"220" ,width:"200" ,class:"item-image"
+                  =image_tag (i.item_images.first&.image.to_s),height:"220" ,width:"200" ,class:"item-image"
                 .item-list__card-info
                   .item-list__card-info-name=i.name
                   .item-list__card-info-num

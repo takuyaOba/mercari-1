@@ -1,0 +1,20 @@
+%header
+  = render partial: "toppage/header"
+.category-main
+  .category-main__head
+    .category-main__head__theme
+      %h2.category-main__head__theme
+      カテゴリー一覧
+    .category-main__head__lists
+      = render partial: 'first_category_list',collection: @lists,as:"lists"
+  .category-main__block
+    = render partial:'lists',collection: @lists,as:"category"
+%aside
+  = render partial: "toppage/aside"
+%footer
+  = render partial: "toppage/footer"
+.sell-btn
+  = render partial: "toppage/sell-btn"
+
+
+   
