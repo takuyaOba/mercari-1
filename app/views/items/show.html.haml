@@ -13,7 +13,7 @@
           .item-sold-out-badge
           .sold-text
             SOLD
-        =image_tag (@item.item_images.first.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
+        =image_tag (@item.item_images.first&.image.to_s), height:"220" ,width:"200" ,class:"item-image", alt: "", id: "main-box"
         
         %ul.ul.image-slide
           %li.li
@@ -28,13 +28,13 @@
               %div.div
             .y-list-boxs-icon  
               .y-item-user-ratings
-                %i.icon-good=image_tag ("show/icon_good"),width:18,heigh:18
+                %i.icon-good=image_tag "show/icon_good.png",width:18,heigh:18
                 %span.y-span=@good
               .y-item-user-ratings
-                %i.icon-normal=image_tag ("show/icon_soso"),width:20,heigh:20
+                %i.icon-normal=image_tag "show/icon_soso.png",width:20,heigh:20
                 %span.y-span=@usually
               .y-item-user-ratings
-                %i.icon-bad=image_tag ("show/icon_bad"),width:20,heigh:20
+                %i.icon-bad=image_tag "show/icon_bad.png",width:20,heigh:20
                 %span.y-span=@bad
         %tr.tr
           %th.th カテゴリー
@@ -126,15 +126,15 @@
       %li.li
         .fa-facebook-square-y.k
           = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F",class:"y-share-btn" do
-            = image_tag ("show/facebooks_icon"),width:50,heigh:50
+            = image_tag ("show/facebooks_icon.png"),width:50,heigh:50
       %li.li
         .fa-twitter-square-y.k
           = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&text=Supreme%20Stars%20Zip%20S%E2%80%A6%20%28%C2%A5%2077%2C480%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank",class:"share-btn" do
-            = image_tag ("show/tweet_icon"),width:50,heigh:50
+            = image_tag ("show/tweet_icon.png"),width:50,heigh:50
       %li.li
         .fa-pinterest-square-y.k
           =link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm13632202360%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm13632202360_1.jpg%3F1544329645&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20Supreme%20Stars%20Zip%20Stadium%20Jacket%20%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC%20M%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank",class:"share-btn" do
-            = image_tag ("show/rakuten_icon"),width:50,heigh:50
+            = image_tag ("show/rakuten_icon.png"),width:50,heigh:50
   .items-in-user-profile
     %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
       .items-box-head
@@ -145,7 +145,7 @@
             -@exhibiton_items.each do |i|
               .item-list__card
                 .item-list__card-image
-                  =image_tag (i.item_images.first.image.to_s),height:"220" ,width:"200" ,class:"item-image"
+                  =image_tag (i.item_images.first&.image.to_s),height:"220" ,width:"200" ,class:"item-image"
                 .item-list__card-info
                   .item-list__card-info-name=i.name
                   .item-list__card-info-num

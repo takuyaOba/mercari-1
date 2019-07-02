@@ -49,6 +49,8 @@ Rails.application.routes.draw do
     end
 
   end
+
+  resources :categorys,only:[:index,:show]
   
   #マイページからのリンク一覧
   resources :users do

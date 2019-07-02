@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item,only:[:show, :edit, :update, :destroy]
   before_action :set_user,only:[:under_exhibition]
+  before_action :set_new_images,only:[:edit]
   before_action :authenticate_user!, only: [:new]
   before_action :set_search, only: [:item_search,:item_search1]
   rescue_from ActiveRecord::RecordInvalid do |exception|
@@ -18,7 +19,7 @@ class ItemsController < ApplicationController
   def item_search
    @item_search = @search.result(distinct: true)
    @items = params[:q][:name_cont]
-   
+
   end
   
   
@@ -73,15 +74,21 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @images = @item.item_images
+    num = 10 - @item.item_images.length
+    @new_images = []
+    num.times do |i|
+    @new_images << @item.item_images.build
+    end
   end
 
   def update
-    if @item.update(item_params)
-      move_index
-    else
-      redirect_to edit_item_path
+    if params[:images].present?
+      params[:images].each do |i|
+        @item_image = @item.item_images.create!(image: i)
+      end
     end
+      redirect_to root_path
+
   end
 
   def destroy
@@ -124,11 +131,13 @@ class ItemsController < ApplicationController
     item_images_attributes:[:image]).merge(status:0, user_id: current_user.id)
   end
 
+  def set_new_images
+    @images = Item.find(params[:id]).item_images
+  end
+
   def set_search
     @search = Item.ransack(params[:q])
   end
-
-
 
   def set_item
     @item = Item.find(params[:id])

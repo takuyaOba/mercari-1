@@ -1,0 +1,9 @@
+.category-main__block__theme
+  %h2.category-main__block__theme=category.first_category
+.category-main__block__all
+  %p.category-main__block__all 
+  すべて
+.category-main__block__lists
+  .category-main__block__lists__theme
+  %p.category-main__block__lists__theme
+  = render partial: 'genre',collection: category.second_categories,as:"genre" 
