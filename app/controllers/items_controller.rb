@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def item_search
    @item_search = @search.result(distinct: true)
+   @items = params[:q][:name_cont]
   end
   
   
