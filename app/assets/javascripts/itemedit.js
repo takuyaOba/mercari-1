@@ -21,25 +21,15 @@ $(function() {
   $(inputBlock).change( $('inputBlock').children('input[name="item_images[image][' + count + ']"]'), function (e) {
     // ファイルオブジェクト取得
     var files = $(this).prop('files');
-    // console.log(files)
     for (var i=0; i<files.length; i++) {
       var file = e.target.files[i];
       var file_reader = new FileReader();
-      //
-      // console.log(file)
-      // console.log(file_reader)
-
       files_array.push(files[i]);
-      // console.log(files_array)
-
       // 選択画像プレビュー操作
       file_reader.onload = (function () {
         return function (e) {
           // imgタグ追加
-          // console.log(e.target.result)
           image_tag = build_image(count, e.target.result);
-          // console.log(image_tag)
-          // console.log(count)
           $('.item__image__change').append(image_tag);
           // ファイル数カウント
           count += 1;
@@ -54,14 +44,9 @@ $(function() {
   //削除機能
   $(document).on('click','.item__image__change__field__btn__delete', function(e){
     e.preventDefault();
-    var index = $(".item__image__change__field__btn__delete").index(this);
-    // var num = $(this).data('count');
-    // console.log(num)
     if ($(this).data('count') !== undefined){
-      console.log("きた！")
       var num = $(this).data('count');
       var image_field = $(".sell-upload__drop-box-0-input").eq(num - 1);
-      console.log(image_field)
       image_field.val("");
     }
     var parent2 = $(this).parents('.item__image__change__field').remove();
