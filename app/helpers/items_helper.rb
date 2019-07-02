@@ -5,7 +5,7 @@ module ItemsHelper
     if  @item_search.present?
       "#{@items} の検索結果"
     else
-      p "#{@items} 検索できませんでした"
+      p "#{@items} 投稿された商品一覧を表示"
     end
   end
 
