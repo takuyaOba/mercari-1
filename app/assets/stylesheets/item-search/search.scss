@@ -1,12 +1,15 @@
 
 // 検索機能のmain部分のデザイン
 .item-search-main{
-  min-height:900px; 
+  margin: 40px  auto 0;
+  width: 1020px;
+  min-height:900px;
   display: flex;
-  width: 100%;
-  &__left{
 
-    width: 30%;
+  &__left{
+    float: left;
+    width: 380px;
+    margin: 0 40px 0 0;
   }
   &__right{
     width: 70%;
@@ -48,4 +51,184 @@ p.item-search-main__right__head__search-count {
   width: 50px;
   color: rgb(255, 255, 255);
   border-radius: 4px;
+}
+
+
+
+
+// サイドの並び替え
+.search-sort {
+  opacity: 1;
+  position: static;
+  width: auto;
+  margin: 0;
+}
+.form-group_t{
+  margin: 0;
+}
+.select__wrap_t {
+  background: #fff;
+  text-align: left;
+  margin: 8px 0 0;
+}
+.select-default_t {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background: #fff;
+  height: 48px;
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.side_wrapper{
+  position: static;
+  display: block;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  margin: 40px 0 0;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 10001;
+  padding: 16px 5%;
+  background: #fff;
+  width:280px;
+}
+
+.side_wrapper__title{
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
+
+.side_logo{
+position: relative;
+top: -1px;
+margin: 0 4px 0 0;
+color: #888;
+font-size: 16px;
+vertical-align: middle;
+}
+
+.form__group_t{
+  margin: 24px 0 0;
+
+    .label_t{
+      display: block;
+      font-weight: 600;
+    }
+    .input__default_t {
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .select__wrap_pull{
+      position: relative;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+      width:100%;
+    }
+    #item_condition_id, #item_delivery_way_id, #item_second_category_id , #item_third_category_id{
+      width:100%;
+    }
+
+    #q_size_id{
+      position: relative;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+      width:100%;
+    }
+      // price
+    .input__price {
+      width: 120px;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .price_t{
+    display: flex;
+    width: 100%;
+    }
+    // ~ これ
+    .uneri{
+    display: inline-block;
+    width: 10%;
+    font-size: 14px;
+    text-align: center;
+    margin-top:30px;
+    }
+}
+
+// 検索ボタン
+.search-extend-btn {
+  height: 90px;
+  padding: 40px 0 0;
+}
+
+.btn-gray_t {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  float: left;
+  width: 45%;
+}
+
+.btn-red_t {
+  float: right;
+  width: 45%;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  height: 50px;
+}
+
+.btn-default_t {
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.item-search-main__right__head__search-count{
+  margin-left:20px;
+  font-size:7px;
 }
