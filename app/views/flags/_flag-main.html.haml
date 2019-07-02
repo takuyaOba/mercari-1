@@ -3,7 +3,7 @@
   .flag-main__main__item-label
   %h3.flag-main__main__item-label 対象商品
   .flag-main__main__item-box
-    = image_tag (@item.item_images.first.image.to_s),class:"flag-main__main__item-box__image"
+    = image_tag (@item.item_images.first&.image.to_s),class:"flag-main__main__item-box__image"
     %h4.flag-main__main__item-box__item-theme=@item.name
   .flag-main__main__flags-select
     %p.flag-main__main__flags-select__wrap__info-text

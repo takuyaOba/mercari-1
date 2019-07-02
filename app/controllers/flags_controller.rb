@@ -8,9 +8,13 @@ class FlagsController < ApplicationController
   end
 
   def create
-    flag = Flag.new(user_id:current_user.id,item_id: params[:item_id])
-    flag.save
-    redirect_to item_path(params[:item_id])
+    flag = Flag.new(user_id:current_user&.id,item_id: params[:item_id])
+    check_id = flag.user_id
+    if   check_id  == nil
+      redirect_to item_path(params[:item_id])
+    else flag.save
+      redirect_to item_path(params[:item_id])
+    end
   end
 
 end

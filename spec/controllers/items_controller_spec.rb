@@ -19,7 +19,7 @@ describe ItemsController do
   end
 
   describe 'GET#show' do
-  let(:item) { create(:item) }
+
   before { get :show, params: { id: item.id }, session: {} }
     it  '200レスポンスが返ってきているか？' do
       expect(response).to render_template :show
@@ -28,5 +28,6 @@ describe ItemsController do
       expect(response).to render_template :show
     end
   end
+
 end
 
