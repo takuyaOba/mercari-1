@@ -667,8 +667,22 @@ label {
   margin-top:20px;
 }
 
-a.items-box-head {
-  color: #0099e8;
-  font-weight: bold;
+#item__image__change__field__image__url_0,
+#item__image__change__field__image__url_1,
+#item__image__change__field__image__url_2,
+#item__image__change__field__image__url_3,
+#item__image__change__field__image__url_4,
+#item__image__change__field__image__url_5,
+#item__image__change__field__image__url_6,
+#item__image__change__field__image__url_7,
+#item__image__change__field__image__url_8,
+#item__image__change__field__image__url_9,
+.sell-upload-figure-image{
+  display: flex;
+  width: 116px;
+  max-height: 114px;
+  display: inline-block;
+  border: 1px solid #eee;
+  background-color: #f5f5f5;
+  vertical-align: middle;
 }
-
