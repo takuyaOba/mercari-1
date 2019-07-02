@@ -1,3 +1,6 @@
+-# パンくずの表示のキー
+-breadcrumb :items
+
 %header
   = render partial: "toppage/header"
 .item-search-main
@@ -92,7 +95,10 @@
     %p.item-search-main__right__head__search-count=search_count
     .item-search-main__right__display-lists
       .item-list__cards
+      - if  @item_search.present?
         = render partial:'toppage/list-display', collection: @item_search,as:"item"
+      -  else 
+        = render partial:'toppage/list-display', collection: @all_items,as:"item"
   .item-search-main__right__footer
 %aside
   = render partial: "toppage/aside"

@@ -9,13 +9,15 @@ class ItemsController < ApplicationController
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
+  #商品検索LV1
    def item_search1
+     @all_items = Item.all
      @items = params[:page][:name]
      @item_search = Item.item_search(@items) if @items.present?
      render action: :item_search
    end
 
-
+  #商品検索LV2
   def item_search
    @item_search = @search.result(distinct: true)
   end

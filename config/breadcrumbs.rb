@@ -96,6 +96,10 @@ crumb :logout_page do
   parent :user
 end
 
-
+# category#index
+crumb :category do
+  link "カテゴリー一覧",categorys_path
+  parent :root
+end
 
 
