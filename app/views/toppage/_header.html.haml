@@ -15,23 +15,23 @@
   .header-under
     .header-under__left
       .header-under__left-element
-        .material-icons.header
-          list
         =link_to categorys_path do
-          .header-under__left-word 
-            カテゴリーから探す
-            %ul.category
-              -FirstCategory.all.each do |f|
-                %li
-                  = f.first_category
-                  %ul.category_s
-                    -f.second_categories.each do |s|
-                      %li
-                        = s.second_category
-                        %ul.category_t
-                          -s.third_categories.each do |t|
-                            %li
-                              =t.third_category
+          .material-icons.header
+            list
+            .header-under__left-word 
+              カテゴリーから探す
+              %ul.category
+                -FirstCategory.all.each do |f|
+                  %li
+                    = f.first_category
+                    %ul.category_s
+                      -f.second_categories.each do |s|
+                        %li
+                          = s.second_category
+                          %ul.category_t
+                            -s.third_categories.each do |t|
+                              %li
+                                =t.third_category
       .header-under__left-element
         .material-icons.header
           .header-under__left-word 

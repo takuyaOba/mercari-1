@@ -3,7 +3,7 @@ module ItemsHelper
   # 検索結果にて表示の切り替え
   def search_judgment
     if  @item_search.present?
-      "#{@items} 検索結果"
+      "#{@items} の検索結果"
     else
       p "#{@items} 検索できませんでした"
     end
