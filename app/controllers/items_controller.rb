@@ -3,19 +3,22 @@ class ItemsController < ApplicationController
   before_action :set_item,only:[:show, :edit, :update, :destroy]
   before_action :set_user,only:[:under_exhibition]
   before_action :authenticate_user!, only: [:new]
+  before_action :set_search, only: [:item_search,:item_search1]
   rescue_from ActiveRecord::RecordInvalid do |exception|
     redirect_to :root, alert: 'エラーが発生しました'
   end
 
+   def item_search1
+     @items = params[:page][:name]
+     @item_search = Item.item_search(@items) if @items.present?
+     render action: :item_search
+   end
+
 
   def item_search
-   @item = Item.new
-   @items = params[:name]
-   @item_search = Item.item_search(@items) if @items.present?
-    # サイドの検索
-   @search = Item.ransack(params[:q])
    @item_search = @search.result(distinct: true)
   end
+  
   
 
   def index
@@ -118,6 +121,12 @@ class ItemsController < ApplicationController
     :third_category_id,
     item_images_attributes:[:image]).merge(status:0, user_id: current_user.id)
   end
+
+  def set_search
+    @search = Item.ransack(params[:q])
+  end
+
+
 
   def set_item
     @item = Item.find(params[:id])

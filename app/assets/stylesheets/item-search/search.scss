@@ -1,14 +1,14 @@
 
 // 検索機能のmain部分のデザイン
 .item-search-main{
-  margin: 40px auto 0;
+  margin: 40px  auto 0;
   width: 1020px;
   min-height:900px;
   display: flex;
 
   &__left{
     float: left;
-    width: 280px;
+    width: 380px;
     margin: 0 40px 0 0;
   }
   &__right{
@@ -100,6 +100,7 @@ p.item-search-main__right__head__search-count {
   z-index: 10001;
   padding: 16px 5%;
   background: #fff;
+  width:280px;
 }
 
 .side_wrapper__title{
@@ -171,7 +172,7 @@ vertical-align: middle;
     }
       // price
     .input__price {
-      width: 90px;
+      width: 120px;
       margin: 8px 0 0;
       height: 48px;
       padding: 10px 16px 8px;

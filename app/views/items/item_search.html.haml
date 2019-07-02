@@ -45,7 +45,7 @@
             %i.fas.fa-expand.side_logo
             サイズを指定する
           .select__wrap_t
-            = f.collection_select :size_id, Size.all, :id, :size, id: "size_id", include_blank: "サイズを指定してください"
+            = f.collection_select :size_id, Size.all, :id, :size, id: "size_id", include_blank: "すべて"
         .form__group_t
           %label.label_t
             %i.fas.fa-coins.side_logo
