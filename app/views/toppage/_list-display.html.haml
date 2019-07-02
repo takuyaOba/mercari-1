@@ -1,6 +1,6 @@
 .item-list__card
   =link_to item_path(item.id),class: "item-list__card-link__small" do
-    = image_tag (item.item_images.first.image.to_s),class:"item-list__card-image__small" 
+    = image_tag (item.item_images.first&.image.to_s),class:"item-list__card-image__small" 
     - if item.status == 1
       .item-sold-out-small-badge
         .sold-small-text
