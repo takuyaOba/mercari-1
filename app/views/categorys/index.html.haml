@@ -8,7 +8,7 @@
     .category-main__head__lists
       = render partial: 'first_category_list',collection: @lists,as:"lists"
   .category-main__block
-    = render partial:'test',collection: @lists,as:"category"
+    = render partial:'lists',collection: @lists,as:"category"
 %aside
   = render partial: "toppage/aside"
 %footer
