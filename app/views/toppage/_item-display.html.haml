@@ -14,3 +14,31 @@
   .item-list__cards
     = render partial:'toppage/list-display', collection: @kids,as:"item"
   .view-all 全ての商品をみる
+
+  %h3.item-list__title コスメ・香水・美容 新着アイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @cosmetics,as:"item"
+  .view-all 全ての商品をみる
+  %h2.pickup-head
+    ピックアップブランド
+  
+  %h3.item-list__title シャネル新着アイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @chanel,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title ルイ ヴィトン新着アイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection:  @vuitton,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title シュプリーム新着アイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @supreme,as:"item"
+  .view-all 全ての商品をみる
+
+  %h3.item-list__title ナイキ新着アイテム
+  .item-list__cards
+    = render partial:'toppage/list-display', collection: @nike,as:"item"
+  .view-all 全ての商品をみる
+

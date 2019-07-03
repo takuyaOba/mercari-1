@@ -27,9 +27,17 @@ class ItemsController < ApplicationController
   
 
   def index
+    #first_categoryから選んで表示
     @women = Item.display(1)
     @men = Item.display(2)
     @kids = Item.display(3)
+    @cosmetics = Item.display(11)
+
+    #brandから選んで表示
+    @chanel  = Brand.brand("シャネル")
+    @vuitton = Brand.brand("ルイ ヴィトン")
+    @supreme = Brand.brand("シュプリーム")
+    @nike    = Brand.brand("ナイキ")
   end
 
   def new

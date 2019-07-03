@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   #検索機能 gem 'search_cop'の呼び出し
   include SearchCop
   
-   #index（スコープ設定）
+  #index（スコープ設定.first_category）
   scope :display, ->(category_first){where(first_category_id:(category_first)).order("RAND()").includes(:item_images).limit(4)}
   has_many :item_images, foreign_key: "item_id",  dependent: :destroy
   accepts_nested_attributes_for :item_images
