@@ -34,10 +34,10 @@ class ItemsController < ApplicationController
     @cosmetics = Item.display(11)
 
     #brandから選んで表示
-    @chanel  = Brand.brand("シャネル")
-    @vuitton = Brand.brand("ルイ ヴィトン")
-    @supreme = Brand.brand("シュプリーム")
-    @nike    = Brand.brand("ナイキ")
+    @chanel  = Brand.display("シャネル")
+    @vuitton = Brand.display("ルイ ヴィトン")
+    @supreme = Brand.display("シュプリーム")
+    @nike    = Brand.display("ナイキ")
   end
 
   def new
