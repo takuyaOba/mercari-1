@@ -144,13 +144,14 @@
               .item-list__card
                 .item-list__card-image
                   =image_tag (i.item_images.first&.image.to_s),height:"220" ,width:"200" ,class:"item-image"
-                .item-list__card-info
-                  .item-list__card-info-name=i.name
-                  .item-list__card-info-num
+                .item-list__card-info_d
+                  .item-list__card-info_d-name=i.name
+                  .item-list__card-info_D-num
                     .num__price_d="¥#{i.price.to_s(:delimited)}円"
                     - if i.likes.ids.present?
-                      .far.fa-heart
+                      .price-heart.far.fa-heart
                         .num-like=Like.where(item_id: i.id).count
                       %p.p.item-list__card-info-tax
+
 %footer
   = render partial: "toppage/footer"
