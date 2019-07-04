@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-  # prepend_before_action :check_captcha, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :check_captcha, only: [:create]
   prepend_before_action :customize_sign_up_params, only: [:address]
 
   def new
@@ -94,10 +94,10 @@ end
     devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation family_name first_name family_kana first_kana birth_day birth_month birth_year city address building zip_code telephone uid provider]
   end
 
-  # def check_captcha
-  #   self.resource = resource_class.new sign_up_params
-  #   resource.validate
-  #   unless verify_recaptcha(model: resource)
-  #     respond_with_navigational(resource) { render :new }
-  #   end
-  # end
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
+  end
