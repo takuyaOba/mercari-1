@@ -3,5 +3,15 @@
     = render 'header'
   .login-dec-content__main
     = render 'main'
-  .login-dec-content__footer
-    = render 'footer'
+  .dfooter
+    %ul.ul
+      %li.li
+        = link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/"
+      %li.li
+        = link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/"
+      %li.li
+        = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei/"
+    = link_to root_path, class: "footer__logo" do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1076135930", height: "65", width: "80"
+    %p.p
+      %small © 2019 Mercari
