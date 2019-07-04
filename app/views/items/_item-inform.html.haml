@@ -54,6 +54,7 @@
                     = f.collection_select :second_category_id, SecondCategory.where(first_category_id: @item.first_category_id), :id, :second_category, {prompt: '---'},id: "item_second_category_id"
                   #select__wrap3
                     = f.collection_select :third_category_id, ThirdCategory.where(second_category_id: @item.second_category_id), :id, :third_category, {prompt: '---'},id: "item_third_category_id"
+                  #select__wrap4
                 .form__group
                   %label.label
                     商品の状態
@@ -107,11 +108,11 @@
                     .l-left
                       販売手数料 (10%)
                     .l-right#output
-                      = "- #{(@item.price * 0.1).floor}"
+                      = "#{(@item.price * 0.1).floor}"
                   %li.dclearfix.bold
                     .l-left 販売利益
                     .l-right#output2
-                      = "- #{(@item.price * 0.9).floor}"
+                      = "#{(@item.price * 0.9).floor}"
             .sell__content.sell__btn__box
               %div
                 %p.pnote

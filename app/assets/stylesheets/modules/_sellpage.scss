@@ -322,14 +322,17 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
+.size-label{
+  font-weight: 600;
+  margin: 40px 0 0;
+}
 
 .form__group {
   margin: 40px 0 0;
   &:first-child {
     margin: 0;
   }
-  & label {
+  & .label {
     font-weight: 600;
     margin: 8px 0 0;
   }
@@ -450,6 +453,20 @@ label {
   line-height: 1.5;
   cursor: pointer;
   margin-top: 5px;
+}
+#item_size_id{
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid $formborder;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
 }
 #item_condition_id {
   position: relative;

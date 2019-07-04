@@ -83,6 +83,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def size
+    @third_category = ThirdCategory.find(params[:id])
+    @second_category = SecondCategory.find(@third_category.second_category_id)
+    @size_category = SizeCategory.find(@second_category.size_category_id)
+    if @size_category.present?
+      @sizes = Size.where(size_category_id: @size_category.id)
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
+  end
+  
   def edit
     num = 10 - @item.item_images.length
     @new_images = []
@@ -138,6 +151,7 @@ class ItemsController < ApplicationController
     :first_category_id,
     :second_category_id,
     :third_category_id,
+    :size_id,
     item_images_attributes:[:image]).merge(status:0, user_id: current_user.id)
   end
 

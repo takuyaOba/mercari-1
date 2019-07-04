@@ -44,6 +44,7 @@ Rails.application.routes.draw do
      
       get 'second'
       get 'third'
+      get 'size'
       get 'item_search'
       get "item_search1"
     end
