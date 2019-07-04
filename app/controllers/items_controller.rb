@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     @women = Item.display(1)
     @men = Item.display(2)
     @kids = Item.display(3)
-    @cosmetics = Item.display(11)
+    @cosmetics = Item.display(7)
 
     #brandから選んで表示
     @chanel  = Brand.display("シャネル")
