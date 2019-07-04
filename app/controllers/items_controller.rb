@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    5.times{@item.item_images.build}
+    10.times{@item.item_images.build}
   end
 
   def show
