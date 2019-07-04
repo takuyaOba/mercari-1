@@ -12,7 +12,6 @@
     }
     #mypage-tab-notification{
       .list{
-        height: 80px;
         .mypage-item-link{
           @include mypage-item-link();
           figure{
@@ -40,6 +39,16 @@
             @include right();
           }
         }
+      }
+    }
+    #mypage-tab-transaction-now{
+      background-color: #ffffff;
+      height: 236px;
+      .image{
+        @include image();
+      }
+      .mypage-item-not-found{
+        @include not_found();
       }
     }
   }

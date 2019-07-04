@@ -17,6 +17,13 @@ class UsersController < ApplicationController
   end
   #いいね！一覧
   def like_list
+    if @likes = Like.where(user_id: @user.id)
+      @items = []
+      @likes.each do |like|
+        @item = Item.where(id: like.item_id)
+        @items += @item
+      end
+    end
   end
 
 
