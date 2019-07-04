@@ -54,6 +54,7 @@
                     = f.collection_select :second_category_id, SecondCategory.where(first_category_id: @item.first_category_id), :id, :second_category, {prompt: '---'},id: "item_second_category_id"
                   #select__wrap3
                     = f.collection_select :third_category_id, ThirdCategory.where(second_category_id: @item.second_category_id), :id, :third_category, {prompt: '---'},id: "item_third_category_id"
+                  #select__wrap4
                 .form__group
                   %label.label
                     商品の状態
