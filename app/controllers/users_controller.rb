@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       @items = []
       @likes.each do |like|
         @item = Item.where(id: like.item_id)
-        @items += @item
+        @items << @item
       end
     end
   end
