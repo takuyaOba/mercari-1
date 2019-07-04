@@ -108,11 +108,11 @@
                     .l-left
                       販売手数料 (10%)
                     .l-right#output
-                      = "- #{(@item.price * 0.1).floor}"
+                      = "#{(@item.price * 0.1).floor}"
                   %li.dclearfix.bold
                     .l-left 販売利益
                     .l-right#output2
-                      = "- #{(@item.price * 0.9).floor}"
+                      = "#{(@item.price * 0.9).floor}"
             .sell__content.sell__btn__box
               %div
                 %p.pnote
